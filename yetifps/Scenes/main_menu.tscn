@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dnvmotsey50ri"]
 
-[ext_resource type="Script" path="res://MarkStuffTemp/main_menu.gd" id="1_rf04i"]
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_rf04i"]
 [ext_resource type="PackedScene" uid="uid://0s2vyyh3ffjx" path="res://MarkStuffTemp/main_game.tscn" id="2_pgut8"]
 [ext_resource type="PackedScene" uid="uid://clb13xng636qw" path="res://Scenes/UI/options_menu.tscn" id="3_5ugac"]
 

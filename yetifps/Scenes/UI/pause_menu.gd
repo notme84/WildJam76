@@ -15,7 +15,7 @@ func _ready():
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel") || event.is_action_pressed("back"):
-		on_resume()
+		Callable(on_resume).call_deferred()
 
 
 func on_resume():
@@ -35,5 +35,5 @@ func on_options_closed():
 
 
 func on_quit():
-	#RETURN TO MAIN MENU
-	pass
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

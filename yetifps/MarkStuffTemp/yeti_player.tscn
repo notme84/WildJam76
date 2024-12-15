@@ -20,9 +20,17 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="Camera3D" type="Camera3D" parent="RotationRoot/Neck"]
+[node name="HeadCameraMount" type="Node3D" parent="RotationRoot/Neck"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.276305, -0.212006)
+
+[node name="Camera3D" type="Camera3D" parent="RotationRoot/Neck/HeadCameraMount"]
+unique_name_in_owner = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RotationRoot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_w1353")
+
+[node name="FollowCameraHousing" type="Node3D" parent="."]
+unique_name_in_owner = true
+top_level = true

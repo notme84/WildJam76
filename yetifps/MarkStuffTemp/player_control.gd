@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@onready var camera: Camera3D = %Camera3D
+
 @export var speed: float = 10
 @export var acceleration: float = 5
 
@@ -26,6 +28,14 @@ func _input(event: InputEvent):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			camrot_h -= event.relative.x * Settings.mouse_sensitivity_x
 			camrot_v -= event.relative.y * Settings.mouse_sensitivity_y
+	
+	if event.is_action_pressed("camera_mode"):
+		#SWITCH BETWEEN FIRST AND THIRD PERSON
+		if camera.get_parent() == %HeadCameraMount:
+			camera.reparent(%FollowCameraHousing)
+		else: camera.reparent(%HeadCameraMount)
+		camera.position = Vector3.ZERO
+		camera.rotation = Vector3.ZERO
 
 
 func _process(delta: float):

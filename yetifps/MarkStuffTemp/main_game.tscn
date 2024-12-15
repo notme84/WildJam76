@@ -1,10 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://0s2vyyh3ffjx"]
+[gd_scene load_steps=7 format=3 uid="uid://0s2vyyh3ffjx"]
 
-[ext_resource type="Script" path="res://MarkStuffTemp/player_control.gd" id="1_wqr2k"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ljxis"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_w1353"]
+[ext_resource type="PackedScene" uid="uid://bl64fol7gyyh2" path="res://MarkStuffTemp/yeti_player.tscn" id="1_2w8k1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_crkph"]
 
@@ -23,26 +19,7 @@ size = Vector3(50, 1, 50)
 
 [node name="MainGame" type="Node3D"]
 
-[node name="Yeti" type="CharacterBody3D" parent="."]
-script = ExtResource("1_wqr2k")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Yeti"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_ljxis")
-
-[node name="RotationRoot" type="Node3D" parent="Yeti"]
-unique_name_in_owner = true
-
-[node name="Neck" type="Node3D" parent="Yeti/RotationRoot"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Yeti/RotationRoot/Neck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.276305, -0.212006)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Yeti/RotationRoot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_w1353")
+[node name="YetiPlayer" parent="." instance=ExtResource("1_2w8k1")]
 
 [node name="Environment" type="Node3D" parent="."]
 

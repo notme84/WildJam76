@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://clb13xng636qw"]
+
+[ext_resource type="Script" path="res://Scenes/UI/options_menu.gd" id="1_72def"]
+
+[node name="OptionsMenu" type="CanvasLayer"]
+script = ExtResource("1_72def")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.545098, 1, 1, 0.447059)
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -52.0
+offset_right = 71.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "OPTIONS"
+
+[node name="Label2" type="Label" parent="ColorRect/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "OPTIONS NEEDED:"
+
+[node name="Label3" type="Label" parent="ColorRect/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mouse Sensitivity"
+
+[node name="Label4" type="Label" parent="ColorRect/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Invert Y Look"
+
+[node name="BackButton" type="Button" parent="ColorRect/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BACK"

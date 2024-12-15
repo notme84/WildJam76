@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 @onready var camera: Camera3D = %Camera3D
 
+@export var pause_menu: PackedScene
+
 @export var speed: float = 10
 @export var acceleration: float = 5
 
@@ -12,6 +14,10 @@ var camrot_v: float
 var h_acceleration: float = 10
 var v_acceleration: float = 10
 
+var speed_mult: float = 1.0
+
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -19,10 +25,13 @@ func _ready():
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel"):
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		elif Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		var pause = pause_menu.instantiate()
+		get_parent().add_child(pause)
+		get_tree().paused = true
+		#if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		#elif Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	if event is InputEventMouseMotion:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -43,7 +52,7 @@ func _process(delta: float):
 
 
 func _physics_process(delta: float):
-	pass
+	update_move(delta)
 
 
 func update_rotation(delta):
@@ -51,3 +60,43 @@ func update_rotation(delta):
 	
 	%RotationRoot.rotation_degrees.y = lerp(%RotationRoot.rotation_degrees.y, camrot_h, delta * h_acceleration)
 	%Neck.rotation_degrees.x = lerp(%Neck.rotation_degrees.x, camrot_v, delta * v_acceleration)
+
+
+func update_move(delta: float):
+	var on_floor = is_on_floor()
+	
+	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var direction = (%RotationRoot.transform.basis * Vector3(input_dir.x, 0, input_dir.y))
+	direction = Vector3(direction.x, 0, direction.z).normalized()
+	
+	if direction:
+		move(direction, delta)
+	else:
+		if on_floor:
+			slow_to_stop()
+	
+	if !on_floor:
+		velocity.y -= gravity * delta
+		
+	move_and_slide()
+
+
+func move(direction: Vector3, delta):
+	var xz_move = accelerate_in_direction(direction, delta, speed_mult)
+	velocity.x = xz_move.x
+	velocity.z = xz_move.z
+
+
+func accelerate_in_direction(direction: Vector3, delta: float, mult: float) -> Vector3:
+	var desired_velocity: Vector3 = direction * speed * mult
+	var adjusted_velocity = velocity.lerp(desired_velocity, 1.0 - exp(-acceleration * delta))
+	return adjusted_velocity
+
+
+func slow_to_stop():
+	var xz_vel: Vector2 = Vector2(velocity.x, velocity.z)
+	var velocity_mag = xz_vel.length()
+	velocity_mag = move_toward(velocity_mag, 0, speed)
+	xz_vel = xz_vel.normalized() * velocity_mag
+	velocity.x = xz_vel.x
+	velocity.z = xz_vel.y

@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://0s2vyyh3ffjx"]
+
+[ext_resource type="Script" path="res://MarkStuffTemp/player_control.gd" id="1_wqr2k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ljxis"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_w1353"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_crkph"]
+
+[sub_resource type="Sky" id="Sky_8dhso"]
+sky_material = SubResource("ProceduralSkyMaterial_crkph")
+
+[sub_resource type="Environment" id="Environment_o45eo"]
+background_mode = 2
+sky = SubResource("Sky_8dhso")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dyt8r"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mhvfs"]
+size = Vector3(50, 1, 50)
+
+[node name="MainGame" type="Node3D"]
+
+[node name="Yeti" type="CharacterBody3D" parent="."]
+script = ExtResource("1_wqr2k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Yeti"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ljxis")
+
+[node name="RotationRoot" type="Node3D" parent="Yeti"]
+unique_name_in_owner = true
+
+[node name="Neck" type="Node3D" parent="Yeti/RotationRoot"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Yeti/RotationRoot/Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.276305, -0.212006)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Yeti/RotationRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_w1353")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_o45eo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 0.46793, 0.883766, 0, -0.883766, 0.46793, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticBody3D"]
+shape = SubResource("BoxShape3D_dyt8r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StaticBody3D"]
+mesh = SubResource("BoxMesh_mhvfs")

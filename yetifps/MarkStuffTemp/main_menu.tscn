@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://dnvmotsey50ri"]
 
 [ext_resource type="Script" path="res://MarkStuffTemp/main_menu.gd" id="1_rf04i"]
-[ext_resource type="PackedScene" uid="uid://d38nii6lkr1sd" path="res://Scenes/Level.tscn" id="2_gtsg3"]
+[ext_resource type="PackedScene" uid="uid://0s2vyyh3ffjx" path="res://MarkStuffTemp/main_game.tscn" id="2_pgut8"]
 [ext_resource type="PackedScene" uid="uid://clb13xng636qw" path="res://Scenes/UI/options_menu.tscn" id="3_5ugac"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_rf04i")
-game_scene = ExtResource("2_gtsg3")
+game_scene = ExtResource("2_pgut8")
 options_scene = ExtResource("3_5ugac")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

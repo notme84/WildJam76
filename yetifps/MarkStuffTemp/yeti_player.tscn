@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl64fol7gyyh2"]
+
+[ext_resource type="Script" path="res://MarkStuffTemp/player_control.gd" id="1_ntwp0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ljxis"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_w1353"]
+
+[node name="YetiPlayer" type="CharacterBody3D"]
+script = ExtResource("1_ntwp0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ljxis")
+
+[node name="RotationRoot" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Neck" type="Node3D" parent="RotationRoot"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="RotationRoot/Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.276305, -0.212006)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RotationRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_w1353")

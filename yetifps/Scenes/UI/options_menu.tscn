@@ -39,6 +39,10 @@ text = "OPTIONS"
 layout_mode = 2
 text = "OPTIONS NEEDED:"
 
+[node name="Label5" type="Label" parent="ColorRect/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volume Sliders"
+
 [node name="Label3" type="Label" parent="ColorRect/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Mouse Sensitivity"

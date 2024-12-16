@@ -1,10 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://clb13xng636qw"]
+[gd_scene load_steps=4 format=3 uid="uid://clb13xng636qw"]
 
 [ext_resource type="Script" path="res://Scenes/UI/options_menu.gd" id="1_72def"]
+[ext_resource type="AudioStream" uid="uid://c1hqiq726s4n6" path="res://Audio/grunt01.wav" id="2_i16kp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdfnt"]
+bg_color = Color(0.439049, 0.439049, 0.439049, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="OptionsMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_72def")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_i16kp")
+bus = &"effects"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -27,31 +39,120 @@ offset_right = 71.0
 offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kdfnt")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ColorRect/PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "OPTIONS"
+horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="ColorRect/PanelContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "OPTIONS NEEDED:"
 
-[node name="Label5" type="Label" parent="ColorRect/PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Volume Sliders"
+text = "Master Volume"
 
-[node name="Label3" type="Label" parent="ColorRect/PanelContainer/VBoxContainer"]
+[node name="MasterVolumeSlider" type="HSlider" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Mouse Sensitivity"
+max_value = 1.0
+step = 0.01
 
-[node name="Label4" type="Label" parent="ColorRect/PanelContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Effects Volume"
+
+[node name="EffectsVolumeSlider" type="HSlider" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer4/HBoxContainer"]
+layout_mode = 2
+text = "Mouse X Sensitivity"
+
+[node name="MouseSensitivityXLabel" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer4/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0.00"
+
+[node name="MouseSensitivityXSlider" type="HSlider" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 2.0
+step = 0.01
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer5"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer5/HBoxContainer"]
+layout_mode = 2
+text = "Mouse Y Sensitivity"
+
+[node name="MouseSensitivityYLabel" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer5/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0.00"
+
+[node name="MouseSensitivityYSlider" type="HSlider" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 2.0
+step = 0.01
+
+[node name="InvertYCheckBox" type="CheckBox" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Invert Y Look"
 
-[node name="BackButton" type="Button" parent="ColorRect/PanelContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "OPTIONS NEEDED:"
+
+[node name="Label5" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "vsync"
+
+[node name="BackButton" type="Button" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "BACK"

@@ -44,7 +44,9 @@ func _input(event: InputEvent):
 	if event is InputEventMouseMotion:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			camrot_h -= event.relative.x * Settings.mouse_sensitivity_x
-			camrot_v -= event.relative.y * Settings.mouse_sensitivity_y
+			if Settings.invert_y_look:
+				camrot_v += event.relative.y * Settings.mouse_sensitivity_y
+			else: camrot_v -= event.relative.y * Settings.mouse_sensitivity_y
 	
 	if event.is_action_pressed("camera_mode"):
 		#SWITCH BETWEEN FIRST AND THIRD PERSON

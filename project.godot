@@ -27,6 +27,10 @@ Settings="*res://Scenes/Autoload/settings.tscn"
 
 project/assembly_name="YetiFPS"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 ui_left={

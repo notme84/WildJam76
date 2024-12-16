@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+signal attack_1_pressed
+signal attack_2_pressed
+signal melee_pressed
+
 @onready var camera: Camera3D = %Camera3D
 
 @export var pause_menu: PackedScene
@@ -45,6 +49,15 @@ func _input(event: InputEvent):
 		else: camera.reparent(%HeadCameraMount)
 		camera.position = Vector3.ZERO
 		camera.rotation = Vector3.ZERO
+		
+	if event.is_action_pressed("left_click"):
+		attack_1_pressed.emit()
+	
+	if event.is_action_pressed("right_click"):
+		attack_2_pressed.emit()
+	
+	if event.is_action_pressed("melee"):
+		melee_pressed.emit()
 
 
 func _process(delta: float):

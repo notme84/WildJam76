@@ -8,6 +8,8 @@ signal melee_pressed
 
 @export var pause_menu: PackedScene
 
+@export var character_animator: AnimationPlayer
+
 @export var speed: float = 10
 @export var acceleration: float = 5
 
@@ -21,6 +23,8 @@ var v_acceleration: float = 10
 var speed_mult: float = 1.0
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+var using_follow_cam: bool = false
 
 
 func _ready():
@@ -46,7 +50,10 @@ func _input(event: InputEvent):
 		#SWITCH BETWEEN FIRST AND THIRD PERSON
 		if camera.get_parent() == %HeadCameraMount:
 			camera.reparent(%FollowCameraHousing)
-		else: camera.reparent(%HeadCameraMount)
+			using_follow_cam = true
+		else: 
+			camera.reparent(%HeadCameraMount)
+			using_follow_cam = false
 		camera.position = Vector3.ZERO
 		camera.rotation = Vector3.ZERO
 		
@@ -79,12 +86,27 @@ func update_move(delta: float):
 	var on_floor = is_on_floor()
 	
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var direction = (%RotationRoot.transform.basis * Vector3(input_dir.x, 0, input_dir.y))
+	var direction = Vector3(input_dir.x, 0, input_dir.y)
+	if !using_follow_cam:
+		direction = %RotationRoot.transform.basis * direction
+	else:
+		#var cam_forward = -camera.global_transform.basis.z
+		#cam_forward = Plane(Vector3.UP).project(cam_forward).normalized()
+		#direction = direction.rotated(Vector3.UP, cam_forward.angle_to(Vector3.FORWARD))
+		direction = camera.global_basis * direction
+	
 	direction = Vector3(direction.x, 0, direction.z).normalized()
 	
 	if direction:
 		move(direction, delta)
+		#set to run animation
+		if character_animator != null:
+			if !(character_animator.current_animation == "Run"):
+				character_animator.play("Run")
 	else:
+		if character_animator != null:
+			if !(character_animator.current_animation == "idle"):
+				character_animator.play("idle")
 		if on_floor:
 			slow_to_stop()
 	

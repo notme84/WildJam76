@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://0s2vyyh3ffjx"]
+[gd_scene load_steps=8 format=3 uid="uid://0s2vyyh3ffjx"]
 
 [ext_resource type="PackedScene" uid="uid://bl64fol7gyyh2" path="res://MarkStuffTemp/yeti_player.tscn" id="1_2w8k1"]
+[ext_resource type="PackedScene" uid="uid://ymj3yisyidsn" path="res://Scenes/yeti_enemy.tscn" id="2_7nskc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_crkph"]
 
@@ -38,3 +39,9 @@ shape = SubResource("BoxShape3D_dyt8r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StaticBody3D"]
 mesh = SubResource("BoxMesh_mhvfs")
+
+[node name="YetiEnemy" parent="." instance=ExtResource("2_7nskc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.79262)
+
+[node name="YetiEnemy2" parent="." instance=ExtResource("2_7nskc")]
+transform = Transform3D(0.634663, 0, -0.772789, 0, 1, 0, 0.772789, 0, 0.634663, 9.59675, 0, -5.19754)

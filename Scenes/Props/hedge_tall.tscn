@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2hawylas6qoq"]
+
+[ext_resource type="PackedScene" uid="uid://dt8cmcbnc27ky" path="res://assets/env/HEDGE-TALL.glb" id="1_x3prm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lxd1f"]
+radius = 0.941479
+height = 3.27123
+
+[node name="HedgeTall" type="CharacterBody3D"]
+
+[node name="HEDGE-TALL" parent="." instance=ExtResource("1_x3prm")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53097, 0)
+shape = SubResource("CapsuleShape3D_lxd1f")

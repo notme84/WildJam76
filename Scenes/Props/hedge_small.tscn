@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxajk4s12gg3r"]
+
+[ext_resource type="PackedScene" uid="uid://cnefhmj55bico" path="res://assets/env/HEDGE-SMALL.glb" id="1_gkuqm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7hm7k"]
+radius = 0.865723
+
+[node name="HedgeSmall" type="CharacterBody3D"]
+
+[node name="HEDGE-SMALL" parent="." instance=ExtResource("1_gkuqm")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.868887, 0)
+shape = SubResource("SphereShape3D_7hm7k")

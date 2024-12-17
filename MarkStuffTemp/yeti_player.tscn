@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=4 uid="uid://bl64fol7gyyh2"]
+[gd_scene load_steps=16 format=4 uid="uid://bl64fol7gyyh2"]
 
 [ext_resource type="Script" path="res://MarkStuffTemp/player_control.gd" id="1_ntwp0"]
 [ext_resource type="PackedScene" uid="uid://k5x862goldww" path="res://Scenes/UI/pause_menu.tscn" id="2_mrx2t"]
 [ext_resource type="Texture2D" uid="uid://bt8bsh1vmx5fj" path="res://assets/character/meatMachine_yeti6_muscletexture.png" id="3_0p4dg"]
+[ext_resource type="Script" path="res://MarkStuffTemp/snowballAttack.gd" id="3_8bogi"]
 [ext_resource type="Script" path="res://MarkStuffTemp/follow_camera.gd" id="3_wbs28"]
 [ext_resource type="Texture2D" uid="uid://bd4gnssgkxks2" path="res://assets/character/meatMachine_yeti6_muscle_n.png" id="4_7o7tu"]
+[ext_resource type="PackedScene" uid="uid://ce0yqty5iayid" path="res://Scenes/snowball.tscn" id="4_ifjey"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ljxis"]
 
@@ -4137,6 +4139,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.276305, -0.212006)
 
 [node name="Camera3D" type="Camera3D" parent="RotationRoot/Neck/HeadCameraMount"]
 unique_name_in_owner = true
+
+[node name="SnowballSpawn" type="Node3D" parent="RotationRoot/Neck/HeadCameraMount" node_paths=PackedStringArray("snowballSpawn", "Yeti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.363092, -0.0242444, 0.391037)
+script = ExtResource("3_8bogi")
+snowballScene = ExtResource("4_ifjey")
+snowballSpawn = NodePath(".")
+Yeti = NodePath("../../../..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RotationRoot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dues512tx2al3"]
+
+[ext_resource type="PackedScene" uid="uid://csy0bl247addr" path="res://assets/env/HEDGE-LUMPY.glb" id="1_cm4qb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w1nk6"]
+radius = 1.2565
+height = 2.74499
+
+[node name="HedgeLumpy" type="CharacterBody3D"]
+
+[node name="HEDGE-LUMPY" parent="." instance=ExtResource("1_cm4qb")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21882, 0)
+shape = SubResource("CapsuleShape3D_w1nk6")

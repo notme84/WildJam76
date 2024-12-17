@@ -14,7 +14,7 @@ signal melee_pressed
 @export var acceleration: float = 5
 
 @export var snowballScene : PackedScene
-@onready var snowballSpawn = $RotationRoot/meatMachine_yeti6/snowballSpawn
+@onready var snowballSpawn = $RotationRoot/Neck/snowballSpawn
 
 var camrot_h: float
 var camrot_v: float
@@ -67,8 +67,6 @@ func _input(event: InputEvent):
 		var throwSpeed = 30
 		add_sibling(snowball)
 		snowball.transform = snowballSpawn.global_transform
-		#var throwDirection = Vector3(0, 0, velocity.z * -1 * throwSpeed)
-		#snowball.linear_velocity = throwDirection
 		snowball.linear_velocity = snowballSpawn.global_transform.basis.z * -1 * throwSpeed
 		print("throw!")
 		attack_1_pressed.emit()

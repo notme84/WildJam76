@@ -4140,6 +4140,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.276305, -0.212006)
 [node name="Camera3D" type="Camera3D" parent="RotationRoot/Neck/HeadCameraMount"]
 unique_name_in_owner = true
 
+[node name="snowballSpawn" type="Node3D" parent="RotationRoot/Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.383749, 0.160409, 0.179031)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RotationRoot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 visible = false
@@ -6436,9 +6439,6 @@ libraries = {
 "": SubResource("AnimationLibrary_tcs62")
 }
 autoplay = "Run"
-
-[node name="snowballSpawn" type="Node3D" parent="RotationRoot/meatMachine_yeti6"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.383749, 1.49969, -3.35484e-08)
 
 [node name="FollowCameraHousing" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 unique_name_in_owner = true

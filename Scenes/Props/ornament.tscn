@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://hdp0vgfp62x7"]
+
+[ext_resource type="PackedScene" uid="uid://knhc31yhgocl" path="res://assets/env/ORNAMENT BULB.glb" id="1_tsaln"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_b7n76"]
+radius = 9.05758
+
+[node name="Ornament" type="CharacterBody3D"]
+
+[node name="ORNAMENT BULB2" parent="." instance=ExtResource("1_tsaln")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_b7n76")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://iqyfrm5l4r1w"]
+
+[ext_resource type="PackedScene" uid="uid://wkksp53ldj3o" path="res://assets/env/LOG-STACK-SMALL.glb" id="1_l1soq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6u44p"]
+size = Vector3(3.61578, 0.620667, 1)
+
+[node name="LogStackSmall" type="CharacterBody3D"]
+
+[node name="LOG-STACK-SMALL" parent="." instance=ExtResource("1_l1soq")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014801, 0.31283, -0.390281)
+shape = SubResource("BoxShape3D_6u44p")

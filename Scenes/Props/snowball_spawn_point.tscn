@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://b0ndyku0ntns2"]
+
+[node name="Snowball spawn point" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.432425, 1.81125, 0.424622)

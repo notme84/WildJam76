@@ -60,13 +60,15 @@ func _input(event: InputEvent):
 		camera.position = Vector3.ZERO
 		camera.rotation = Vector3.ZERO
 		
-	if event.is_action_pressed("left_click"):
+	if event.is_action_pressed("throw"):
 		attack_1_pressed.emit()
 	
 	if event.is_action_pressed("right_click"):
+		print("BREATH!!")
 		attack_2_pressed.emit()
 	
 	if event.is_action_pressed("melee"):
+		print("punch!")
 		melee_pressed.emit()
 
 

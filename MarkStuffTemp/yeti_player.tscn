@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://bl64fol7gyyh2"]
+[gd_scene load_steps=15 format=4 uid="uid://bl64fol7gyyh2"]
 
 [ext_resource type="Script" path="res://MarkStuffTemp/player_control.gd" id="1_ntwp0"]
 [ext_resource type="PackedScene" uid="uid://k5x862goldww" path="res://Scenes/UI/pause_menu.tscn" id="2_mrx2t"]
 [ext_resource type="Texture2D" uid="uid://bt8bsh1vmx5fj" path="res://assets/character/meatMachine_yeti6_muscletexture.png" id="3_0p4dg"]
+[ext_resource type="PackedScene" uid="uid://ce0yqty5iayid" path="res://Scenes/Props/snowball.tscn" id="3_q6t0s"]
 [ext_resource type="Script" path="res://MarkStuffTemp/follow_camera.gd" id="3_wbs28"]
 [ext_resource type="Texture2D" uid="uid://bd4gnssgkxks2" path="res://assets/character/meatMachine_yeti6_muscle_n.png" id="4_7o7tu"]
 
@@ -4119,6 +4120,7 @@ _data = {
 script = ExtResource("1_ntwp0")
 pause_menu = ExtResource("2_mrx2t")
 character_animator = NodePath("RotationRoot/meatMachine_yeti6/AnimationPlayer")
+snowballScene = ExtResource("3_q6t0s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -6434,6 +6436,9 @@ libraries = {
 "": SubResource("AnimationLibrary_tcs62")
 }
 autoplay = "Run"
+
+[node name="snowballSpawn" type="Node3D" parent="RotationRoot/meatMachine_yeti6"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.383749, 1.49969, -3.35484e-08)
 
 [node name="FollowCameraHousing" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 unique_name_in_owner = true

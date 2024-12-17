@@ -4115,7 +4115,7 @@ _data = {
 "idle": SubResource("Animation_hwd0x")
 }
 
-[node name="YetiPlayer" type="CharacterBody3D" node_paths=PackedStringArray("character_animator") groups=["player"]]
+[node name="YetiPlayer" type="CharacterBody3D" node_paths=PackedStringArray("character_animator")]
 script = ExtResource("1_ntwp0")
 pause_menu = ExtResource("2_mrx2t")
 character_animator = NodePath("RotationRoot/meatMachine_yeti6/AnimationPlayer")

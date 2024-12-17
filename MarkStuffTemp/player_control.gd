@@ -5,6 +5,7 @@ signal attack_2_pressed
 signal melee_pressed
 
 @onready var camera: Camera3D = %Camera3D
+@onready var health_component: Node = $HealthComponent
 
 @export var pause_menu: PackedScene
 

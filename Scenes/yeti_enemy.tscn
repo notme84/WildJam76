@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ymj3yisyidsn"]
+[gd_scene load_steps=4 format=3 uid="uid://d0clotds40svo"]
 
 [ext_resource type="PackedScene" uid="uid://dn0616wg3ew14" path="res://assets/character/meatMachine_yeti6.glb" id="1_5hoj8"]
-[ext_resource type="Script" path="res://Scenes/enemy.gd" id="1_jdt74"]
-[ext_resource type="PackedScene" uid="uid://ce0yqty5iayid" path="res://Scenes/Props/snowball.tscn" id="2_ega63"]
+[ext_resource type="PackedScene" uid="uid://b74kcex8s0htx" path="res://Scenes/Components/health_component.tscn" id="1_uf7bn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aluh6"]
 radius = 0.309303
@@ -11,6 +10,8 @@ height = 2.00371
 [node name="YetiEnemy" type="CharacterBody3D"]
 script = ExtResource("1_jdt74")
 snowballScene = ExtResource("2_ega63")
+
+[node name="HealthComponent" parent="." instance=ExtResource("1_uf7bn")]
 
 [node name="YetiMesh" parent="." instance=ExtResource("1_5hoj8")]
 

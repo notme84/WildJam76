@@ -8,8 +8,6 @@ radius = 0.309303
 height = 2.00371
 
 [node name="YetiEnemy" type="CharacterBody3D"]
-script = ExtResource("1_jdt74")
-snowballScene = ExtResource("2_ega63")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_uf7bn")]
 
@@ -18,6 +16,3 @@ snowballScene = ExtResource("2_ega63")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.954293, 0)
 shape = SubResource("CapsuleShape3D_aluh6")
-
-[node name="SnowballSpawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.462863, 1.74848, 0)

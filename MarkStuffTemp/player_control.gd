@@ -13,9 +13,6 @@ signal melee_pressed
 @export var speed: float = 10
 @export var acceleration: float = 5
 
-@export var snowballScene : PackedScene
-@onready var snowballSpawn = $RotationRoot/Neck/snowballSpawn
-
 var camrot_h: float
 var camrot_v: float
 @export var cam_v_min: float = -80
@@ -63,12 +60,6 @@ func _input(event: InputEvent):
 		camera.rotation = Vector3.ZERO
 		
 	if event.is_action_pressed("throw"):
-		var snowball = snowballScene.instantiate()
-		var throwSpeed = 30
-		add_sibling(snowball)
-		snowball.transform = snowballSpawn.global_transform
-		snowball.linear_velocity = snowballSpawn.global_transform.basis.z * -1 * throwSpeed
-		print("throw!")
 		attack_1_pressed.emit()
 	
 	if event.is_action_pressed("right_click"):

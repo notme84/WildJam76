@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dt8cmcbnc27ky"
-path="res://.godot/imported/HEDGE-TALL.glb-3bc7b0732576a9418e60f0cca329eb96.scn"
+path="res://.godot/imported/HEDGE-TALL.glb-0dff63287bda5b27d08f8afa4514a867.scn"
 
 [deps]
 
-source_file="res://yetifps/Models/HEDGE-TALL.glb"
-dest_files=["res://.godot/imported/HEDGE-TALL.glb-3bc7b0732576a9418e60f0cca329eb96.scn"]
+source_file="res://assets/env/HEDGE-TALL.glb"
+dest_files=["res://.godot/imported/HEDGE-TALL.glb-0dff63287bda5b27d08f8afa4514a867.scn"]
 
 [params]
 

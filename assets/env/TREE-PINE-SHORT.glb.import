@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bnwbu6bpv8cv7"
-path="res://.godot/imported/TREE-PINE-SHORT.glb-7305d4c0fa1c7c0fa9c3014a432499c2.scn"
+path="res://.godot/imported/TREE-PINE-SHORT.glb-08c731bafa4bc4dbb827bc43a630ec8e.scn"
 
 [deps]
 
-source_file="res://yetifps/Models/TREE-PINE-SHORT.glb"
-dest_files=["res://.godot/imported/TREE-PINE-SHORT.glb-7305d4c0fa1c7c0fa9c3014a432499c2.scn"]
+source_file="res://assets/env/TREE-PINE-SHORT.glb"
+dest_files=["res://.godot/imported/TREE-PINE-SHORT.glb-08c731bafa4bc4dbb827bc43a630ec8e.scn"]
 
 [params]
 

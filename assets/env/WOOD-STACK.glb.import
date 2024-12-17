@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bigx0ene7xvkj"
-path="res://.godot/imported/WOOD-STACK.glb-a16aefebcac2219351c695acf9408475.scn"
+path="res://.godot/imported/WOOD-STACK.glb-8450e1f8b2697d830e8d0212ad6cbdd2.scn"
 
 [deps]
 
-source_file="res://yetifps/Models/WOOD-STACK.glb"
-dest_files=["res://.godot/imported/WOOD-STACK.glb-a16aefebcac2219351c695acf9408475.scn"]
+source_file="res://assets/env/WOOD-STACK.glb"
+dest_files=["res://.godot/imported/WOOD-STACK.glb-8450e1f8b2697d830e8d0212ad6cbdd2.scn"]
 
 [params]
 

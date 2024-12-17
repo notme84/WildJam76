@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7qdvhbc0y5an"]
+
+[ext_resource type="PackedScene" uid="uid://4cxcjg4rt204" path="res://assets/env/TREE-PINE-BENT.glb" id="1_e02iy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k8r3k"]
+radius = 1.70131
+height = 6.88219
+
+[node name="TreePineBent" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.20772, 0)
+shape = SubResource("CapsuleShape3D_k8r3k")
+
+[node name="TREE-PINE-BENT" parent="." instance=ExtResource("1_e02iy")]

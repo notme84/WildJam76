@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://wkksp53ldj3o"
-path="res://.godot/imported/LOG-STACK-SMALL.glb-871cd1ee940fafe6ff95ffc03f879605.scn"
+path="res://.godot/imported/LOG-STACK-SMALL.glb-d498bcc9b4a0d42b75bb876a867ca507.scn"
 
 [deps]
 
-source_file="res://yetifps/Models/LOG-STACK-SMALL.glb"
-dest_files=["res://.godot/imported/LOG-STACK-SMALL.glb-871cd1ee940fafe6ff95ffc03f879605.scn"]
+source_file="res://assets/env/LOG-STACK-SMALL.glb"
+dest_files=["res://.godot/imported/LOG-STACK-SMALL.glb-d498bcc9b4a0d42b75bb876a867ca507.scn"]
 
 [params]
 

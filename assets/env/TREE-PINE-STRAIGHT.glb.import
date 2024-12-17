@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cok6wbh2equid"
-path="res://.godot/imported/TREE-PINE-STRAIGHT.glb-5250d5c3de9fda771b3fda9455c4d1fb.scn"
+path="res://.godot/imported/TREE-PINE-STRAIGHT.glb-1a3df81adbe1388662e87a688999481b.scn"
 
 [deps]
 
-source_file="res://yetifps/Models/TREE-PINE-STRAIGHT.glb"
-dest_files=["res://.godot/imported/TREE-PINE-STRAIGHT.glb-5250d5c3de9fda771b3fda9455c4d1fb.scn"]
+source_file="res://assets/env/TREE-PINE-STRAIGHT.glb"
+dest_files=["res://.godot/imported/TREE-PINE-STRAIGHT.glb-1a3df81adbe1388662e87a688999481b.scn"]
 
 [params]
 

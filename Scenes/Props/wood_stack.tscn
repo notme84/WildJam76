@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxgvaqkqy8wqg"]
+
+[ext_resource type="PackedScene" uid="uid://bigx0ene7xvkj" path="res://assets/env/WOOD-STACK.glb" id="1_gtfdg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0knrr"]
+size = Vector3(1.44635, 0.949097, 0.789124)
+
+[node name="WoodStack" type="CharacterBody3D"]
+
+[node name="WOOD-STACK" parent="." instance=ExtResource("1_gtfdg")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0435486, 0.389494, -0.0663147)
+shape = SubResource("BoxShape3D_0knrr")

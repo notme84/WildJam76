@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://csy0bl247addr"
-path="res://.godot/imported/HEDGE-LUMPY.glb-97f380400edbf1cf30756abd82e4a54c.scn"
+path="res://.godot/imported/HEDGE-LUMPY.glb-a58c4aff97776a311e85ac2dd07bdd32.scn"
 
 [deps]
 
-source_file="res://yetifps/Models/HEDGE-LUMPY.glb"
-dest_files=["res://.godot/imported/HEDGE-LUMPY.glb-97f380400edbf1cf30756abd82e4a54c.scn"]
+source_file="res://assets/env/HEDGE-LUMPY.glb"
+dest_files=["res://.godot/imported/HEDGE-LUMPY.glb-a58c4aff97776a311e85ac2dd07bdd32.scn"]
 
 [params]
 

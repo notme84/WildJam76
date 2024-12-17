@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1pnqadtankmw"]
+
+[ext_resource type="PackedScene" uid="uid://bnwbu6bpv8cv7" path="res://assets/env/TREE-PINE-SHORT.glb" id="1_bhp6q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_weks8"]
+radius = 1.21038
+height = 5.59627
+
+[node name="TreePineShort" type="CharacterBody3D"]
+
+[node name="TREE-PINE-SHORT" parent="." instance=ExtResource("1_bhp6q")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65289, 0)
+shape = SubResource("CapsuleShape3D_weks8")

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://5keijq1e686j"
-path="res://.godot/imported/TREE-PINE-TALL.glb-d21d0e3430c9c52beeecb3beeec540ed.scn"
+path="res://.godot/imported/TREE-PINE-TALL.glb-bfd84e5641b2b896d66b3f4d95be7c69.scn"
 
 [deps]
 
-source_file="res://yetifps/Models/TREE-PINE-TALL.glb"
-dest_files=["res://.godot/imported/TREE-PINE-TALL.glb-d21d0e3430c9c52beeecb3beeec540ed.scn"]
+source_file="res://assets/env/TREE-PINE-TALL.glb"
+dest_files=["res://.godot/imported/TREE-PINE-TALL.glb-bfd84e5641b2b896d66b3f4d95be7c69.scn"]
 
 [params]
 

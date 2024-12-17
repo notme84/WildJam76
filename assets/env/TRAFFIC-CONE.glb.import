@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b56xune4i2kp7"
-path="res://.godot/imported/TRAFFIC-CONE.glb-c972ed098534c79b8c5dbe1075f4377c.scn"
+path="res://.godot/imported/TRAFFIC-CONE.glb-22c8385bf69fcc2ad6b30f057cac885f.scn"
 
 [deps]
 
-source_file="res://yetifps/Models/TRAFFIC-CONE.glb"
-dest_files=["res://.godot/imported/TRAFFIC-CONE.glb-c972ed098534c79b8c5dbe1075f4377c.scn"]
+source_file="res://assets/env/TRAFFIC-CONE.glb"
+dest_files=["res://.godot/imported/TRAFFIC-CONE.glb-22c8385bf69fcc2ad6b30f057cac885f.scn"]
 
 [params]
 

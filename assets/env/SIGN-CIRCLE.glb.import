@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dvto0wxgfvacg"
-path="res://.godot/imported/SIGN-CIRCLE.glb-2b09ebe30b6f694b2185dab02c0c2feb.scn"
+path="res://.godot/imported/SIGN-CIRCLE.glb-dcdfdbdfd8d59204a12d66d5b395b1d1.scn"
 
 [deps]
 
-source_file="res://yetifps/Models/SIGN-CIRCLE.glb"
-dest_files=["res://.godot/imported/SIGN-CIRCLE.glb-2b09ebe30b6f694b2185dab02c0c2feb.scn"]
+source_file="res://assets/env/SIGN-CIRCLE.glb"
+dest_files=["res://.godot/imported/SIGN-CIRCLE.glb-dcdfdbdfd8d59204a12d66d5b395b1d1.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://knhc31yhgocl"
-path="res://.godot/imported/ORNAMENT BULB.glb-c812618f62c2197f52ab908770a8d1ca.scn"
+path="res://.godot/imported/ORNAMENT BULB.glb-c32b5add74f14414c56ce8b3b2eb08d8.scn"
 
 [deps]
 
-source_file="res://yetifps/Models/ORNAMENT BULB.glb"
-dest_files=["res://.godot/imported/ORNAMENT BULB.glb-c812618f62c2197f52ab908770a8d1ca.scn"]
+source_file="res://assets/env/ORNAMENT BULB.glb"
+dest_files=["res://.godot/imported/ORNAMENT BULB.glb-c32b5add74f14414c56ce8b3b2eb08d8.scn"]
 
 [params]
 

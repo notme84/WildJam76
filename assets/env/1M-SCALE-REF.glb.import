@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ci2nxjk3sordn"
-path="res://.godot/imported/1M-SCALE-REF.glb-c5935a48fc4575ebd63141c0f5989764.scn"
+path="res://.godot/imported/1M-SCALE-REF.glb-716f3f61b96ec549638fd32ef48968b1.scn"
 
 [deps]
 
-source_file="res://yetifps/Models/1M-SCALE-REF.glb"
-dest_files=["res://.godot/imported/1M-SCALE-REF.glb-c5935a48fc4575ebd63141c0f5989764.scn"]
+source_file="res://assets/env/1M-SCALE-REF.glb"
+dest_files=["res://.godot/imported/1M-SCALE-REF.glb-716f3f61b96ec549638fd32ef48968b1.scn"]
 
 [params]
 

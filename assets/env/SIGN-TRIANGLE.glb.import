@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bsddeo45xqohf"
-path="res://.godot/imported/SIGN-TRIANGLE.glb-6c50f5cc26d0eabd292ad42bbbe99cec.scn"
+path="res://.godot/imported/SIGN-TRIANGLE.glb-67702e717a492a726f44a76c2c150728.scn"
 
 [deps]
 
-source_file="res://yetifps/Models/SIGN-TRIANGLE.glb"
-dest_files=["res://.godot/imported/SIGN-TRIANGLE.glb-6c50f5cc26d0eabd292ad42bbbe99cec.scn"]
+source_file="res://assets/env/SIGN-TRIANGLE.glb"
+dest_files=["res://.godot/imported/SIGN-TRIANGLE.glb-67702e717a492a726f44a76c2c150728.scn"]
 
 [params]
 

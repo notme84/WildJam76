@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://4cxcjg4rt204"
-path="res://.godot/imported/TREE-PINE-BENT.glb-340c08b75bb012d93161bd8e277aaec9.scn"
+path="res://.godot/imported/TREE-PINE-BENT.glb-29b96cac178fe93b3ab50dd8119bb359.scn"
 
 [deps]
 
-source_file="res://yetifps/Models/TREE-PINE-BENT.glb"
-dest_files=["res://.godot/imported/TREE-PINE-BENT.glb-340c08b75bb012d93161bd8e277aaec9.scn"]
+source_file="res://assets/env/TREE-PINE-BENT.glb"
+dest_files=["res://.godot/imported/TREE-PINE-BENT.glb-29b96cac178fe93b3ab50dd8119bb359.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cnefhmj55bico"
-path="res://.godot/imported/HEDGE-SMALL.glb-9d2bec48233ff504cdaa1695aabba37c.scn"
+path="res://.godot/imported/HEDGE-SMALL.glb-60059f52f556f62fbbba1b2f7c28f842.scn"
 
 [deps]
 
-source_file="res://yetifps/Models/HEDGE-SMALL.glb"
-dest_files=["res://.godot/imported/HEDGE-SMALL.glb-9d2bec48233ff504cdaa1695aabba37c.scn"]
+source_file="res://assets/env/HEDGE-SMALL.glb"
+dest_files=["res://.godot/imported/HEDGE-SMALL.glb-60059f52f556f62fbbba1b2f7c28f842.scn"]
 
 [params]
 

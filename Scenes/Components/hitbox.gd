@@ -1,4 +1,5 @@
 extends Area3D
+class_name Hitbox
 
 @export var health_component: HealthComponent
 
@@ -13,6 +14,12 @@ func on_body_entered(body: Node3D):
 	if health_component == null:
 		printerr("HITBOX HAS NO REFERENCE TO A HEALTH COMPONENT")
 		return
+	
+	if body.has_method("get_source"):
+		if body.get_source() == owner:
+			return
+	
+	#TODO if projectile/snowball, make it destroy itself
 	
 	health_component.take_damage(10)
 

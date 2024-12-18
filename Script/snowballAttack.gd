@@ -1,8 +1,11 @@
 extends Node3D
 
 @export var snowballScene : PackedScene
-@export var snowballSpawn : Node3D
+#@export var snowballSpawn : Node3D
 @export var Yeti : Node3D
+@export var throwSpeed : float = 30
+
+
 func _ready():
 	if Yeti == null:
 		print("no yeti")
@@ -11,8 +14,11 @@ func _ready():
 	
 func OnAttack():
 	var snowball = snowballScene.instantiate()
-	var throwSpeed = 30
+	
+	#make snowball ignore hitboxes of thrower
+	snowball.source = Yeti
+	
 	Yeti.add_sibling(snowball)
-	snowball.transform = snowballSpawn.global_transform
-	snowball.linear_velocity = snowballSpawn.global_transform.basis.z * -1 * throwSpeed
+	snowball.transform = global_transform
+	snowball.linear_velocity = global_transform.basis.z * -1 * throwSpeed
 	print("throw!")

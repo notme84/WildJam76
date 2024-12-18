@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://48tcbuqhcbc5"]
+
+[ext_resource type="Script" path="res://Script/snowballAttack.gd" id="1_sy1lm"]
+[ext_resource type="PackedScene" uid="uid://bgtglnx4hmoua" path="res://Scenes/snowball.tscn" id="2_3xdfu"]
+
+[node name="SnowballSpawn" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.363092, -0.0242444, 0.391037)
+script = ExtResource("1_sy1lm")
+snowballScene = ExtResource("2_3xdfu")

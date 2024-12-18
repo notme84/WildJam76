@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://b61aeom5sa1e6"]
+
+[ext_resource type="Script" path="res://Scenes/UI/credits.gd" id="1_n7r2b"]
+
+[node name="Credits" type="CanvasLayer"]
+script = ExtResource("1_n7r2b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BackButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 71.0
+offset_top = 567.0
+offset_right = 135.0
+offset_bottom = 598.0
+text = "Back"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -96.5
+offset_right = 32.0
+offset_bottom = 96.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "CREDITS"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "name"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "name"
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "name"
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "name"
+
+[node name="Label6" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "name"

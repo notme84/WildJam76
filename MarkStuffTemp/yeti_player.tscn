@@ -1,14 +1,22 @@
-[gd_scene load_steps=16 format=4 uid="uid://bl64fol7gyyh2"]
+[gd_scene load_steps=19 format=4 uid="uid://bl64fol7gyyh2"]
 
 [ext_resource type="Script" path="res://MarkStuffTemp/player_control.gd" id="1_ntwp0"]
 [ext_resource type="PackedScene" uid="uid://k5x862goldww" path="res://Scenes/UI/pause_menu.tscn" id="2_mrx2t"]
 [ext_resource type="Texture2D" uid="uid://bt8bsh1vmx5fj" path="res://assets/character/meatMachine_yeti6_muscletexture.png" id="3_0p4dg"]
-[ext_resource type="Script" path="res://MarkStuffTemp/snowballAttack.gd" id="3_8bogi"]
+[ext_resource type="PackedScene" uid="uid://dm8gws1emf32l" path="res://Scenes/Components/health_component.tscn" id="3_6dmq0"]
+[ext_resource type="Script" path="res://Script/snowballAttack.gd" id="3_8bogi"]
 [ext_resource type="Script" path="res://MarkStuffTemp/follow_camera.gd" id="3_wbs28"]
 [ext_resource type="Texture2D" uid="uid://bd4gnssgkxks2" path="res://assets/character/meatMachine_yeti6_muscle_n.png" id="4_7o7tu"]
-[ext_resource type="PackedScene" uid="uid://ce0yqty5iayid" path="res://Scenes/snowball.tscn" id="4_ifjey"]
+[ext_resource type="PackedScene" uid="uid://bgtglnx4hmoua" path="res://Scenes/snowball.tscn" id="4_ifjey"]
+[ext_resource type="PackedScene" uid="uid://cy41gt0obl5wq" path="res://Scenes/Components/hitbox.tscn" id="4_nhxry"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jsfuq"]
+radius = 0.35
+height = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ljxis"]
+radius = 0.3
+height = 1.8
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w1353"]
 
@@ -4118,12 +4126,23 @@ _data = {
 }
 
 [node name="YetiPlayer" type="CharacterBody3D" node_paths=PackedStringArray("character_animator")]
+collision_layer = 2
 script = ExtResource("1_ntwp0")
 pause_menu = ExtResource("2_mrx2t")
 character_animator = NodePath("RotationRoot/meatMachine_yeti6/AnimationPlayer")
 
+[node name="HealthComponent" parent="." instance=ExtResource("3_6dmq0")]
+
+[node name="Hitbox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_nhxry")]
+monitorable = false
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_jsfuq")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_ljxis")
 
 [node name="RotationRoot" type="Node3D" parent="."]

@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://ymj3yisyidsn"]
+[gd_scene load_steps=4 format=3 uid="uid://d0clotds40svo"]
 
 [ext_resource type="PackedScene" uid="uid://dn0616wg3ew14" path="res://assets/character/meatMachine_yeti6.glb" id="1_5hoj8"]
+[ext_resource type="PackedScene" uid="uid://dm8gws1emf32l" path="res://Scenes/Components/health_component.tscn" id="1_uf7bn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aluh6"]
 radius = 0.309303
 height = 2.00371
 
 [node name="YetiEnemy" type="CharacterBody3D"]
+
+[node name="HealthComponent" parent="." instance=ExtResource("1_uf7bn")]
 
 [node name="YetiMesh" parent="." instance=ExtResource("1_5hoj8")]
 

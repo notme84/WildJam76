@@ -31,6 +31,10 @@ project/assembly_name="YetiFPS"
 
 import/blender/enabled=false
 
+[global_group]
+
+player=""
+
 [input]
 
 ui_left={
@@ -127,6 +131,12 @@ melee={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[layer_names]
+
+3d_physics/layer_1="default"
+3d_physics/layer_2="player"
+3d_physics/layer_3="attack"
 
 [rendering]
 

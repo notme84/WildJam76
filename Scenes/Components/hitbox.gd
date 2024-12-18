@@ -20,6 +20,8 @@ func on_body_entered(body: Node3D):
 			return
 	
 	#TODO if projectile/snowball, make it destroy itself
+	if body.has_method("hit"):
+		body.hit(owner)
 	
 	health_component.take_damage(10)
 

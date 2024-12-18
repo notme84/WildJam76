@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://h8q0mnhmd27d"]
+
+[ext_resource type="Script" path="res://Scenes/practice_target.gd" id="1_5ckll"]
+[ext_resource type="Script" path="res://Scenes/Components/health_component.gd" id="2_gpf27"]
+[ext_resource type="Script" path="res://Scenes/Components/hitbox.gd" id="3_3cawm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6i00n"]
+height = 0.1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lcyof"]
+height = 0.1
+radial_segments = 16
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggaf5"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="PracticeTarget" type="Node3D"]
+script = ExtResource("1_5ckll")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_gpf27")
+max_health = 1.0
+
+[node name="Hitbox" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_3cawm")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_6i00n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_lcyof")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.86, 0, 0, 0, -5.20166e-08, -0.86, 0, 1.19, -3.75918e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_lcyof")
+surface_material_override/0 = SubResource("StandardMaterial3D_ggaf5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.69, 0, 0, 0, -6.03217e-08, -0.69, 0, 1.38, -3.01609e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_lcyof")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.56, 0, 0, 0, -6.08025e-08, -0.56, 0, 1.391, -2.44784e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_lcyof")
+surface_material_override/0 = SubResource("StandardMaterial3D_ggaf5")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, -6.98071e-08, -0.4, 0, 1.597, -1.74846e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_lcyof")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, -7.65386e-08, -0.2, 0, 1.751, -8.74228e-09, 0, 0, 0)
+mesh = SubResource("CylinderMesh_lcyof")
+surface_material_override/0 = SubResource("StandardMaterial3D_ggaf5")

@@ -1,8 +1,11 @@
 extends CharacterBody3D
 
 signal attack_1_pressed
+signal attack_1_released
 signal attack_2_pressed
+signal attack_2_released
 signal melee_pressed
+signal melee_released
 
 @onready var camera: Camera3D = %Camera3D
 
@@ -59,14 +62,23 @@ func _input(event: InputEvent):
 		camera.position = Vector3.ZERO
 		camera.rotation = Vector3.ZERO
 		
-	if event.is_action_pressed("left_click"):
-		attack_1_pressed.emit()
+	if event.is_action("left_click"):
+		if event.is_pressed():
+			attack_1_pressed.emit()
+		elif event.is_released():
+			attack_1_released.emit()
 	
-	if event.is_action_pressed("right_click"):
-		attack_2_pressed.emit()
+	if event.is_action("right_click"):
+		if event.is_pressed():
+			attack_2_pressed.emit()
+		if event.is_released():
+			attack_2_released.emit()
 	
-	if event.is_action_pressed("melee"):
-		melee_pressed.emit()
+	if event.is_action("melee"):
+		if event.is_pressed():
+			melee_pressed.emit()
+		if event.is_released():
+			melee_released.emit()
 
 
 func _process(delta: float):

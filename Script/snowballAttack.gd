@@ -11,7 +11,8 @@ func _ready():
 		print("no yeti")
 		return
 	Yeti.attack_1_pressed.connect(OnAttack)
-	
+
+
 func OnAttack():
 	var snowball = snowballScene.instantiate()
 	

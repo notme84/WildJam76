@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://dffev5gvjhier"]
+
+[ext_resource type="Script" path="res://Scenes/UI/multiplayer_menu.gd" id="1_l446k"]
+[ext_resource type="PackedScene" uid="uid://b8ng7ebvjequ4" path="res://MarkStuffTemp/multiplayer_test.tscn" id="2_yyteu"]
+[ext_resource type="PackedScene" uid="uid://hw2gfya2kub3" path="res://Scenes/UI/player_panel.tscn" id="3_ooc3w"]
+
+[node name="MultiplayerMenu" type="CanvasLayer"]
+script = ExtResource("1_l446k")
+mp_game = ExtResource("2_yyteu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.552956, 0.552956, 0.552956, 1)
+
+[node name="PlayerPanelContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerPanel" parent="PlayerPanelContainer" instance=ExtResource("3_ooc3w")]
+layout_mode = 2
+
+[node name="PlayerPanel2" parent="PlayerPanelContainer" instance=ExtResource("3_ooc3w")]
+layout_mode = 2
+
+[node name="PlayerPanel3" parent="PlayerPanelContainer" instance=ExtResource("3_ooc3w")]
+layout_mode = 2
+
+[node name="PlayerPanel4" parent="PlayerPanelContainer" instance=ExtResource("3_ooc3w")]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 116.0
+offset_top = 565.0
+offset_right = 161.0
+offset_bottom = 596.0
+text = "Back"
+
+[node name="StartButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 729.0
+offset_top = 564.0
+offset_right = 737.0
+offset_bottom = 572.0
+text = "START GAME!"

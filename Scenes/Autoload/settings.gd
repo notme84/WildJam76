@@ -8,6 +8,8 @@ var mouse_sensitivity_x : float
 var mouse_sensitivity_y : float
 var invert_y_look: bool
 
+var joystick_mult: float = 5
+
 
 func _ready():
 	#TODO set up player prefs to load settings

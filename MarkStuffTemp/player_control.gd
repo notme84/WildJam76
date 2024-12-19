@@ -29,8 +29,13 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var using_follow_cam: bool = false
 
-var using_controller: bool = true
+#var using_controller: bool = true
+@export var device_index: int = -1
 
+var axis_press_threshold: float = 0.3
+var axis_release_threshold: float = 0.25
+var last_left_click_axis: float 
+var last_right_click_axis: float
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -39,42 +44,37 @@ func _ready():
 func _input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel"):
 		var pause = pause_menu.instantiate()
-		get_parent().add_child(pause)
+		owner.add_child(pause)
 		get_tree().paused = true
 		#if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		#elif Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion && device_index < 0:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			camrot_h -= event.relative.x * Settings.mouse_sensitivity_x
 			if Settings.invert_y_look:
 				camrot_v += event.relative.y * Settings.mouse_sensitivity_y
 			else: camrot_v -= event.relative.y * Settings.mouse_sensitivity_y
 	
-	if event.is_action_pressed("camera_mode"):
-		#SWITCH BETWEEN FIRST AND THIRD PERSON
-		if camera.get_parent() == %HeadCameraMount:
-			camera.reparent(%FollowCameraHousing)
-			using_follow_cam = true
-		else: 
-			camera.reparent(%HeadCameraMount)
-			using_follow_cam = false
-		camera.position = Vector3.ZERO
-		camera.rotation = Vector3.ZERO
-		
-	if event.is_action("left_click"):
-		if event.is_pressed():
-			attack_1_pressed.emit()
-		elif event.is_released():
-			attack_1_released.emit()
+	if device_index >= 0 && event.device != device_index:
+		return
 	
-	if event.is_action("right_click"):
-		if event.is_pressed():
-			attack_2_pressed.emit()
-		if event.is_released():
-			attack_2_released.emit()
+	if event.is_action_pressed("camera_mode"):
+		switch_camera_mode
+		
+	#if event.is_action("left_click"):
+		#if event.is_pressed():
+			#attack_1_pressed.emit()
+		#elif event.is_released():
+			#attack_1_released.emit()
+	#
+	#if event.is_action("right_click"):
+		#if event.is_pressed():
+			#attack_2_pressed.emit()
+		#if event.is_released():
+			#attack_2_released.emit()
 	
 	if event.is_action("melee"):
 		if event.is_pressed():
@@ -84,17 +84,50 @@ func _input(event: InputEvent):
 
 
 func _process(delta: float):
-	if using_controller: #TODO THIS WILL PROBABLY BE DETERMINED BY INPUT INDEX FYI
+	var left_click_axis: float = 0
+	var right_click_axis: float = 0
+	if PlayerManager.get_player_count() <= 1:
+		left_click_axis = Input.get_action_strength("left_click")
+		right_click_axis = Input.get_action_strength("right_click")
+	else:
+		left_click_axis = MultiplayerInput.get_action_strength(device_index, "left_click")
+		right_click_axis = MultiplayerInput.get_action_strength(device_index, "right_click")
+	
+	if left_click_axis > axis_press_threshold && last_left_click_axis < axis_press_threshold:
+		attack_1_pressed.emit()
+	elif left_click_axis < axis_press_threshold && last_left_click_axis > axis_press_threshold:
+		attack_1_released.emit()
+	if right_click_axis > axis_press_threshold && last_right_click_axis < axis_press_threshold:
+		attack_2_pressed.emit()
+	elif right_click_axis < axis_press_threshold && last_right_click_axis > axis_press_threshold:
+		attack_2_released.emit()
+	
+	last_left_click_axis = left_click_axis
+	last_right_click_axis = right_click_axis
+	
+	if device_index >= 0 && PlayerManager.get_player_count() > 1: #IS A CONTROLLER
 		get_rotation_input()
 	update_rotation(delta)
 
 
 func _physics_process(delta: float):
 	update_move(delta)
+	
+
+func switch_camera_mode():
+	if camera.get_parent() == %HeadCameraMount:
+		camera.reparent(%FollowCameraHousing)
+		using_follow_cam = true
+	else: 
+		camera.reparent(%HeadCameraMount)
+		using_follow_cam = false
+	camera.position = Vector3.ZERO
+	camera.rotation = Vector3.ZERO
 
 
 func get_rotation_input():
-	var input = Input.get_vector("look_left", "look_right", "look_up", "look_down")
+	var input = MultiplayerInput.get_vector(device_index, "look_left", "look_right", "look_up", "look_down")
+	input = input * Settings.joystick_mult
 	camrot_h -= input.x * Settings.mouse_sensitivity_x
 	if Settings.invert_y_look:
 		camrot_v += input.y * Settings.mouse_sensitivity_y
@@ -111,7 +144,7 @@ func update_rotation(delta):
 func update_move(delta: float):
 	var on_floor = is_on_floor()
 	
-	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var input_dir = MultiplayerInput.get_vector(device_index, "move_left", "move_right", "move_up", "move_down")
 	var direction = Vector3(input_dir.x, 0, input_dir.y)
 	if !using_follow_cam:
 		direction = %RotationRoot.transform.basis * direction

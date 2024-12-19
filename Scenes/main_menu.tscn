@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnvmotsey50ri"]
+[gd_scene load_steps=6 format=3 uid="uid://dnvmotsey50ri"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_rf04i"]
 [ext_resource type="PackedScene" uid="uid://0s2vyyh3ffjx" path="res://MarkStuffTemp/main_game.tscn" id="2_pgut8"]
 [ext_resource type="PackedScene" uid="uid://clb13xng636qw" path="res://Scenes/UI/options_menu.tscn" id="3_5ugac"]
 [ext_resource type="PackedScene" uid="uid://b61aeom5sa1e6" path="res://Scenes/UI/credits.tscn" id="4_q0t45"]
+[ext_resource type="PackedScene" uid="uid://dffev5gvjhier" path="res://Scenes/UI/multiplayer_menu.tscn" id="5_2r7je"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_rf04i")
 game_scene = ExtResource("2_pgut8")
 options_scene = ExtResource("3_5ugac")
 credits_scene = ExtResource("4_q0t45")
+mp_menu = ExtResource("5_2r7je")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -45,3 +47,11 @@ text = "Credits"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
+
+[node name="MPButton" type="Button" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 1055.0
+offset_top = 610.0
+offset_right = 1148.0
+offset_bottom = 641.0
+text = "MP Testing"

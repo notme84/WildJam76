@@ -4,12 +4,16 @@ extends Node
 @export var options_scene: PackedScene
 @export var credits_scene: PackedScene
 
+#@export var mp_game_scene: PackedScene
+@export var mp_menu: PackedScene
+
 
 func _ready():
 	%StartButton.pressed.connect(on_start)
 	%OptionsButton.pressed.connect(open_submenu.bind(options_scene, %OptionsButton))
 	%CreditsButton.pressed.connect(open_submenu.bind(credits_scene, %CreditsButton))
 	%QuitButton.pressed.connect(on_quit)
+	%MPButton.pressed.connect(open_submenu.bind(mp_menu, %MPButton))
 	
 	%StartButton.grab_focus()
 	

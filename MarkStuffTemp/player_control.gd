@@ -52,7 +52,7 @@ func _input(event: InputEvent):
 			#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	if event is InputEventMouseMotion && device_index < 0:
-		print("ATTEMPTING TO GET MOUSE MOVE INPUT")
+		#print("ATTEMPTING TO GET MOUSE MOVE INPUT")
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			camrot_h -= event.relative.x * Settings.mouse_sensitivity_x
 			if Settings.invert_y_look:
@@ -62,8 +62,8 @@ func _input(event: InputEvent):
 	if device_index >= 0 && event.device != device_index:
 		return
 	
-	if event.is_action_pressed("camera_mode"):
-		switch_camera_mode
+	#if event.is_action_pressed("camera_mode"):
+		#switch_camera_mode
 		
 	#if event.is_action("left_click"):
 		#if event.is_pressed():
@@ -90,9 +90,15 @@ func _process(delta: float):
 	if PlayerManager.get_player_count() <= 1:
 		left_click_axis = Input.get_action_strength("left_click")
 		right_click_axis = Input.get_action_strength("right_click")
+		
+		if Input.is_action_just_pressed("camera_mode"):
+			switch_camera_mode()
 	else:
 		left_click_axis = MultiplayerInput.get_action_strength(device_index, "left_click")
 		right_click_axis = MultiplayerInput.get_action_strength(device_index, "right_click")
+		
+		if MultiplayerInput.is_action_just_pressed(device_index, "camera_mode"):
+			switch_camera_mode()
 	
 	if left_click_axis > axis_press_threshold && last_left_click_axis < axis_press_threshold:
 		attack_1_pressed.emit()
@@ -116,6 +122,7 @@ func _physics_process(delta: float):
 	
 
 func switch_camera_mode():
+	print("SWITCHING CAMERA MODE")
 	if camera.get_parent() == %HeadCameraMount:
 		camera.reparent(%FollowCameraHousing)
 		using_follow_cam = true

@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://b6hlejy75weso"]
+
+[sub_resource type="Curve" id="Curve_x342n"]
+_data = [Vector2(0, 0.770692), 0.0, 0.0, 0, 0, Vector2(0.13468, 1), 0.0, 0.0, 0, 0, Vector2(0.6633, 1), 0.0, 0.0, 0, 0, Vector2(0.89899, 0.938263), -1.09846, -1.09846, 0, 0, Vector2(1, 0.109227), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_k65sc"]
+curve = SubResource("Curve_x342n")
+
+[sub_resource type="Curve" id="Curve_q7kty"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0666236), -3.02253, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_t6v3l"]
+curve = SubResource("Curve_q7kty")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nv1ca"]
+lifetime_randomness = 0.18
+emission_shape = 3
+emission_box_extents = Vector3(20, 10, 20)
+spread = 80.556
+initial_velocity_min = 0.05
+initial_velocity_max = 0.3
+angular_velocity_min = -220.0
+angular_velocity_max = 20.4
+orbit_velocity_min = -1.167
+orbit_velocity_max = 1.931
+gravity = Vector3(0, -4, 0)
+radial_accel_min = -2.7
+radial_accel_max = -2.23517e-06
+damping_max = 0.5
+scale_min = 0.05
+scale_max = 0.7
+color = Color(0.7735, 0.833425, 0.85, 1)
+alpha_curve = SubResource("CurveTexture_k65sc")
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
+turbulence_enabled = true
+turbulence_noise_scale = 2.818
+turbulence_noise_speed_random = 1.71
+turbulence_influence_min = 0.05
+turbulence_influence_max = 0.15
+turbulence_initial_displacement_min = 1.49012e-06
+turbulence_initial_displacement_max = 0.200001
+turbulence_influence_over_life = SubResource("CurveTexture_t6v3l")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qf8n4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhoit"]
+next_pass = SubResource("ShaderMaterial_qf8n4")
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_yssg7"]
+material = SubResource("StandardMaterial3D_yhoit")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="VFX_Snow_Particles" type="GPUParticles3D" parent="."]
+amount = 40
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_nv1ca")
+draw_pass_1 = SubResource("QuadMesh_yssg7")

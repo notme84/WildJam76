@@ -13,6 +13,7 @@ height = 0.1
 
 [node name="Snowball" type="RigidBody3D"]
 collision_layer = 4
+continuous_cd = true
 script = ExtResource("1_8mdrt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

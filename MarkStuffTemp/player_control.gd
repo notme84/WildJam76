@@ -52,6 +52,7 @@ func _input(event: InputEvent):
 			#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	if event is InputEventMouseMotion && device_index < 0:
+		print("ATTEMPTING TO GET MOUSE MOVE INPUT")
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			camrot_h -= event.relative.x * Settings.mouse_sensitivity_x
 			if Settings.invert_y_look:

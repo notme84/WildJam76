@@ -7,5 +7,5 @@ func player_join(device_index: int):
 
 
 func player_leave():
-	%JoinedLabel.text = ""
-	%DeviceIndexLabel.text = ""
+	%JoinedLabel.text = "R or X"
+	%DeviceIndexLabel.text = "to join"

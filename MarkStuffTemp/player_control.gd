@@ -29,6 +29,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var using_follow_cam: bool = false
 
+var using_controller: bool = true
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -82,11 +84,21 @@ func _input(event: InputEvent):
 
 
 func _process(delta: float):
+	if using_controller: #TODO THIS WILL PROBABLY BE DETERMINED BY INPUT INDEX FYI
+		get_rotation_input()
 	update_rotation(delta)
 
 
 func _physics_process(delta: float):
 	update_move(delta)
+
+
+func get_rotation_input():
+	var input = Input.get_vector("look_left", "look_right", "look_up", "look_down")
+	camrot_h -= input.x * Settings.mouse_sensitivity_x
+	if Settings.invert_y_look:
+		camrot_v += input.y * Settings.mouse_sensitivity_y
+	else: camrot_v -= input.y * Settings.mouse_sensitivity_y
 
 
 func update_rotation(delta):

@@ -1,23 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgtglnx4hmoua"]
+[gd_scene load_steps=8 format=3 uid="uid://bgtglnx4hmoua"]
 
 [ext_resource type="Script" path="res://Script/snowball.gd" id="1_8mdrt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_t5y76"]
+radius = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2caxr"]
 albedo_color = Color(0.501681, 0.999658, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_362o0"]
-radius = 0.05
-height = 0.1
+radius = 0.1
+height = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ev1j"]
+emission_shape_scale = Vector3(0.1, 0.1, 0.1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, -0.5, 0)
+scale_max = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i85re"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0gj4a"]
+material = SubResource("StandardMaterial3D_i85re")
+size = Vector2(0.02, 0.02)
 
 [node name="Snowball" type="RigidBody3D"]
 collision_layer = 4
-continuous_cd = true
 script = ExtResource("1_8mdrt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("SphereShape3D_t5y76")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -28,5 +41,10 @@ mesh = SubResource("SphereMesh_362o0")
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_5ev1j")
+draw_pass_1 = SubResource("QuadMesh_0gj4a")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

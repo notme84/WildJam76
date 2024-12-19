@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmhvb0iolu4ac"]
+
+[ext_resource type="Material" uid="uid://dvbjdc0yfviei" path="res://assets/VFX/MAT_SnowParticle.tres" id="2_yjopv"]
+[ext_resource type="Texture2D" uid="uid://dgutdjc1jl6v0" path="res://assets/VFX/snowflake2.png" id="3_23gdd"]
+[ext_resource type="Texture2D" uid="uid://cc58eyelb8nds" path="res://assets/Shaders/Patterns/StaplePatterns_Med_Particle.png" id="3_iyf1e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fe7u"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 1
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_23gdd")
+refraction_scale = 1.0
+disable_receive_shadows = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_05bc4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhpj6"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 1
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_iyf1e")
+refraction_scale = 1.0
+disable_receive_shadows = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_vqtfx"]
+_data = [Vector2(0, 0.730866), 0.0, 3.23165, 0, 0, Vector2(0.164038, 1), 0.0, 0.0, 0, 0, Vector2(0.801262, 1), 0.064633, 0.064633, 0, 0, Vector2(1, 0.478043), -3.77026, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_rttwo"]
+curve = SubResource("Curve_vqtfx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h3t68"]
+emission_shape_scale = Vector3(20, 5, 20)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 28.79
+initial_velocity_min = 0.01
+initial_velocity_max = 0.7
+angular_velocity_min = -70.0
+angular_velocity_max = 29.79
+gravity = Vector3(0, -4, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+damping_max = 4.049
+scale_min = 0.01
+scale_max = 0.3
+color = Color(0.8556, 0.882433, 0.92, 1)
+alpha_curve = SubResource("CurveTexture_rttwo")
+hue_variation_min = -0.01
+hue_variation_max = -2.23517e-08
+turbulence_enabled = true
+turbulence_noise_strength = 3.35
+turbulence_noise_scale = 5.11
+turbulence_noise_speed_random = 2.56
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.153
+turbulence_initial_displacement_min = -6.3
+turbulence_initial_displacement_max = 4.0
+
+[node name="VFX_Snowflakes" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+
+[node name="HeroFlakes" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_1fe7u")
+cast_shadow = 0
+amount = 20
+lifetime = 6.0
+preprocess = 3.27
+randomness = 0.16
+process_material = ExtResource("2_yjopv")
+draw_pass_1 = SubResource("QuadMesh_05bc4")
+
+[node name="SmallFlakes" type="GPUParticles3D" parent="HeroFlakes"]
+material_override = SubResource("StandardMaterial3D_rhpj6")
+amount = 50
+lifetime = 6.0
+preprocess = 4.86
+randomness = 0.16
+process_material = SubResource("ParticleProcessMaterial_h3t68")
+draw_pass_1 = SubResource("QuadMesh_05bc4")

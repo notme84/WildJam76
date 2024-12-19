@@ -1,0 +1,72 @@
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://0yuc360ob1h8"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_7k7mc"]
+output_port_for_preview = 0
+parameter_name = "Color"
+default_value_enabled = true
+default_value = Color(0.835254, 4.33177e-07, 0.441206, 1)
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_pxlfo"]
+parameter_name = "Apha"
+hint = 1
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_m8b3a"]
+parameter_name = "Metallic"
+hint = 1
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_dy07e"]
+parameter_name = "Roughness"
+hint = 1
+default_value_enabled = true
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_toon, specular_schlick_ggx;
+
+uniform vec4 Color : source_color = vec4(0.835254, 0.000000, 0.441206, 1.000000);
+uniform float Apha : hint_range(0, 1) = 1;
+uniform float Metallic : hint_range(0, 1) = 0;
+uniform float Roughness : hint_range(0, 1) = 0;
+
+
+
+void fragment() {
+// ColorParameter:10
+	vec4 n_out10p0 = Color;
+
+
+// FloatParameter:13
+	float n_out13p0 = Apha;
+
+
+// FloatParameter:7
+	float n_out7p0 = Metallic;
+
+
+// FloatParameter:8
+	float n_out8p0 = Roughness;
+
+
+// Output:0
+	ALBEDO = vec3(n_out10p0.xyz);
+	ALPHA = n_out13p0;
+	METALLIC = n_out7p0;
+	ROUGHNESS = n_out8p0;
+
+
+}
+"
+modes/diffuse = 3
+nodes/fragment/0/position = Vector2(760, -100)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatParameter_m8b3a")
+nodes/fragment/7/position = Vector2(-100, 600)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatParameter_dy07e")
+nodes/fragment/8/position = Vector2(-100, 900)
+nodes/fragment/10/node = SubResource("VisualShaderNodeColorParameter_7k7mc")
+nodes/fragment/10/position = Vector2(-120, -460)
+nodes/fragment/13/node = SubResource("VisualShaderNodeFloatParameter_pxlfo")
+nodes/fragment/13/position = Vector2(-120, -40)
+nodes/fragment/connections = PackedInt32Array(10, 0, 0, 0, 13, 0, 0, 1, 7, 0, 0, 2, 8, 0, 0, 3)

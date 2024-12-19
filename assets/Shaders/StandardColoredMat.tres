@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://7jqlyr0wmwka"]
+
+[ext_resource type="Shader" uid="uid://0yuc360ob1h8" path="res://assets/Shaders/BasicColorShader.tres" id="1_q1mvj"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_q1mvj")
+shader_parameter/Color = Color(0.77, 0, 0, 1)
+shader_parameter/Apha = 1.0
+shader_parameter/Metallic = 0.875
+shader_parameter/Roughness = 0.308

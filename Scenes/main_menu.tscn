@@ -31,7 +31,12 @@ grow_vertical = 2
 [node name="StartButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Start"
+text = "Singleplayer"
+
+[node name="MPButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Multiplayer"
 
 [node name="OptionsButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 unique_name_in_owner = true
@@ -47,11 +52,3 @@ text = "Credits"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
-
-[node name="MPButton" type="Button" parent="CanvasLayer"]
-unique_name_in_owner = true
-offset_left = 1055.0
-offset_top = 610.0
-offset_right = 1148.0
-offset_bottom = 641.0
-text = "MP Testing"

@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://k5x862goldww"]
+[gd_scene load_steps=4 format=3 uid="uid://k5x862goldww"]
 
 [ext_resource type="Script" path="res://Scenes/UI/pause_menu.gd" id="1_nwbyb"]
 [ext_resource type="PackedScene" uid="uid://clb13xng636qw" path="res://Scenes/UI/options_menu.tscn" id="2_shtqk"]
+[ext_resource type="PackedScene" uid="uid://clskuqtb4v7r2" path="res://Scenes/UI/tutorial_screen.tscn" id="3_kixys"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_nwbyb")
 options_scene = ExtResource("2_shtqk")
+tutorial_scene = ExtResource("3_kixys")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 4
@@ -21,11 +23,17 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 10
 
 [node name="ResumeButton" type="Button" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "RESUME"
+
+[node name="TutorialButton" type="Button" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "How To Play?"
 
 [node name="OptionsButton" type="Button" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true

@@ -1,8 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://b8ng7ebvjequ4"]
+[gd_scene load_steps=27 format=3 uid="uid://b8ng7ebvjequ4"]
 
 [ext_resource type="Script" path="res://MarkStuffTemp/mp_viewports_container.gd" id="1_2a478"]
 [ext_resource type="PackedScene" uid="uid://bl64fol7gyyh2" path="res://MarkStuffTemp/yeti_player.tscn" id="1_4r5t1"]
+[ext_resource type="Script" path="res://Script/game_control.gd" id="1_8u10s"]
 [ext_resource type="PackedScene" uid="uid://h8q0mnhmd27d" path="res://Scenes/practice_target.tscn" id="2_bubi2"]
+[ext_resource type="PackedScene" uid="uid://k5x862goldww" path="res://Scenes/UI/pause_menu.tscn" id="2_dtli4"]
 [ext_resource type="PackedScene" uid="uid://dues512tx2al3" path="res://Scenes/Props/hedge_lumpy.tscn" id="3_gpqt2"]
 [ext_resource type="PackedScene" uid="uid://cxajk4s12gg3r" path="res://Scenes/Props/hedge_small.tscn" id="4_e48to"]
 [ext_resource type="PackedScene" uid="uid://b2hawylas6qoq" path="res://Scenes/Props/hedge_tall.tscn" id="5_f0y2w"]
@@ -36,6 +38,8 @@ size = Vector3(50, 1, 50)
 size = Vector3(50, 1, 50)
 
 [node name="MainGameMultiplayer" type="Node3D"]
+script = ExtResource("1_8u10s")
+pause_menu = ExtResource("2_dtli4")
 
 [node name="MPViewportsContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
@@ -45,74 +49,69 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 script = ExtResource("1_2a478")
+player_scene = ExtResource("1_4r5t1")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MPViewportsContainer"]
+[node name="SubViewportRow1" type="HBoxContainer" parent="MPViewportsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="SubViewportContainer1" type="SubViewportContainer" parent="MPViewportsContainer/HBoxContainer"]
+[node name="SubViewportContainer1" type="SubViewportContainer" parent="MPViewportsContainer/SubViewportRow1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/HBoxContainer/SubViewportContainer1"]
+[node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/SubViewportRow1/SubViewportContainer1"]
 handle_input_locally = false
-size = Vector2i(576, 648)
+size = Vector2i(576, 324)
 render_target_update_mode = 4
 
-[node name="YetiPlayer" parent="MPViewportsContainer/HBoxContainer/SubViewportContainer1/SubViewport" instance=ExtResource("1_4r5t1")]
-
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="MPViewportsContainer/HBoxContainer"]
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="MPViewportsContainer/SubViewportRow1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/HBoxContainer/SubViewportContainer2"]
+[node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/SubViewportRow1/SubViewportContainer2"]
 handle_input_locally = false
-size = Vector2i(576, 648)
+size = Vector2i(576, 324)
 render_target_update_mode = 4
 
-[node name="YetiPlayer2" parent="MPViewportsContainer/HBoxContainer/SubViewportContainer2/SubViewport" instance=ExtResource("1_4r5t1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.40825, 0, 3.3962)
-device_index = 0
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MPViewportsContainer"]
-visible = false
+[node name="SubViewportRow2" type="HBoxContainer" parent="MPViewportsContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="SubViewportContainer3" type="SubViewportContainer" parent="MPViewportsContainer/HBoxContainer2"]
+[node name="SubViewportContainer3" type="SubViewportContainer" parent="MPViewportsContainer/SubViewportRow2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/HBoxContainer2/SubViewportContainer3"]
+[node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/SubViewportRow2/SubViewportContainer3"]
 handle_input_locally = false
-size = Vector2i(2, 2)
-render_target_update_mode = 0
+size = Vector2i(576, 324)
+render_target_update_mode = 4
 
-[node name="SubViewportContainer4" type="SubViewportContainer" parent="MPViewportsContainer/HBoxContainer2"]
-visible = false
+[node name="SubViewportContainer4" type="SubViewportContainer" parent="MPViewportsContainer/SubViewportRow2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/HBoxContainer2/SubViewportContainer4"]
+[node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/SubViewportRow2/SubViewportContainer4"]
 handle_input_locally = false
-size = Vector2i(2, 2)
-render_target_update_mode = 0
+size = Vector2i(576, 324)
+render_target_update_mode = 4
 
 [node name="PracticeTarget" parent="." instance=ExtResource("2_bubi2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5192, 2.30042, -13.7933)
@@ -204,6 +203,8 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 disable_3d = true
 transparent_bg = true
+handle_input_locally = false
 size = Vector2i(1152, 648)
+render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]

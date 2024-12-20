@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/UI/player_panel.gd" id="1_rt805"]
 
 [node name="PlayerPanel" type="PanelContainer"]
+custom_minimum_size = Vector2(180, 0)
 script = ExtResource("1_rt805")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -11,15 +12,26 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "PLAYER 1"
+horizontal_alignment = 1
+
+[node name="DirectionsLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "To join,
+Press R on Keyboard
+Or X on Controller"
+horizontal_alignment = 1
 
 [node name="JoinedLabel" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "R or X"
 horizontal_alignment = 1
 
 [node name="DeviceIndexLabel" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "to join"
 horizontal_alignment = 1

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgtglnx4hmoua"]
+[gd_scene load_steps=9 format=3 uid="uid://bgtglnx4hmoua"]
 
 [ext_resource type="Script" path="res://Script/snowball.gd" id="1_8mdrt"]
+[ext_resource type="Texture2D" uid="uid://dgutdjc1jl6v0" path="res://assets/VFX/snowflake2.png" id="3_ckrmr"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_t5y76"]
 radius = 0.1
@@ -20,11 +21,29 @@ direction = Vector3(0, 0, 0)
 gravity = Vector3(0, -0.5, 0)
 scale_max = 2.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i85re"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4321h"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 1
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_ckrmr")
+refraction_scale = 1.0
+disable_receive_shadows = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_0gj4a"]
-material = SubResource("StandardMaterial3D_i85re")
-size = Vector2(0.02, 0.02)
+material = SubResource("StandardMaterial3D_4321h")
+size = Vector2(0.05, 0.05)
 
 [node name="Snowball" type="RigidBody3D"]
 collision_layer = 4

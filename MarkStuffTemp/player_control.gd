@@ -42,14 +42,10 @@ func _ready():
 	
 
 func _input(event: InputEvent):
-	if event.is_action_pressed("ui_cancel"):
-		var pause = pause_menu.instantiate()
-		owner.add_child(pause)
-		get_tree().paused = true
-		#if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		#elif Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#if event.is_action_pressed("ui_cancel"):
+		#var pause = pause_menu.instantiate()
+		#owner.add_child(pause)
+		#get_tree().paused = true
 	
 	if event is InputEventMouseMotion && device_index < 0:
 		#print("ATTEMPTING TO GET MOUSE MOVE INPUT")

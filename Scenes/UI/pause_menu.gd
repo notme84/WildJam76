@@ -1,19 +1,26 @@
 extends CanvasLayer
 
 @export var options_scene: PackedScene
+@export var tutorial_scene: PackedScene
+
+var submenu = null
 
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	%ResumeButton.pressed.connect(on_resume)
-	%OptionsButton.pressed.connect(on_options_pressed)
+	%TutorialButton.pressed.connect(open_submenu.bind(tutorial_scene, %TutorialButton))
+	%OptionsButton.pressed.connect(open_submenu.bind(options_scene, %OptionsButton))
 	%QuitButton.pressed.connect(on_quit)
 	
 	%ResumeButton.grab_focus()
 
 
 func _input(event: InputEvent):
+	if submenu != null:
+		return
+	
 	if event.is_action_pressed("ui_cancel") || event.is_action_pressed("back"):
 		Callable(on_resume).call_deferred()
 
@@ -24,14 +31,30 @@ func on_resume():
 	queue_free()
 
 
-func on_options_pressed():
-	var options = options_scene.instantiate()
-	options.closing.connect(on_options_closed)
-	get_parent().add_child(options)
+func open_submenu(menu_scene: PackedScene, button: Button):
+	submenu = menu_scene.instantiate()
+	submenu.closing.connect(close_submenu)
+	submenu.closing.connect(focus_on_button.bind(button))
+	get_parent().add_child(submenu)
 
 
-func on_options_closed():
-	%OptionsButton.grab_focus()
+func close_submenu():
+	if submenu == null: return
+	submenu = null
+
+
+func focus_on_button(button: Button):
+	button.grab_focus()
+
+
+#func on_options_pressed():
+	#var options = options_scene.instantiate()
+	#options.closing.connect(on_options_closed)
+	#get_parent().add_child(options)
+#
+#
+#func on_options_closed():
+	#%OptionsButton.grab_focus()
 
 
 func on_quit():

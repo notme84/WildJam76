@@ -2,10 +2,14 @@ extends PanelContainer
 
 
 func player_join(device_index: int):
+	%DirectionsLabel.visible = false
+	%JoinedLabel.visible = true
+	%DeviceIndexLabel.visible = true
 	%JoinedLabel.text = "joined"
 	%DeviceIndexLabel.text = str(device_index)
 
 
 func player_leave():
-	%JoinedLabel.text = "R or X"
-	%DeviceIndexLabel.text = "to join"
+	%DirectionsLabel.visible = true
+	%JoinedLabel.visible = false
+	%DeviceIndexLabel.visible = false

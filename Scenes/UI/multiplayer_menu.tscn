@@ -18,8 +18,17 @@ color = Color(0.552956, 0.552956, 0.552956, 1)
 
 [node name="PlayerPanelContainer" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -38.5
+offset_right = 150.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PlayerPanel" parent="PlayerPanelContainer" instance=ExtResource("3_ooc3w")]
 layout_mode = 2
@@ -27,11 +36,20 @@ layout_mode = 2
 [node name="PlayerPanel2" parent="PlayerPanelContainer" instance=ExtResource("3_ooc3w")]
 layout_mode = 2
 
+[node name="Label" parent="PlayerPanelContainer/PlayerPanel2/VBoxContainer" index="0"]
+text = "PLAYER 2"
+
 [node name="PlayerPanel3" parent="PlayerPanelContainer" instance=ExtResource("3_ooc3w")]
 layout_mode = 2
 
+[node name="Label" parent="PlayerPanelContainer/PlayerPanel3/VBoxContainer" index="0"]
+text = "PLAYER 3"
+
 [node name="PlayerPanel4" parent="PlayerPanelContainer" instance=ExtResource("3_ooc3w")]
 layout_mode = 2
+
+[node name="Label" parent="PlayerPanelContainer/PlayerPanel4/VBoxContainer" index="0"]
+text = "PLAYER 4"
 
 [node name="BackButton" type="Button" parent="."]
 unique_name_in_owner = true
@@ -48,3 +66,7 @@ offset_top = 564.0
 offset_right = 737.0
 offset_bottom = 572.0
 text = "START GAME!"
+
+[editable path="PlayerPanelContainer/PlayerPanel2"]
+[editable path="PlayerPanelContainer/PlayerPanel3"]
+[editable path="PlayerPanelContainer/PlayerPanel4"]

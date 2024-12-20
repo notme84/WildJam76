@@ -29,7 +29,7 @@ func _ready():
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel") || event.is_action_pressed("back"):
-		on_quit()
+		Callable(on_quit).call_deferred()
 
 
 func get_bus_volume_percent(bus_name: String):

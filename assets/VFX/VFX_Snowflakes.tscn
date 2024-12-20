@@ -89,6 +89,7 @@ amount = 20
 lifetime = 6.0
 preprocess = 3.27
 randomness = 0.16
+visibility_aabb = AABB(-20, -20, -20, 40, 30, 40)
 process_material = ExtResource("2_yjopv")
 draw_pass_1 = SubResource("QuadMesh_05bc4")
 
@@ -98,5 +99,6 @@ amount = 50
 lifetime = 6.0
 preprocess = 4.86
 randomness = 0.16
+visibility_aabb = AABB(-20, -20, -20, 40, 30, 40)
 process_material = SubResource("ParticleProcessMaterial_h3t68")
 draw_pass_1 = SubResource("QuadMesh_05bc4")

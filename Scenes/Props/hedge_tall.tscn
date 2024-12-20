@@ -7,6 +7,7 @@ radius = 0.941479
 height = 3.27123
 
 [node name="HedgeTall" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.05238, 0, 8.85983)
 
 [node name="HEDGE-TALL" parent="." instance=ExtResource("1_x3prm")]
 

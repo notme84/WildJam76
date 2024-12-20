@@ -1,0 +1,1074 @@
+[gd_scene load_steps=27 format=3 uid="uid://dsgultoyifh03"]
+
+[ext_resource type="Script" path="res://Script/game_control.gd" id="1_w4v3a"]
+[ext_resource type="PackedScene" uid="uid://k5x862goldww" path="res://Scenes/UI/pause_menu.tscn" id="2_il3au"]
+[ext_resource type="PackedScene" uid="uid://bl64fol7gyyh2" path="res://MarkStuffTemp/yeti_player.tscn" id="3_5fsjj"]
+[ext_resource type="PackedScene" uid="uid://h8q0mnhmd27d" path="res://Scenes/practice_target.tscn" id="4_57x5b"]
+[ext_resource type="PackedScene" uid="uid://cb0djusaus6ca" path="res://Scenes/Props/log_stack_large.tscn" id="5_21u8p"]
+[ext_resource type="PackedScene" uid="uid://iqyfrm5l4r1w" path="res://Scenes/Props/log_stack_small.tscn" id="6_tit83"]
+[ext_resource type="PackedScene" uid="uid://hdp0vgfp62x7" path="res://Scenes/Props/ornament.tscn" id="7_vbt04"]
+[ext_resource type="PackedScene" uid="uid://dpgg405ixukma" path="res://Scenes/Props/scale_box.tscn" id="8_myry5"]
+[ext_resource type="PackedScene" uid="uid://cdhqbhpgni3sx" path="res://Scenes/Props/sign_circle.tscn" id="9_afwdw"]
+[ext_resource type="PackedScene" uid="uid://bcyw8ak368aco" path="res://Scenes/Props/sign_triangle.tscn" id="10_jdl3y"]
+[ext_resource type="PackedScene" uid="uid://jc2l80pnltl8" path="res://Scenes/Props/traffic_cone.tscn" id="11_sy7f8"]
+[ext_resource type="PackedScene" uid="uid://b7qdvhbc0y5an" path="res://Scenes/Props/tree_pine_bent.tscn" id="12_h821g"]
+[ext_resource type="PackedScene" uid="uid://c1pnqadtankmw" path="res://Scenes/Props/tree_pine_short.tscn" id="13_tkdbu"]
+[ext_resource type="PackedScene" uid="uid://cwbyskhm0c3qd" path="res://Scenes/Props/tree_pine_straight.tscn" id="14_u7b1a"]
+[ext_resource type="PackedScene" uid="uid://cs64hixqn5e3t" path="res://Scenes/Props/tree_pine_tall.tscn" id="15_v56u3"]
+[ext_resource type="PackedScene" uid="uid://bxgvaqkqy8wqg" path="res://Scenes/Props/wood_stack.tscn" id="16_vei0k"]
+[ext_resource type="PackedScene" uid="uid://dues512tx2al3" path="res://Scenes/Props/hedge_lumpy.tscn" id="17_u438q"]
+[ext_resource type="PackedScene" uid="uid://cxajk4s12gg3r" path="res://Scenes/Props/hedge_small.tscn" id="18_12per"]
+[ext_resource type="PackedScene" uid="uid://b2hawylas6qoq" path="res://Scenes/Props/hedge_tall.tscn" id="19_gteti"]
+[ext_resource type="PackedScene" uid="uid://cmhvb0iolu4ac" path="res://assets/VFX/VFX_Snowflakes.tscn" id="20_iptpv"]
+[ext_resource type="PackedScene" uid="uid://d0clotds40svo" path="res://Scenes/yeti_enemy.tscn" id="21_bxmev"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_crkph"]
+
+[sub_resource type="Sky" id="Sky_8dhso"]
+sky_material = SubResource("ProceduralSkyMaterial_crkph")
+
+[sub_resource type="Environment" id="Environment_o45eo"]
+background_mode = 2
+sky = SubResource("Sky_8dhso")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dyt8r"]
+size = Vector3(497.059, 1, 499.53)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mhvfs"]
+size = Vector3(500, 1, 500)
+
+[node name="Arena" type="Node3D"]
+script = ExtResource("1_w4v3a")
+pause_menu = ExtResource("2_il3au")
+
+[node name="YetiPlayer" parent="." instance=ExtResource("3_5fsjj")]
+
+[node name="PracticeTarget" parent="." instance=ExtResource("4_57x5b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5192, 2.30042, -13.7933)
+
+[node name="PracticeTarget2" parent="." instance=ExtResource("4_57x5b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54684, 2.30042, -13.7933)
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_o45eo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 0.46793, 0.883766, 0, -0.883766, 0.46793, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticBody3D"]
+shape = SubResource("BoxShape3D_dyt8r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StaticBody3D"]
+mesh = SubResource("BoxMesh_mhvfs")
+
+[node name="Props" type="Node3D" parent="Environment"]
+
+[node name="LogStackLarge" parent="Environment/Props" instance=ExtResource("5_21u8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0275, -0.00012207, -2.15432)
+
+[node name="LogStackSmall" parent="Environment/Props" instance=ExtResource("6_tit83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.58699, 0, -0.528992)
+
+[node name="Ornament" parent="Environment/Props" instance=ExtResource("7_vbt04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6698, 0, -20.1043)
+
+[node name="ScaleBox" parent="Environment/Props" instance=ExtResource("8_myry5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66545, 0, -9.40727)
+
+[node name="SignCircle" parent="Environment/Props" instance=ExtResource("9_afwdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.05309, 0, -12.8625)
+
+[node name="SignTriangle" parent="Environment/Props" instance=ExtResource("10_jdl3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6236, 0, -14.9402)
+
+[node name="TrafficCone" parent="Environment/Props" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87083, 0, 8.83939)
+
+[node name="TreePineBent" parent="Environment/Props" instance=ExtResource("12_h821g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5655, 0, -1.93588)
+
+[node name="TreePineShort" parent="Environment/Props" instance=ExtResource("13_tkdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3388, 0, -6.58419)
+
+[node name="TreePineStraight" parent="Environment/Props" instance=ExtResource("14_u7b1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.40688, 0, 3.38299)
+
+[node name="TreePineTall" parent="Environment/Props" instance=ExtResource("15_v56u3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9243, 0, 0.319782)
+
+[node name="WoodStack" parent="Environment/Props" instance=ExtResource("16_vei0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61244, 0, -6.75988)
+
+[node name="Bushes" type="Node3D" parent="Environment/Props"]
+
+[node name="HedgeLumpy" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.30467, 0, 3.91861)
+
+[node name="HedgeSmall" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.31224, 0, 6.24854)
+
+[node name="HedgeTall" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.05238, 0, 8.85983)
+
+[node name="HedgeLumpy2" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.628751, 0, 0.777607, 0, 1, 0, -0.777607, 0, 0.628751, 45.9503, 0, -170.401)
+
+[node name="HedgeSmall2" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.628751, 0, 0.777607, 0, 1, 0, -0.777607, 0, 0.628751, 44.623, 0, -165.054)
+
+[node name="HedgeTall2" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.628751, 0, 0.777607, 0, 1, 0, -0.777607, 0, 0.628751, 49.634, 0, -167.098)
+
+[node name="HedgeLumpy3" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.628751, 0, 0.777607, 0, 1, 0, -0.777607, 0, 0.628751, -137.67, 0, -37.3421)
+
+[node name="HedgeSmall3" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.628751, 0, 0.777607, 0, 1, 0, -0.777607, 0, 0.628751, -138.997, 0, -31.995)
+
+[node name="HedgeTall3" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.628751, 0, 0.777607, 0, 1, 0, -0.777607, 0, 0.628751, -133.986, 0, -34.0391)
+
+[node name="HedgeLumpy4" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.670349, 0, 0.742046, 0, 1, 0, -0.742046, 0, -0.670349, 180.125, 0, 121.411)
+
+[node name="HedgeSmall4" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.670349, 0, 0.742046, 0, 1, 0, -0.742046, 0, -0.670349, 185.201, 0, 123.554)
+
+[node name="HedgeTall4" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.670349, 0, 0.742046, 0, 1, 0, -0.742046, 0, -0.670349, 183.961, 0, 118.286)
+
+[node name="HedgeLumpy5" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.371579, 0, -0.928401, 0, 1, 0, 0.928401, 0, -0.371579, -226.056, 0, 100.501)
+
+[node name="HedgeSmall5" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.371579, 0, -0.928401, 0, 1, 0, 0.928401, 0, -0.371579, -226.364, 0, 94.9998)
+
+[node name="HedgeTall5" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.371579, 0, -0.928401, 0, 1, 0, 0.928401, 0, -0.371579, -230.55, 0, 98.4302)
+
+[node name="HedgeLumpy6" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.744649, 0, -0.667456, 0, 1, 0, 0.667456, 0, 0.744649, -374.756, 0, 860.157)
+
+[node name="HedgeSmall6" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.744649, 0, -0.667456, 0, 1, 0, 0.667456, 0, 0.744649, -380.029, 0, 858.559)
+
+[node name="HedgeTall6" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.744649, 0, -0.667456, 0, 1, 0, 0.667456, 0, 0.744649, -378.242, 0, 863.668)
+
+[node name="HedgeLumpy7" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.983283, 0, 0.182081, 0, 1, 0, -0.182081, 0, 0.983283, -65.0301, 0, -42.5048)
+
+[node name="HedgeSmall7" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.983283, 0, 0.182081, 0, 1, 0, -0.182081, 0, 0.983283, -69.5149, 0, -39.3047)
+
+[node name="HedgeTall7" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.983283, 0, 0.182081, 0, 1, 0, -0.182081, 0, 0.983283, -64.3786, 0, -37.6001)
+
+[node name="HedgeLumpy8" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.744649, 0, -0.667456, 0, 1, 0, 0.667456, 0, 0.744649, -63.3882, 0, 213.333)
+
+[node name="HedgeSmall8" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.744649, 0, -0.667456, 0, 1, 0, 0.667456, 0, 0.744649, -68.6611, 0, 211.736)
+
+[node name="HedgeTall8" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.744649, 0, -0.667456, 0, 1, 0, 0.667456, 0, 0.744649, -66.8743, 0, 216.844)
+
+[node name="HedgeLumpy9" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.671203, 0, 0.741273, 0, 1, 0, -0.741273, 0, 0.671203, -412.445, 0, 1111.65)
+
+[node name="HedgeSmall9" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.671203, 0, 0.741273, 0, 1, 0, -0.741273, 0, 0.671203, -414.069, 0, 1116.91)
+
+[node name="HedgeTall9" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.671203, 0, 0.741273, 0, 1, 0, -0.741273, 0, 0.671203, -408.952, 0, 1115.15)
+
+[node name="HedgeLumpy10" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.750065, 0, 0.661364, 0, 1, 0, -0.661364, 0, -0.750065, 6.94391, 0, 215.583)
+
+[node name="HedgeSmall10" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.750065, 0, 0.661364, 0, 1, 0, -0.661364, 0, -0.750065, 12.2295, 0, 217.138)
+
+[node name="HedgeTall10" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.750065, 0, 0.661364, 0, 1, 0, -0.661364, 0, -0.750065, 10.4012, 0, 212.044)
+
+[node name="HedgeLumpy11" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.990953, 0, 0.134211, 0, 1, 0, -0.134211, 0, -0.990953, 7.80035, 0, -1.54327)
+
+[node name="HedgeSmall11" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.990953, 0, 0.134211, 0, 1, 0, -0.134211, 0, -0.990953, 13.0603, 0, -3.18219)
+
+[node name="HedgeTall11" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.990953, 0, 0.134211, 0, 1, 0, -0.134211, 0, -0.990953, 8.71362, 0, -6.40601)
+
+[node name="HedgeLumpy12" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.038283, 0, 0.999267, 0, 1, 0, -0.999267, 0, -0.038283, 198.079, 0, -5.36469)
+
+[node name="HedgeSmall12" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.038283, 0, 0.999267, 0, 1, 0, -0.999267, 0, -0.038283, 200.598, 0, -0.465149)
+
+[node name="HedgeTall12" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.038283, 0, 0.999267, 0, 1, 0, -0.999267, 0, -0.038283, 203.026, 0, -5.3017)
+
+[node name="HedgeLumpy13" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.947952, 0, -0.318413, 0, 1, 0, 0.318413, 0, -0.947952, -146.754, 0, 47.2124)
+
+[node name="HedgeSmall13" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.947952, 0, -0.318413, 0, 1, 0, 0.318413, 0, -0.947952, -142.763, 0, 43.414)
+
+[node name="HedgeTall13" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.947952, 0, -0.318413, 0, 1, 0, 0.318413, 0, -0.947952, -148.088, 0, 42.4479)
+
+[node name="HedgeLumpy14" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.947952, 0, -0.318413, 0, 1, 0, 0.318413, 0, -0.947952, 226.165, 0, -52.3488)
+
+[node name="HedgeSmall14" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.947952, 0, -0.318413, 0, 1, 0, 0.318413, 0, -0.947952, 230.156, 0, -56.1472)
+
+[node name="HedgeTall14" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.947952, 0, -0.318413, 0, 1, 0, 0.318413, 0, -0.947952, 224.831, 0, -57.1132)
+
+[node name="HedgeLumpy16" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.15026, 0, 0.988647, 0, 1, 0, -0.988647, 0, 0.15026, 52.5459, 0, -240.787)
+
+[node name="HedgeSmall16" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.15026, 0, 0.988647, 0, 1, 0, -0.988647, 0, 0.15026, 54.0992, 0, -235.502)
+
+[node name="HedgeTall16" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.15026, 0, 0.988647, 0, 1, 0, -0.988647, 0, 0.15026, 57.3931, 0, -239.795)
+
+[node name="HedgeLumpy17" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.15026, 0, 0.988647, 0, 1, 0, -0.988647, 0, 0.15026, 635.448, 0, 318.972)
+
+[node name="HedgeSmall17" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.15026, 0, 0.988647, 0, 1, 0, -0.988647, 0, 0.15026, 637.001, 0, 324.258)
+
+[node name="HedgeTall17" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.15026, 0, 0.988647, 0, 1, 0, -0.988647, 0, 0.15026, 640.295, 0, 319.964)
+
+[node name="HedgeLumpy18" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.953243, 0, 0.302204, 0, 1, 0, -0.302204, 0, -0.953243, 315.671, 0, 843.991)
+
+[node name="HedgeSmall18" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.953243, 0, 0.302204, 0, 1, 0, -0.302204, 0, -0.953243, 321.134, 0, 843.279)
+
+[node name="HedgeTall18" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.953243, 0, 0.302204, 0, 1, 0, -0.302204, 0, -0.953243, 317.405, 0, 839.357)
+
+[node name="HedgeLumpy19" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.979733, 0, -0.200309, 0, 1, 0, 0.200309, 0, 0.979733, 57.881, 0, -135.328)
+
+[node name="HedgeSmall19" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.979733, 0, -0.200309, 0, 1, 0, 0.200309, 0, 0.979733, 52.5229, 0, -134.045)
+
+[node name="HedgeTall19" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.979733, 0, -0.200309, 0, 1, 0, 0.200309, 0, 0.979733, 56.6439, 0, -130.537)
+
+[node name="HedgeLumpy20" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.756915, 0, 0.653513, 0, 1, 0, -0.653513, 0, 0.756915, -8.91077, 0, -190.017)
+
+[node name="HedgeSmall20" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.756915, 0, 0.653513, 0, 1, 0, -0.653513, 0, 0.756915, -11.1671, 0, -184.991)
+
+[node name="HedgeTall20" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.756915, 0, 0.653513, 0, 1, 0, -0.653513, 0, 0.756915, -5.87268, 0, -186.112)
+
+[node name="HedgeLumpy21" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.205248, 0, 0.97871, 0, 1, 0, -0.97871, 0, 0.205248, -180.833, 0, 204.228)
+
+[node name="HedgeSmall21" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.205248, 0, 0.97871, 0, 1, 0, -0.97871, 0, 0.205248, -179.577, 0, 209.593)
+
+[node name="HedgeTall21" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.205248, 0, 0.97871, 0, 1, 0, -0.97871, 0, 0.205248, -176.048, 0, 205.489)
+
+[node name="HedgeLumpy22" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.92319, 0, -0.384343, 0, 1, 0, 0.384343, 0, -0.92319, 512.712, 0, 953.844)
+
+[node name="HedgeSmall22" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.92319, 0, -0.384343, 0, 1, 0, 0.384343, 0, -0.92319, 516.425, 0, 949.774)
+
+[node name="HedgeTall22" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.92319, 0, -0.384343, 0, 1, 0, 0.384343, 0, -0.92319, 511.046, 0, 949.185)
+
+[node name="HedgeLumpy23" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.537447, 0, 0.843298, 0, 1, 0, -0.843298, 0, -0.537447, -27.2903, 0, -45.9935)
+
+[node name="HedgeSmall23" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.537447, 0, 0.843298, 0, 1, 0, -0.843298, 0, -0.537447, -22.6423, 0, -43.0357)
+
+[node name="HedgeTall23" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.537447, 0, 0.843298, 0, 1, 0, -0.843298, 0, -0.537447, -22.9878, 0, -48.4364)
+
+[node name="HedgeLumpy24" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.657599, 0, -0.753368, 0, 1, 0, 0.753368, 0, -0.657599, -92.5537, 0, 41.2463)
+
+[node name="HedgeSmall24" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.657599, 0, -0.753368, 0, 1, 0, 0.753368, 0, -0.657599, -91.0262, 0, 35.9529)
+
+[node name="HedgeTall24" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.657599, 0, -0.753368, 0, 1, 0, 0.753368, 0, -0.657599, -96.1105, 0, 37.8068)
+
+[node name="HedgeLumpy25" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.657599, 0, -0.753368, 0, 1, 0, 0.753368, 0, -0.657599, 267.706, 0, 670.753)
+
+[node name="HedgeSmall25" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.657599, 0, -0.753368, 0, 1, 0, 0.753368, 0, -0.657599, 269.234, 0, 665.46)
+
+[node name="HedgeTall25" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.657599, 0, -0.753368, 0, 1, 0, 0.753368, 0, -0.657599, 264.149, 0, 667.314)
+
+[node name="HedgeLumpy26" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.991278, 0, 0.131789, 0, 1, 0, -0.131789, 0, -0.991278, 507.937, 0, -192.944)
+
+[node name="HedgeSmall26" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.991278, 0, 0.131789, 0, 1, 0, -0.131789, 0, -0.991278, 513.193, 0, -194.596)
+
+[node name="HedgeTall26" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.991278, 0, 0.131789, 0, 1, 0, -0.131789, 0, -0.991278, 508.838, 0, -197.809)
+
+[node name="HedgeLumpy27" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.991278, 0, 0.131789, 0, 1, 0, -0.131789, 0, -0.991278, 156.283, 0, -769.385)
+
+[node name="HedgeSmall27" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.991278, 0, 0.131789, 0, 1, 0, -0.131789, 0, -0.991278, 161.539, 0, -771.037)
+
+[node name="HedgeTall27" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.991278, 0, 0.131789, 0, 1, 0, -0.131789, 0, -0.991278, 157.184, 0, -774.25)
+
+[node name="HedgeLumpy28" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.284367, 0, -0.958716, 0, 1, 0, 0.958716, 0, -0.284367, -269.252, 0, -258.638)
+
+[node name="HedgeSmall28" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.284367, 0, -0.958716, 0, 1, 0, 0.958716, 0, -0.284367, -270.066, 0, -264.087)
+
+[node name="HedgeTall28" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.284367, 0, -0.958716, 0, 1, 0, 0.958716, 0, -0.284367, 106.631, 0, 157.609)
+
+[node name="HedgeLumpy29" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.181995, 0, 0.983299, 0, 1, 0, -0.983299, 0, 0.181995, 52.442, 0, -218.192)
+
+[node name="HedgeSmall29" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.181995, 0, 0.983299, 0, 1, 0, -0.983299, 0, 0.181995, 53.8244, 0, -212.859)
+
+[node name="HedgeTall29" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.181995, 0, 0.983299, 0, 1, 0, -0.983299, 0, 0.181995, 57.2548, 0, -217.045)
+
+[node name="HedgeLumpy30" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.667521, 0, 0.744591, 0, 1, 0, -0.744591, 0, -0.667521, -212.092, 0, -80.1989)
+
+[node name="HedgeSmall30" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.667521, 0, 0.744591, 0, 1, 0, -0.744591, 0, -0.667521, -207.025, 0, -78.0368)
+
+[node name="HedgeTall30" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.667521, 0, 0.744591, 0, 1, 0, -0.744591, 0, -0.667521, -208.244, 0, -83.3093)
+
+[node name="HedgeLumpy31" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.982369, 0, 0.186953, 0, 1, 0, -0.186953, 0, -0.982369, 185.292, 0, 84.3379)
+
+[node name="HedgeSmall31" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.982369, 0, 0.186953, 0, 1, 0, -0.186953, 0, -0.982369, 190.632, 0, 82.9822)
+
+[node name="HedgeTall31" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.982369, 0, 0.186953, 0, 1, 0, -0.186953, 0, -0.982369, 186.464, 0, 79.5309)
+
+[node name="HedgeLumpy32" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.4015, 0, -0.915859, 0, 1, 0, 0.915859, 0, 0.4015, 793.334, 0, -658.516)
+
+[node name="HedgeSmall32" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.4015, 0, -0.915859, 0, 1, 0, 0.915859, 0, 0.4015, 213.316, 0, -43.437)
+
+[node name="HedgeTall32" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.4015, 0, -0.915859, 0, 1, 0, 0.915859, 0, 0.4015, 212.828, 0, -38.0474)
+
+[node name="HedgeLumpy122" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.4015, 0, -0.915859, 0, 1, 0, 0.915859, 0, 0.4015, -163.094, 0, -147.663)
+
+[node name="HedgeSmall122" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.4015, 0, -0.915859, 0, 1, 0, 0.915859, 0, 0.4015, -167.232, 0, -151.3)
+
+[node name="HedgeTall46" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.4015, 0, -0.915859, 0, 1, 0, 0.915859, 0, 0.4015, -167.721, 0, -145.91)
+
+[node name="HedgeLumpy123" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.4015, 0, -0.915859, 0, 1, 0, 0.915859, 0, 0.4015, -163.094, 0, -147.663)
+
+[node name="HedgeSmall123" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.4015, 0, -0.915859, 0, 1, 0, 0.915859, 0, 0.4015, -167.232, 0, -151.3)
+
+[node name="HedgeTall47" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.4015, 0, -0.915859, 0, 1, 0, 0.915859, 0, 0.4015, -167.721, 0, -145.91)
+
+[node name="HedgeLumpy33" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.833124, 0, -0.553086, 0, 1, 0, 0.553086, 0, -0.833124, 115.098, 0, -200.248)
+
+[node name="HedgeSmall33" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.833124, 0, -0.553086, 0, 1, 0, 0.553086, 0, -0.833124, 117.968, 0, -204.951)
+
+[node name="HedgeTall33" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.833124, 0, -0.553086, 0, 1, 0, 0.553086, 0, -0.833124, 112.575, 0, -204.505)
+
+[node name="HedgeLumpy34" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.765506, 0, -0.643429, 0, 1, 0, 0.643429, 0, 0.765506, 379.205, 0, -630.647)
+
+[node name="HedgeSmall34" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.765506, 0, -0.643429, 0, 1, 0, 0.643429, 0, 0.765506, 373.884, 0, -632.075)
+
+[node name="HedgeTall34" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.765506, 0, -0.643429, 0, 1, 0, 0.643429, 0, 0.765506, 375.832, 0, -627.027)
+
+[node name="HedgeLumpy35" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.765506, 0, -0.643429, 0, 1, 0, 0.643429, 0, 0.765506, 514.864, 0, -408.271)
+
+[node name="HedgeSmall35" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.765506, 0, -0.643429, 0, 1, 0, 0.643429, 0, 0.765506, 509.543, 0, -409.7)
+
+[node name="HedgeTall35" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.765506, 0, -0.643429, 0, 1, 0, 0.643429, 0, 0.765506, 511.491, 0, -404.651)
+
+[node name="HedgeLumpy36" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.991278, 0, 0.131789, 0, 1, 0, -0.131789, 0, -0.991278, 16.0174, 0, -137.855)
+
+[node name="HedgeSmall36" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.991278, 0, 0.131789, 0, 1, 0, -0.131789, 0, -0.991278, 21.2733, 0, -139.506)
+
+[node name="HedgeTall36" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.991278, 0, 0.131789, 0, 1, 0, -0.131789, 0, -0.991278, 16.9186, 0, -142.719)
+
+[node name="HedgeLumpy37" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.991278, 0, 0.131789, 0, 1, 0, -0.131789, 0, -0.991278, -5.22884, 0, -19.6862)
+
+[node name="HedgeSmall37" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.991278, 0, 0.131789, 0, 1, 0, -0.131789, 0, -0.991278, 0.0271454, 0, -21.3379)
+
+[node name="HedgeTall37" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.991278, 0, 0.131789, 0, 1, 0, -0.131789, 0, -0.991278, -4.32747, 0, -24.5511)
+
+[node name="HedgeLumpy38" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.284367, 0, -0.958716, 0, 1, 0, 0.958716, 0, -0.284367, 134.68, 0, -137.607)
+
+[node name="HedgeSmall38" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.284367, 0, -0.958716, 0, 1, 0, 0.958716, 0, -0.284367, 133.866, 0, -143.056)
+
+[node name="HedgeTall38" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.284367, 0, -0.958716, 0, 1, 0, 0.958716, 0, -0.284367, 130.014, 0, -139.254)
+
+[node name="HedgeLumpy39" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.828021, 0, 0.560697, 0, 1, 0, -0.560697, 0, -0.828021, 170.3, 0, 78.4123)
+
+[node name="HedgeSmall39" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.828021, 0, 0.560697, 0, 1, 0, -0.560697, 0, -0.828021, 175.74, 0, 79.2823)
+
+[node name="HedgeTall39" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.828021, 0, 0.560697, 0, 1, 0, -0.560697, 0, -0.828021, 173.28, 0, 74.4624)
+
+[node name="HedgeLumpy40" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.667521, 0, 0.744591, 0, 1, 0, -0.744591, 0, -0.667521, -714.62, 0, -1165.79)
+
+[node name="HedgeSmall40" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.667521, 0, 0.744591, 0, 1, 0, -0.744591, 0, -0.667521, -709.553, 0, -1163.63)
+
+[node name="HedgeTall40" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.667521, 0, 0.744591, 0, 1, 0, -0.744591, 0, -0.667521, -710.772, 0, -1168.9)
+
+[node name="HedgeLumpy41" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.982369, 0, 0.186953, 0, 1, 0, -0.186953, 0, -0.982369, 146.503, 0, -12.9715)
+
+[node name="HedgeSmall41" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.982369, 0, 0.186953, 0, 1, 0, -0.186953, 0, -0.982369, 151.843, 0, -14.3272)
+
+[node name="HedgeTall41" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.982369, 0, 0.186953, 0, 1, 0, -0.186953, 0, -0.982369, 147.675, 0, -17.7785)
+
+[node name="HedgeLumpy42" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.4015, 0, -0.915859, 0, 1, 0, 0.915859, 0, 0.4015, -103.138, 0, -60.2776)
+
+[node name="HedgeSmall42" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.4015, 0, -0.915859, 0, 1, 0, 0.915859, 0, 0.4015, -107.276, 0, -63.9144)
+
+[node name="HedgeTall42" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.4015, 0, -0.915859, 0, 1, 0, 0.915859, 0, 0.4015, -107.765, 0, -58.5248)
+
+[node name="HedgeLumpy43" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.833124, 0, -0.553086, 0, 1, 0, 0.553086, 0, -0.833124, -460.65, 0, -818.964)
+
+[node name="HedgeSmall43" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.833124, 0, -0.553086, 0, 1, 0, 0.553086, 0, -0.833124, -457.78, 0, -823.666)
+
+[node name="HedgeTall43" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.833124, 0, -0.553086, 0, 1, 0, 0.553086, 0, -0.833124, -463.173, 0, -823.22)
+
+[node name="HedgeLumpy44" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.765506, 0, -0.643429, 0, 1, 0, 0.643429, 0, 0.765506, 217.693, 0, 119.052)
+
+[node name="HedgeSmall44" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.765506, 0, -0.643429, 0, 1, 0, 0.643429, 0, 0.765506, 212.372, 0, 117.624)
+
+[node name="HedgeTall44" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.765506, 0, -0.643429, 0, 1, 0, 0.643429, 0, 0.765506, 214.321, 0, 122.672)
+
+[node name="HedgeLumpy45" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.765506, 0, -0.643429, 0, 1, 0, 0.643429, 0, 0.765506, -37.633, 0, -86.4189)
+
+[node name="HedgeSmall45" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.765506, 0, -0.643429, 0, 1, 0, 0.643429, 0, 0.765506, -42.9539, 0, -87.8475)
+
+[node name="HedgeTall45" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(0.765506, 0, -0.643429, 0, 1, 0, 0.643429, 0, 0.765506, -41.0056, 0, -82.7986)
+
+[node name="HedgeLumpy15" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.947952, 0, -0.318413, 0, 1, 0, 0.318413, 0, -0.947952, -153.128, 0, -38.5775)
+
+[node name="HedgeSmall15" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.947952, 0, -0.318413, 0, 1, 0, 0.318413, 0, -0.947952, -149.137, 0, -42.3759)
+
+[node name="HedgeTall15" parent="Environment/Props/Bushes" instance=ExtResource("19_gteti")]
+transform = Transform3D(-0.947952, 0, -0.318413, 0, 1, 0, 0.318413, 0, -0.947952, -154.462, 0, -43.3419)
+
+[node name="HedgeSmall46" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.87, 0, -170.628)
+
+[node name="HedgeSmall47" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -394.841, 0, -103.608)
+
+[node name="HedgeSmall48" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.144, 0, -103.608)
+
+[node name="HedgeSmall49" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.144, 0, -103.608)
+
+[node name="HedgeSmall50" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -586.421, 0, 672.288)
+
+[node name="HedgeSmall54" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -586.421, 0, 284.937)
+
+[node name="HedgeSmall55" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -796.537, 0, 284.937)
+
+[node name="HedgeSmall56" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.886, 0, -43.5933)
+
+[node name="HedgeSmall57" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.6017, 0, -43.5933)
+
+[node name="HedgeSmall58" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.6017, 0, -43.5933)
+
+[node name="HedgeSmall51" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -340.351, 0, 1009.88)
+
+[node name="HedgeSmall52" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.2226, 0, -104.558)
+
+[node name="HedgeSmall53" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -922.783, 0, 103.516)
+
+[node name="HedgeSmall59" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.2921, 0, 38.6138)
+
+[node name="HedgeSmall60" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.2921, 0, 248.935)
+
+[node name="HedgeSmall61" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.461516, 0, -0.887132, 0, 1, 0, 0.887132, 0, 0.461516, -210.031, 0, 233.886)
+
+[node name="HedgeSmall62" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.461516, 0, -0.887132, 0, 1, 0, 0.887132, 0, 0.461516, 5.78073, 0, 48.7806)
+
+[node name="HedgeSmall63" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.461516, 0, -0.887132, 0, 1, 0, 0.887132, 0, 0.461516, -155.798, 0, -286.54)
+
+[node name="HedgeSmall64" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.461516, 0, -0.887132, 0, 1, 0, 0.887132, 0, 0.461516, -687.398, 0, 293.368)
+
+[node name="HedgeLumpy46" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -685.021, 0, 643.009)
+
+[node name="HedgeLumpy47" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -178.825, 0, 29.2206)
+
+[node name="HedgeLumpy48" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.122354, 0, 0.992486, 0, 1, 0, -0.992486, 0, 0.122354, -178.825, 0, 109.395)
+
+[node name="HedgeLumpy49" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.367232, 0, 0.930129, 0, 1, 0, -0.930129, 0, -0.367232, -17.7027, 0, 202.84)
+
+[node name="HedgeLumpy50" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.367232, 0, 0.930129, 0, 1, 0, -0.930129, 0, -0.367232, -17.7027, 0, -68.9824)
+
+[node name="HedgeLumpy51" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.922484, 0, 0.386035, 0, 1, 0, -0.386035, 0, -0.922484, -195.371, 0, -68.9824)
+
+[node name="HedgeLumpy52" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.547899, 0, -0.836544, 0, 1, 0, 0.836544, 0, -0.547899, -1173.79, 0, 767.173)
+
+[node name="HedgeLumpy53" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.627039, 0, -0.778988, 0, 1, 0, 0.778988, 0, 0.627039, -246.015, 0, -133.425)
+
+[node name="HedgeLumpy54" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.990653, 0, 0.136407, 0, 1, 0, -0.136407, 0, 0.990653, -141.696, 0, -311.196)
+
+[node name="HedgeLumpy55" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.00567225, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00567225, -33.033, 0, 106.561)
+
+[node name="HedgeLumpy56" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.00567225, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00567225, -107.413, 0, 228.865)
+
+[node name="HedgeLumpy57" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.00567225, 0, 0.999984, 0, 1, 0, -0.999984, 0, -0.00567225, -650.25, 0, 711.706)
+
+[node name="HedgeLumpy58" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.630838, 0, 0.775914, 0, 1, 0, -0.775914, 0, -0.630838, 41.2021, 0, 52.3764)
+
+[node name="HedgeLumpy59" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.767758, 0, -0.64074, 0, 1, 0, 0.64074, 0, -0.767758, -302.182, 0, 952.024)
+
+[node name="HedgeLumpy60" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.231969, 0, -0.972723, 0, 1, 0, 0.972723, 0, -0.231969, -101.521, 0, 101.383)
+
+[node name="HedgeLumpy61" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.231969, 0, -0.972723, 0, 1, 0, 0.972723, 0, -0.231969, -101.521, 0, 188.231)
+
+[node name="HedgeLumpy62" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.948716, 0, -0.316129, 0, 1, 0, 0.316129, 0, -0.948716, -68.6487, 0, 24.0691)
+
+[node name="HedgeLumpy63" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.944206, 0.255243, -0.20815, -0.249258, 0.966877, 0.054949, 0.215281, 3.62038e-09, 0.976552, -227.926, 0, 59.5337)
+
+[node name="HedgeLumpy64" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.944206, 0.255243, -0.20815, -0.249258, 0.966877, 0.054949, 0.215281, 3.62038e-09, 0.976552, -1110.42, 0, 59.5337)
+
+[node name="HedgeSmall65" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, -138.252, 0, 146.456)
+
+[node name="HedgeSmall66" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, -89.2487, 0, 209.387)
+
+[node name="HedgeSmall67" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, -119.466, 0, -75.7134)
+
+[node name="HedgeSmall68" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, -119.466, 0, -75.7134)
+
+[node name="HedgeSmall69" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 185.33, 0, 24.3821)
+
+[node name="HedgeSmall70" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, -199.864, 0, 65.2075)
+
+[node name="HedgeSmall71" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 407.41, 0, 772.174)
+
+[node name="HedgeSmall72" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 659.868, 0, 745.416)
+
+[node name="HedgeSmall73" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, -16.801, 0, 87.056)
+
+[node name="HedgeSmall74" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, -16.801, 0, 87.056)
+
+[node name="HedgeSmall75" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 1080.23, 0, 242.122)
+
+[node name="HedgeSmall76" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, -118.472, 0, 185.919)
+
+[node name="HedgeSmall77" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 240.306, 0, 916.838)
+
+[node name="HedgeSmall78" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 63.44, 0, 64.1618)
+
+[node name="HedgeSmall79" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, -60.5322, 0, 145.426)
+
+[node name="HedgeSmall80" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.833549, 0, 0.552446, 0, 1, 0, -0.552446, 0, 0.833549, 233.981, 0, 300.217)
+
+[node name="HedgeSmall81" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.833549, 0, 0.552446, 0, 1, 0, -0.552446, 0, 0.833549, 88.0078, 0, -0.785706)
+
+[node name="HedgeSmall82" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.833549, 0, 0.552446, 0, 1, 0, -0.552446, 0, 0.833549, 166.711, 0, -10.5802)
+
+[node name="HedgeSmall83" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.833549, 0, 0.552446, 0, 1, 0, -0.552446, 0, 0.833549, 404.291, 0, 662.753)
+
+[node name="HedgeLumpy65" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 166.607, 0, 125.519)
+
+[node name="HedgeLumpy66" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 20.0728, 0, -19.4255)
+
+[node name="HedgeLumpy67" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.999854, 0, 0.0170685, 0, 1, 0, -0.0170685, 0, -0.999854, 99.8005, 0, -27.8756)
+
+[node name="HedgeLumpy68" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.886244, 0, -0.463219, 0, 1, 0, 0.463219, 0, -0.886244, -109.49, 0, 120.86)
+
+[node name="HedgeLumpy69" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.886244, 0, -0.463219, 0, 1, 0, 0.463219, 0, -0.886244, -46.6755, 0, 46.0775)
+
+[node name="HedgeLumpy70" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.286658, 0, -0.958033, 0, 1, 0, 0.958033, 0, -0.286658, -16.0558, 0, -156.654)
+
+[node name="HedgeLumpy71" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.889632, 0, -0.456679, 0, 1, 0, 0.456679, 0, 0.889632, -108.732, 0, 299.443)
+
+[node name="HedgeLumpy72" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.708562, 0, 0.705649, 0, 1, 0, -0.705649, 0, 0.708562, -127.491, 0, 374.713)
+
+[node name="HedgeLumpy73" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.240059, 0, 0.970758, 0, 1, 0, -0.970758, 0, -0.240059, 641.161, 0, 88.89)
+
+[node name="HedgeLumpy74" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.993816, 0, -0.111035, 0, 1, 0, 0.111035, 0, -0.993816, 666.072, 0, 323.927)
+
+[node name="HedgeLumpy75" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.993816, 0, -0.111035, 0, 1, 0, 0.111035, 0, -0.993816, 210.407, 0, -113.018)
+
+[node name="HedgeLumpy76" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.993816, 0, -0.111035, 0, 1, 0, 0.111035, 0, -0.993816, 231.256, 0, 83.701)
+
+[node name="HedgeLumpy77" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.705105, 0, -0.709103, 0, 1, 0, 0.709103, 0, -0.705105, 19.9094, 0, -240.668)
+
+[node name="HedgeLumpy78" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.71809, 0, -0.69595, 0, 1, 0, 0.69595, 0, 0.71809, 1018.68, 0, 210.264)
+
+[node name="HedgeLumpy79" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.991754, 0, -0.128155, 0, 1, 0, 0.128155, 0, 0.991754, 90.7796, 0, 206.276)
+
+[node name="HedgeLumpy80" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.991754, 0, -0.128155, 0, 1, 0, 0.128155, 0, 0.991754, 237.991, 0, 91.2206)
+
+[node name="HedgeLumpy81" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.41436, 0, -0.910113, 0, 1, 0, 0.910113, 0, 0.41436, 71.2785, 0, 75.8337)
+
+[node name="HedgeLumpy82" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.114566, -0.0269017, 0.993051, -0.249258, 0.966877, 0.0549489, -0.961637, -0.253822, 0.104066, 123.333, 0, 230.486)
+
+[node name="HedgeLumpy83" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.114566, -0.0269017, 0.993051, -0.249258, 0.966877, 0.0549489, -0.961637, -0.253822, 0.104066, 216.345, 0, 207.472)
+
+[node name="HedgeSmall84" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 564.08, 0, -150.741)
+
+[node name="HedgeSmall85" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, -10.2228, 0, 9.58047)
+
+[node name="HedgeSmall86" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 915.989, 0, -476.342)
+
+[node name="HedgeSmall87" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 915.989, 0, -476.342)
+
+[node name="HedgeSmall88" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 194.578, 0, -56.571)
+
+[node name="HedgeSmall89" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 385.264, 0, -634.461)
+
+[node name="HedgeSmall90" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 407.41, 0, -425.515)
+
+[node name="HedgeSmall91" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 83.9884, 0, 166.443)
+
+[node name="HedgeSmall92" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, -270.897, 0, -9.31894)
+
+[node name="HedgeSmall93" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, -270.897, 0, -9.31894)
+
+[node name="HedgeSmall94" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 1080.23, 0, -955.566)
+
+[node name="HedgeSmall95" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 188.856, 0, -127.003)
+
+[node name="HedgeSmall96" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 240.306, 0, -280.851)
+
+[node name="HedgeSmall97" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, -190.656, 0, -32.2132)
+
+[node name="HedgeSmall98" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 18.4937, 0, -54.3803)
+
+[node name="HedgeSmall99" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.833549, 0, 0.552446, 0, 1, 0, -0.552446, 0, 0.833549, 1190.41, 0, -1098.29)
+
+[node name="HedgeSmall100" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.833549, 0, 0.552446, 0, 1, 0, -0.552446, 0, 0.833549, 88.0078, 0, -210.195)
+
+[node name="HedgeSmall101" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.833549, 0, 0.552446, 0, 1, 0, -0.552446, 0, 0.833549, 288.1, 0, -710.249)
+
+[node name="HedgeSmall102" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.833549, 0, 0.552446, 0, 1, 0, -0.552446, 0, 0.833549, 404.291, 0, -534.935)
+
+[node name="HedgeLumpy84" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 175.855, 0, 44.5659)
+
+[node name="HedgeLumpy85" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.105396, 0, 0.99443, 0, 1, 0, -0.99443, 0, -0.105396, 99.0987, 0, -219.232)
+
+[node name="HedgeLumpy86" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.999854, 0, 0.0170685, 0, 1, 0, -0.0170685, 0, -0.999854, 178.826, 0, -227.682)
+
+[node name="HedgeLumpy87" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.886244, 0, -0.463219, 0, 1, 0, 0.463219, 0, -0.886244, -30.4637, 0, -78.9466)
+
+[node name="HedgeLumpy88" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.886244, 0, -0.463219, 0, 1, 0, 0.463219, 0, -0.886244, 655.656, 0, -251.119)
+
+[node name="HedgeLumpy89" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.286658, 0, -0.958033, 0, 1, 0, 0.958033, 0, -0.286658, 674.382, 0, -74.4407)
+
+[node name="HedgeLumpy90" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.889632, 0, -0.456679, 0, 1, 0, 0.456679, 0, 0.889632, -29.7063, 0, 99.6363)
+
+[node name="HedgeLumpy91" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.708562, 0, 0.705649, 0, 1, 0, -0.705649, 0, 0.708562, 179.838, 0, 61.7916)
+
+[node name="HedgeLumpy92" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.240059, 0, 0.970758, 0, 1, 0, -0.970758, 0, -0.240059, -7.93819, 0, -23.21)
+
+[node name="HedgeLumpy93" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.993816, 0, -0.111035, 0, 1, 0, 0.111035, 0, -0.993816, 118.444, 0, -189.5)
+
+[node name="HedgeLumpy94" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.993816, 0, -0.111035, 0, 1, 0, 0.111035, 0, -0.993816, 795.535, 0, -812.686)
+
+[node name="HedgeLumpy95" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.993816, 0, -0.111035, 0, 1, 0, 0.111035, 0, -0.993816, 816.384, 0, -615.967)
+
+[node name="HedgeLumpy96" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.705105, 0, -0.709103, 0, 1, 0, 0.709103, 0, -0.705105, 1055.36, 0, -641.296)
+
+[node name="HedgeLumpy97" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.71809, 0, -0.69595, 0, 1, 0, 0.69595, 0, 0.71809, 1018.68, 0, -987.425)
+
+[node name="HedgeLumpy98" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.991754, 0, -0.128155, 0, 1, 0, 0.128155, 0, 0.991754, 1047.21, 0, -1192.23)
+
+[node name="HedgeLumpy99" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.514754, 0, 0.857338, 0, 1, 0, -0.857338, 0, 0.514754, 128.802, 0, -93.0219)
+
+[node name="HedgeLumpy100" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.41436, 0, -0.910113, 0, 1, 0, 0.910113, 0, 0.41436, 71.2785, 0, -133.576)
+
+[node name="HedgeLumpy101" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.835188, -0.243339, 0.493202, -0.249258, 0.966877, 0.0549489, -0.490237, -0.077042, -0.868178, 210.466, 0, 67.8266)
+
+[node name="HedgeLumpy102" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.114566, -0.0269017, 0.993051, -0.249258, 0.966877, 0.0549489, -0.961637, -0.253822, 0.104066, 216.345, 0, -89.6193)
+
+[node name="HedgeSmall103" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, -153.99, 0, -23.8448)
+
+[node name="HedgeSmall104" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, -1133.35, 0, -389.429)
+
+[node name="HedgeSmall105" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, -846.765, 0, -397.454)
+
+[node name="HedgeSmall106" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, -846.765, 0, -397.454)
+
+[node name="HedgeSmall107" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, -38.0068, 0, -205.272)
+
+[node name="HedgeSmall108" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.374833, 0, 0.927092, 0, 1, 0, -0.927092, 0, 0.374833, 120.794, 0, 162.003)
+
+[node name="HedgeSmall109" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, -858.014, 0, -908.442)
+
+[node name="HedgeSmall110" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, 139.208, 0, 95.0297)
+
+[node name="HedgeSmall111" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, -104.184, 0, 101.845)
+
+[node name="HedgeSmall112" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, -104.184, 0, 101.845)
+
+[node name="HedgeSmall113" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, 82.0243, 0, -196.553)
+
+[node name="HedgeSmall114" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, -106.682, 0, -418.178)
+
+[node name="HedgeSmall115" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, -989.289, 0, -1086.26)
+
+[node name="HedgeSmall116" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, -87.5792, 0, 183.62)
+
+[node name="HedgeSmall117" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, -1071.81, 0, -355.84)
+
+[node name="HedgeSmall118" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.486168, 0, -0.873866, 0, 1, 0, 0.873866, 0, 0.486168, -247.958, 0, -75.6453)
+
+[node name="HedgeSmall119" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.486168, 0, -0.873866, 0, 1, 0, 0.873866, 0, 0.486168, -62.621, 0, -178.685)
+
+[node name="HedgeSmall120" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.995445, 0, 0.095342, 0, 1, 0, -0.095342, 0, 0.995445, 70.7081, 0, 49.4141)
+
+[node name="HedgeSmall121" parent="Environment/Props/Bushes" instance=ExtResource("18_12per")]
+transform = Transform3D(0.486168, 0, -0.873866, 0, 1, 0, 0.873866, 0, 0.486168, 241.435, 0, -153.37)
+
+[node name="HedgeLumpy103" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, -137.388, 0, -231.779)
+
+[node name="HedgeLumpy104" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.999608, 0, 0.0279915, 0, 1, 0, -0.0279915, 0, 0.999608, -913.701, 0, -262.699)
+
+[node name="HedgeLumpy105" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.0945253, 0, 0.995522, 0, 1, 0, -0.995522, 0, 0.0945253, -911.457, 0, -182.556)
+
+[node name="HedgeLumpy106" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.393124, 0, 0.919486, 0, 1, 0, -0.919486, 0, -0.393124, -1043.52, 0, -402.746)
+
+[node name="HedgeLumpy107" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.393124, 0, 0.919486, 0, 1, 0, -0.919486, 0, -0.393124, -61.0131, 0, 75.2373)
+
+[node name="HedgeLumpy108" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.932928, 0, 0.360062, 0, 1, 0, -0.360062, 0, -0.932928, -238.612, 0, 80.2105)
+
+[node name="HedgeLumpy109" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.524268, 0, -0.851553, 0, 1, 0, 0.851553, 0, -0.524268, -1221.62, 0, -415.835)
+
+[node name="HedgeLumpy110" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.648598, 0, -0.761131, 0, 1, 0, 0.761131, 0, 0.648598, -174.643, 0, 9.45004)
+
+[node name="HedgeLumpy111" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.986446, 0, 0.164084, 0, 1, 0, -0.164084, 0, 0.986446, -75.341, 0, -171.172)
+
+[node name="HedgeLumpy112" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.033661, 0, 0.999433, 0, 1, 0, -0.999433, 0, -0.033661, -176.012, 0, -17.5726)
+
+[node name="HedgeLumpy113" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.033661, 0, 0.999433, 0, 1, 0, -0.999433, 0, -0.033661, 97.036, 0, -169.62)
+
+[node name="HedgeLumpy114" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.033661, 0, 0.999433, 0, 1, 0, -0.999433, 0, -0.033661, -100.707, 0, -164.083)
+
+[node name="HedgeLumpy115" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.65231, 0, 0.757952, 0, 1, 0, -0.757952, 0, -0.65231, -33.4035, 0, -190.622)
+
+[node name="HedgeLumpy116" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.749522, 0, -0.661979, 0, 1, 0, 0.661979, 0, -0.749522, 253.951, 0, 66.3981)
+
+[node name="HedgeLumpy117" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.20465, 0, -0.978835, 0, 1, 0, 0.978835, 0, -0.20465, -143.199, 0, -211.134)
+
+[node name="HedgeLumpy118" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.20465, 0, -0.978835, 0, 1, 0, 0.978835, 0, -0.20465, -165.977, 0, -36.2855)
+
+[node name="HedgeLumpy119" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(-0.939495, 0, -0.342561, 0, 1, 0, 0.342561, 0, -0.939495, -137.713, 0, -201.303)
+
+[node name="HedgeLumpy120" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.949862, 0.255143, -0.180733, -0.249258, 0.966877, 0.0549489, 0.188767, -0.00714465, 0.981996, 167.804, 0, -161.394)
+
+[node name="HedgeLumpy121" parent="Environment/Props/Bushes" instance=ExtResource("17_u438q")]
+transform = Transform3D(0.949862, 0.255143, -0.180733, -0.249258, 0.966877, 0.0549489, 0.188767, -0.00714465, 0.981996, -1178.09, 0, -1124.97)
+
+[node name="Ornaments" type="Node3D" parent="Environment/Props"]
+
+[node name="Ornament" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(-0.185082, -0.071176, 2.54228, -0.915292, 2.38007, -4.43323e-09, -2.37286, -0.912521, -0.198296, -596.762, 0, 672.17)
+
+[node name="Ornament2" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(0.96143, -0.131382, -0.241643, 0, 0.878542, -0.477665, 0.27505, 0.459241, 0.844657, -598.864, 0, 384.247)
+
+[node name="Ornament3" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(0.114046, 1.25832, 2.20346, -0.0023789, 2.20573, -1.2595, -2.53744, 0.0544876, 0.100216, 561.158, 0, -277.409)
+
+[node name="Ornament4" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(1.31172, 1.95185, 0.959841, -0.903558, -0.530606, 2.31379, 1.97853, -1.53634, 0.420315, 298.678, 0, 681.862)
+
+[node name="Ornament9" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(0.539422, -0.409752, 1.82323, 1.20031, 1.53041, -0.0111806, -1.43224, 1.12826, 0.67731, -421.057, 0, 966.733)
+
+[node name="Ornament5" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(0.450469, 0.173234, -2.50391, -0.915292, 2.38007, -2.95678e-09, 2.33705, 0.898749, 0.48263, 905.075, 0, -926.514)
+
+[node name="Ornament6" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(-0.986243, 0.0789608, 0.145228, 0, 0.878542, -0.477665, -0.165306, -0.471093, -0.866456, 509.994, 0, 266.042)
+
+[node name="Ornament7" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(0.171697, -1.21049, -2.22639, 6.1067e-08, 2.2315, -1.21327, 2.53419, 0.0820137, 0.150843, -1036.9, 0, -953.607)
+
+[node name="Ornament8" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(-1.38259, -0.961758, 1.46163, 0.729656, 1.37624, 1.59577, -1.59026, 1.46762, -0.538574, -58.3441, 0, -889.145)
+
+[node name="Ornament10" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(-1.76278, 0.0388933, 0.772478, 0.62986, 1.18801, 1.37751, -0.4489, 1.51418, -1.10062, -611.185, 0, -650.467)
+
+[node name="Ornament11" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(-0.111411, -0.0428449, 2.5472, -0.915292, 2.38007, -2.02971e-08, -2.37746, -0.914289, -0.119366, -836.06, 0, 8.31778)
+
+[node name="Ornament12" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(0.952438, -0.145559, -0.267719, -4.9265e-09, 0.878542, -0.477665, 0.304731, 0.454946, 0.836757, -572.739, 0, -145.561)
+
+[node name="Ornament20" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(2.11918, -0.32387, -0.595675, -1.09615e-08, 1.95476, -1.0628, 0.678027, 1.01226, 1.86178, -909.957, 0, -415.04)
+
+[node name="Ornament13" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(0.1927, 1.20977, 2.22507, 6.57873e-08, 2.2315, -1.21327, -2.53268, 0.0920462, 0.169295, 766.399, 0, 702.079)
+
+[node name="Ornament14" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(1.1408, 1.16187, -1.52366, 0.729656, 1.37624, 1.59577, 1.77174, -1.31489, 0.323879, 10.783, 0, 258.632)
+
+[node name="Ornament15" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(-1.91655, -0.26858, 1.10796, 0.729656, 1.37624, 1.59577, -0.875969, 1.734, -1.09491, -270.862, 0, -339.575)
+
+[node name="Ornament16" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(-2.05236, 0.847047, 0.207913, 0.729656, 1.37624, 1.59577, 0.477827, 1.53668, -1.54376, 442.223, 0, -84.0455)
+
+[node name="Ornament17" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(-1.22153, 1.35641, -0.611265, 0.62986, 1.18801, 1.37751, 1.34787, 0.674112, -1.19768, 394.489, 0, -518.522)
+
+[node name="Ornament18" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(0.714961, 0.333966, 0.614245, -1.91189e-08, 0.878542, -0.477665, -0.699164, 0.341512, 0.628123, 858.705, 0, 362.77)
+
+[node name="Ornament19" parent="Environment/Props/Ornaments" instance=ExtResource("7_vbt04")]
+transform = Transform3D(-1.67092, 1.40681, -0.44925, 0.729656, 1.37624, 1.59577, 1.28395, 1.0487, -1.49151, 828.486, 0, -673.827)
+
+[node name="Trees" type="Node3D" parent="Environment/Props"]
+
+[node name="TreePineBent" parent="Environment/Props/Trees" instance=ExtResource("12_h821g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -687.069)
+
+[node name="TreePineShort" parent="Environment/Props/Trees" instance=ExtResource("13_tkdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52962, 0, -664.487)
+
+[node name="TreePineStraight" parent="Environment/Props/Trees" instance=ExtResource("14_u7b1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.127142, 0, -676.625)
+
+[node name="TreePineTall" parent="Environment/Props/Trees" instance=ExtResource("15_v56u3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -667.403)
+
+[node name="VFX_Snowflakes" parent="Environment" instance=ExtResource("20_iptpv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.475, 10, 0)
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="YetiEnemy" parent="Enemies" instance=ExtResource("21_bxmev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.79262)
+
+[node name="YetiEnemy2" parent="Enemies" instance=ExtResource("21_bxmev")]
+transform = Transform3D(0.634663, 0, -0.772789, 0, 1, 0, 0.772789, 0, 0.634663, 9.59675, 0, -5.19754)

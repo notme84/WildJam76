@@ -16,6 +16,9 @@ func _ready():
 
 
 func take_damage(damage: float):
+	if (get_parent() == null):
+		return
+		
 	print(get_parent().name + " taking " + str(damage) + " damage")
 	
 	health -= damage

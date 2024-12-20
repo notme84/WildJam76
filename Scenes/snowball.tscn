@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgtglnx4hmoua"]
+[gd_scene load_steps=10 format=3 uid="uid://bgtglnx4hmoua"]
 
 [ext_resource type="Script" path="res://Script/snowball.gd" id="1_8mdrt"]
+[ext_resource type="PackedScene" uid="uid://nfnc6eus7kl" path="res://Scenes/Attacks/snowball_impact.tscn" id="2_nai68"]
 [ext_resource type="Texture2D" uid="uid://dgutdjc1jl6v0" path="res://assets/VFX/snowflake2.png" id="3_ckrmr"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_t5y76"]
@@ -48,6 +49,8 @@ size = Vector2(0.05, 0.05)
 [node name="Snowball" type="RigidBody3D"]
 collision_layer = 4
 script = ExtResource("1_8mdrt")
+impact_scene = ExtResource("2_nai68")
+surface_layers = 4294967293
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_t5y76")

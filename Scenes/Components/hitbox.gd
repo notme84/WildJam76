@@ -9,6 +9,10 @@ func _ready():
 	area_entered.connect(on_area_entered)
 
 
+func take_hit():
+	health_component.take_damage(10)
+
+
 func on_body_entered(body: Node3D):
 	#TODO set up attacks to have some sort of damage amount parameter
 	if health_component == null:

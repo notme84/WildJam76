@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cs64hixqn5e3t" path="res://Scenes/Props/tree_pine_tall.tscn" id="15_f8c3f"]
 [ext_resource type="PackedScene" uid="uid://bxgvaqkqy8wqg" path="res://Scenes/Props/wood_stack.tscn" id="16_tiyh1"]
 [ext_resource type="PackedScene" uid="uid://cmhvb0iolu4ac" path="res://assets/VFX/VFX_Snowflakes.tscn" id="18_qvp4e"]
-[ext_resource type="AudioStream" uid="uid://b2shmbfoxdveo" path="res://Audio/Yeti_Theme.mp3" id="22_sbdp3"]
+[ext_resource type="AudioStream" uid="uid://d0606ok8eu4xl" path="res://Audio/eYeti_Theme.mp3" id="22_52bbq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_crkph"]
 
@@ -127,5 +127,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.79262)
 transform = Transform3D(0.634663, 0, -0.772789, 0, 1, 0, 0.772789, 0, 0.634663, 9.59675, 0, -5.19754)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("22_sbdp3")
+stream = ExtResource("22_52bbq")
+volume_db = -9.079
 autoplay = true

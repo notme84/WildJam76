@@ -57,7 +57,9 @@ func OnAttack():
 	if throw_velocity.dot(thrower_velocity) > 0:
 		throw_velocity = throw_velocity + thrower_velocity
 	snowball.linear_velocity = throw_velocity
-	print("throw!")
+	
+	$AudioStreamPlayer.stream = SoundLibrary.get_throw_sound()
+	$AudioStreamPlayer.play()
 
 
 func compute_throw_speed() -> float:

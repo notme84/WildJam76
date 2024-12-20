@@ -198,3 +198,8 @@ func slow_to_stop():
 	xz_vel = xz_vel.normalized() * velocity_mag
 	velocity.x = xz_vel.x
 	velocity.z = xz_vel.y
+
+
+func play_footstep():
+	%AudioStreamPlayer3D.stream = SoundLibrary.get_footstep()
+	%AudioStreamPlayer3D.play()

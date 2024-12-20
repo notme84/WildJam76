@@ -24,6 +24,7 @@ buses/default_bus_layout="res://Audio/audio_bus.tres"
 Settings="*res://Scenes/Autoload/settings.tscn"
 MultiplayerInput="*res://addons/multiplayer_input/multiplayer_input.gd"
 PlayerManager="*res://Scenes/Autoload/player_manager.tscn"
+SoundLibrary="*res://Scenes/Autoload/sound_library.tscn"
 
 [dotnet]
 

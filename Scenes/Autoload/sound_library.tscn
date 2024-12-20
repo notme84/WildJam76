@@ -1,0 +1,24 @@
+[gd_scene load_steps=18 format=3 uid="uid://ys6skxgv2n68"]
+
+[ext_resource type="Script" path="res://Scenes/Autoload/sound_library.gd" id="1_l0r86"]
+[ext_resource type="AudioStream" uid="uid://8rdtg2q4mrgc" path="res://Audio/Grunts/Yeti_No!_01.wav" id="2_d3vvy"]
+[ext_resource type="AudioStream" uid="uid://bqpas604weik2" path="res://Audio/Grunts/Yeti_Pant_01.wav" id="3_dkt5f"]
+[ext_resource type="AudioStream" uid="uid://do126r7dwwa0g" path="res://Audio/Grunts/Yeti_Yeah_01.wav" id="4_1tc0l"]
+[ext_resource type="AudioStream" uid="uid://cihurtd840x8s" path="res://Audio/Grunts/Yeti_Yuh!_01.wav" id="5_1wjjh"]
+[ext_resource type="AudioStream" uid="uid://bw60f2yni7co8" path="res://Audio/Footsteps/Yeti_Footstep_Left01.wav" id="6_q03dr"]
+[ext_resource type="AudioStream" uid="uid://dnlljj0hlxyqw" path="res://Audio/Footsteps/Yeti_Footstep_Left02.wav" id="7_c48n3"]
+[ext_resource type="AudioStream" uid="uid://b640f8ldd6j2d" path="res://Audio/Footsteps/Yeti_Footstep_Left03.wav" id="8_cb34h"]
+[ext_resource type="AudioStream" uid="uid://sbbtmeb2a0ev" path="res://Audio/Footsteps/Yeti_Footstep_Left04.wav" id="9_eyssc"]
+[ext_resource type="AudioStream" uid="uid://bm37yf1c061tr" path="res://Audio/Footsteps/Yeti_Footstep_Left05.wav" id="10_hi5vl"]
+[ext_resource type="AudioStream" uid="uid://b4q75oemxhbp2" path="res://Audio/Footsteps/Yeti_Footstep_Left.wav" id="11_tn4i5"]
+[ext_resource type="AudioStream" uid="uid://5cj7hksmpuo0" path="res://Audio/Footsteps/Yeti_Footstep_Right01.wav" id="12_yirl0"]
+[ext_resource type="AudioStream" uid="uid://co7cu16ohob4" path="res://Audio/Footsteps/Yeti_Footstep_Right02.wav" id="13_1q7qp"]
+[ext_resource type="AudioStream" uid="uid://dqbvrajax47d8" path="res://Audio/Footsteps/Yeti_Footstep_Right03.wav" id="14_ghys1"]
+[ext_resource type="AudioStream" uid="uid://efkwrmbn17kj" path="res://Audio/Footsteps/Yeti_Footstep_Right04.wav" id="15_hsb3g"]
+[ext_resource type="AudioStream" uid="uid://btdb8o2egrjee" path="res://Audio/Footsteps/Yeti_Footstep_Right05.wav" id="16_ruiea"]
+[ext_resource type="AudioStream" uid="uid://dreobpw0rml1n" path="res://Audio/Footsteps/Yeti_Footstep_Right.wav" id="17_4ve2f"]
+
+[node name="SoundLibrary" type="Node"]
+script = ExtResource("1_l0r86")
+throw_sounds = Array[AudioStream]([ExtResource("2_d3vvy"), ExtResource("3_dkt5f"), ExtResource("4_1tc0l"), ExtResource("5_1wjjh")])
+footsteps = Array[AudioStream]([ExtResource("6_q03dr"), ExtResource("7_c48n3"), ExtResource("8_cb34h"), ExtResource("9_eyssc"), ExtResource("10_hi5vl"), ExtResource("11_tn4i5"), ExtResource("12_yirl0"), ExtResource("13_1q7qp"), ExtResource("14_ghys1"), ExtResource("15_hsb3g"), ExtResource("16_ruiea"), ExtResource("17_4ve2f")])

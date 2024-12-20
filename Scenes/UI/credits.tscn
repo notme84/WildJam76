@@ -21,39 +21,79 @@ offset_right = 135.0
 offset_bottom = 598.0
 text = "Back"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -96.5
-offset_right = 32.0
-offset_bottom = 96.5
+offset_left = -188.5
+offset_top = -147.0
+offset_right = 188.5
+offset_bottom = 147.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "CREDITS"
+horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
-text = "name"
 
-[node name="Label3" type="Label" parent="VBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "name"
+text = "Mark Gifford - Programmer"
+horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="VBoxContainer"]
+[node name="Label3" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "name"
+text = "Sean S."
+horizontal_alignment = 1
 
-[node name="Label5" type="Label" parent="VBoxContainer"]
+[node name="Label8" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "name"
+text = "Ben Tunell"
+horizontal_alignment = 1
 
-[node name="Label6" type="Label" parent="VBoxContainer"]
+[node name="Label4" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "name"
+text = "Miranda"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Steven Ngu"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Oscar Baechler"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "_c"
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Rubik"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "ADDITIONAL ASSETS USED:"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "Multiplayer Input by matjlars (Matt)
+https://godotengine.org/asset-library/asset/1496"
+horizontal_alignment = 1

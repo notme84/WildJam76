@@ -4148,7 +4148,7 @@ _data = {
 "idle": SubResource("Animation_hwd0x")
 }
 
-[node name="YetiPlayer" type="CharacterBody3D" node_paths=PackedStringArray("character_animator")]
+[node name="YetiPlayer" type="CharacterBody3D" node_paths=PackedStringArray("character_animator") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_ntwp0")
 pause_menu = ExtResource("2_mrx2t")

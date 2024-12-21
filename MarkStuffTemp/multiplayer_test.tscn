@@ -1,16 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8ng7ebvjequ4"]
+[gd_scene load_steps=9 format=3 uid="uid://b8ng7ebvjequ4"]
 
 [ext_resource type="Script" path="res://MarkStuffTemp/mp_viewports_container.gd" id="1_2a478"]
 [ext_resource type="PackedScene" uid="uid://bl64fol7gyyh2" path="res://MarkStuffTemp/yeti_player.tscn" id="1_4r5t1"]
 [ext_resource type="Script" path="res://Script/game_control.gd" id="1_8u10s"]
 [ext_resource type="PackedScene" uid="uid://h8q0mnhmd27d" path="res://Scenes/practice_target.tscn" id="2_bubi2"]
 [ext_resource type="PackedScene" uid="uid://k5x862goldww" path="res://Scenes/UI/pause_menu.tscn" id="2_dtli4"]
+[ext_resource type="PackedScene" uid="uid://wr0npb22hyps" path="res://Scenes/UI/game_end_screen.tscn" id="3_prbre"]
 [ext_resource type="PackedScene" uid="uid://e31th0xcq6dt" path="res://Scenes/Arenas/arena_0.tscn" id="6_8nvba"]
 [ext_resource type="PackedScene" uid="uid://d0clotds40svo" path="res://Scenes/yeti_enemy.tscn" id="18_woljo"]
 
 [node name="MainGameMultiplayer" type="Node3D"]
 script = ExtResource("1_8u10s")
 pause_menu = ExtResource("2_dtli4")
+game_end_screen = ExtResource("3_prbre")
 
 [node name="MPViewportsContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
@@ -38,7 +40,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/SubViewportRow1/SubViewportContainer1"]
 handle_input_locally = false
-size = Vector2i(2, 2)
+size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="MPViewportsContainer/SubViewportRow1"]
@@ -50,7 +52,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/SubViewportRow1/SubViewportContainer2"]
 handle_input_locally = false
-size = Vector2i(2, 2)
+size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="SubViewportRow2" type="HBoxContainer" parent="MPViewportsContainer"]
@@ -69,7 +71,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/SubViewportRow2/SubViewportContainer3"]
 handle_input_locally = false
-size = Vector2i(2, 2)
+size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="SubViewportContainer4" type="SubViewportContainer" parent="MPViewportsContainer/SubViewportRow2"]
@@ -81,7 +83,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/SubViewportRow2/SubViewportContainer4"]
 handle_input_locally = false
-size = Vector2i(2, 2)
+size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="PracticeTarget" parent="." instance=ExtResource("2_bubi2")]

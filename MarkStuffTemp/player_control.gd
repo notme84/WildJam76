@@ -211,8 +211,8 @@ func slow_to_stop():
 
 
 func play_footstep():
-	%AudioStreamPlayer3D.stream = SoundLibrary.get_footstep()
-	%AudioStreamPlayer3D.play()
+	%AudioStreamPlayer.stream = SoundLibrary.get_footstep()
+	%AudioStreamPlayer.play()
 
 
 func on_died():

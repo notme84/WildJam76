@@ -1,41 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://b8ng7ebvjequ4"]
+[gd_scene load_steps=8 format=3 uid="uid://b8ng7ebvjequ4"]
 
 [ext_resource type="Script" path="res://MarkStuffTemp/mp_viewports_container.gd" id="1_2a478"]
 [ext_resource type="PackedScene" uid="uid://bl64fol7gyyh2" path="res://MarkStuffTemp/yeti_player.tscn" id="1_4r5t1"]
 [ext_resource type="Script" path="res://Script/game_control.gd" id="1_8u10s"]
 [ext_resource type="PackedScene" uid="uid://h8q0mnhmd27d" path="res://Scenes/practice_target.tscn" id="2_bubi2"]
 [ext_resource type="PackedScene" uid="uid://k5x862goldww" path="res://Scenes/UI/pause_menu.tscn" id="2_dtli4"]
-[ext_resource type="PackedScene" uid="uid://dues512tx2al3" path="res://Scenes/Props/hedge_lumpy.tscn" id="3_gpqt2"]
-[ext_resource type="PackedScene" uid="uid://cxajk4s12gg3r" path="res://Scenes/Props/hedge_small.tscn" id="4_e48to"]
-[ext_resource type="PackedScene" uid="uid://b2hawylas6qoq" path="res://Scenes/Props/hedge_tall.tscn" id="5_f0y2w"]
-[ext_resource type="PackedScene" uid="uid://cb0djusaus6ca" path="res://Scenes/Props/log_stack_large.tscn" id="6_4oqu8"]
-[ext_resource type="PackedScene" uid="uid://iqyfrm5l4r1w" path="res://Scenes/Props/log_stack_small.tscn" id="7_yylmb"]
-[ext_resource type="PackedScene" uid="uid://hdp0vgfp62x7" path="res://Scenes/Props/ornament.tscn" id="8_xdlqw"]
-[ext_resource type="PackedScene" uid="uid://dpgg405ixukma" path="res://Scenes/Props/scale_box.tscn" id="9_ybaae"]
-[ext_resource type="PackedScene" uid="uid://cdhqbhpgni3sx" path="res://Scenes/Props/sign_circle.tscn" id="10_8limx"]
-[ext_resource type="PackedScene" uid="uid://bcyw8ak368aco" path="res://Scenes/Props/sign_triangle.tscn" id="11_06pd4"]
-[ext_resource type="PackedScene" uid="uid://jc2l80pnltl8" path="res://Scenes/Props/traffic_cone.tscn" id="12_lmfem"]
-[ext_resource type="PackedScene" uid="uid://b7qdvhbc0y5an" path="res://Scenes/Props/tree_pine_bent.tscn" id="13_vcqed"]
-[ext_resource type="PackedScene" uid="uid://c1pnqadtankmw" path="res://Scenes/Props/tree_pine_short.tscn" id="14_tr26b"]
-[ext_resource type="PackedScene" uid="uid://cwbyskhm0c3qd" path="res://Scenes/Props/tree_pine_straight.tscn" id="15_s151o"]
-[ext_resource type="PackedScene" uid="uid://cs64hixqn5e3t" path="res://Scenes/Props/tree_pine_tall.tscn" id="16_2ute8"]
-[ext_resource type="PackedScene" uid="uid://bxgvaqkqy8wqg" path="res://Scenes/Props/wood_stack.tscn" id="17_74rot"]
+[ext_resource type="PackedScene" uid="uid://e31th0xcq6dt" path="res://Scenes/Arenas/arena_0.tscn" id="6_8nvba"]
 [ext_resource type="PackedScene" uid="uid://d0clotds40svo" path="res://Scenes/yeti_enemy.tscn" id="18_woljo"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_crkph"]
-
-[sub_resource type="Sky" id="Sky_8dhso"]
-sky_material = SubResource("ProceduralSkyMaterial_crkph")
-
-[sub_resource type="Environment" id="Environment_o45eo"]
-background_mode = 2
-sky = SubResource("Sky_8dhso")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dyt8r"]
-size = Vector3(50, 1, 50)
-
-[sub_resource type="BoxMesh" id="BoxMesh_mhvfs"]
-size = Vector3(50, 1, 50)
 
 [node name="MainGameMultiplayer" type="Node3D"]
 script = ExtResource("1_8u10s")
@@ -119,70 +90,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5192, 2.30042, -13.7933)
 [node name="PracticeTarget2" parent="." instance=ExtResource("2_bubi2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54684, 2.30042, -13.7933)
 
-[node name="Environment" type="Node3D" parent="."]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
-environment = SubResource("Environment_o45eo")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 0.46793, 0.883766, 0, -0.883766, 0.46793, 0, 0, 0)
-shadow_enabled = true
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticBody3D"]
-shape = SubResource("BoxShape3D_dyt8r")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StaticBody3D"]
-mesh = SubResource("BoxMesh_mhvfs")
-
-[node name="Props" type="Node3D" parent="Environment"]
-
-[node name="HedgeLumpy" parent="Environment/Props" instance=ExtResource("3_gpqt2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.30467, 0, 3.91861)
-
-[node name="HedgeSmall" parent="Environment/Props" instance=ExtResource("4_e48to")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.31224, 0, 6.24854)
-
-[node name="HedgeTall" parent="Environment/Props" instance=ExtResource("5_f0y2w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.05238, 0, 8.85983)
-
-[node name="LogStackLarge" parent="Environment/Props" instance=ExtResource("6_4oqu8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.308, 0, -0.821313)
-
-[node name="LogStackSmall" parent="Environment/Props" instance=ExtResource("7_yylmb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.58699, 0, -0.528992)
-
-[node name="Ornament" parent="Environment/Props" instance=ExtResource("8_xdlqw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6698, 0, -20.1043)
-
-[node name="ScaleBox" parent="Environment/Props" instance=ExtResource("9_ybaae")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66545, 0, -9.40727)
-
-[node name="SignCircle" parent="Environment/Props" instance=ExtResource("10_8limx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.05309, 0, -12.8625)
-
-[node name="SignTriangle" parent="Environment/Props" instance=ExtResource("11_06pd4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6236, 0, -14.9402)
-
-[node name="TrafficCone" parent="Environment/Props" instance=ExtResource("12_lmfem")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87083, 0, 8.83939)
-
-[node name="TreePineBent" parent="Environment/Props" instance=ExtResource("13_vcqed")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5655, 0, -1.93588)
-
-[node name="TreePineShort" parent="Environment/Props" instance=ExtResource("14_tr26b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3388, 0, -6.58419)
-
-[node name="TreePineStraight" parent="Environment/Props" instance=ExtResource("15_s151o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.40688, 0, 3.38299)
-
-[node name="TreePineTall" parent="Environment/Props" instance=ExtResource("16_2ute8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9243, 0, 0.319782)
-
-[node name="WoodStack" parent="Environment/Props" instance=ExtResource("17_74rot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61244, 0, -6.75988)
+[node name="Arena0" parent="." instance=ExtResource("6_8nvba")]
 
 [node name="Enemies" type="Node3D" parent="."]
 

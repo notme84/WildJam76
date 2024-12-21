@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://de0a2ylka0isl"]
+[gd_scene load_steps=27 format=3 uid="uid://383ncskbmx0w"]
 
 [ext_resource type="Script" path="res://Script/game_control.gd" id="1_x8hrr"]
 [ext_resource type="PackedScene" uid="uid://k5x862goldww" path="res://Scenes/UI/pause_menu.tscn" id="2_fmrlf"]
@@ -114,7 +114,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.30467, 0, 3.91861)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.31224, 0, 6.24854)
 
 [node name="HedgeTall" parent="Environment/Props/Bushes" instance=ExtResource("7_7ukqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.05238, 0, 8.85983)
 
 [node name="HedgeLumpy2" parent="Environment/Props/Bushes" instance=ExtResource("5_jphn3")]
 transform = Transform3D(0.628751, 0, 0.777607, 0, 1, 0, -0.777607, 0, 0.628751, -932.473, 0, 412.001)

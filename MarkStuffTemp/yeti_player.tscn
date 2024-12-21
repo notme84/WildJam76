@@ -6504,7 +6504,7 @@ skin = SubResource("Skin_u5s7q")
 
 [node name="NeckBoneAttachment" type="BoneAttachment3D" parent="RotationRoot/meatMachine_yeti6/rig/Skeleton3D"]
 unique_name_in_owner = true
-transform = Transform3D(0.988485, 0.100524, 0.113099, 0.00531278, 0.723919, -0.689865, -0.151223, 0.682522, 0.71505, -0.00209132, 1.41715, 0.109977)
+transform = Transform3D(0.988485, 0.100524, 0.113099, 0.00531281, 0.723919, -0.689864, -0.151223, 0.682522, 0.71505, -0.00209133, 1.41715, 0.109977)
 bone_name = "ORG-spine.004"
 bone_idx = 97
 

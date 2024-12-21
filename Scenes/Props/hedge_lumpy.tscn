@@ -6,7 +6,7 @@
 radius = 1.2565
 height = 2.74499
 
-[node name="HedgeLumpy" type="CharacterBody3D"]
+[node name="HedgeLumpy" type="StaticBody3D"]
 
 [node name="HEDGE-LUMPY" parent="." instance=ExtResource("1_cm4qb")]
 

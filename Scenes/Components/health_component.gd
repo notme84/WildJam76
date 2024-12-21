@@ -16,10 +16,8 @@ func _ready():
 
 
 func take_damage(damage: float):
-	if (get_parent() == null):
-		return
-		
-	print(get_parent().name + " taking " + str(damage) + " damage")
+	if get_parent() != null:
+		print(get_parent().name + " taking " + str(damage) + " damage")
 	
 	health -= damage
 	if damage < 0: #healing
@@ -33,6 +31,7 @@ func take_damage(damage: float):
 			health = 0
 			died.emit()
 	else:
-		print(get_parent().name + " JUST GOT DAMAGED FOR 0. weird.")
+		if get_parent() != null:
+			print(get_parent().name + " JUST GOT DAMAGED FOR 0. weird.")
 		
 	health_changed.emit(health)

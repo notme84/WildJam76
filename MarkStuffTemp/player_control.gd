@@ -91,11 +91,20 @@ func _input(event: InputEvent):
 func _process(delta: float):
 	if !alive: return
 	
+	var player_count: int = PlayerManager.get_player_count()
+	
 	var left_click_axis: float = 0
 	var right_click_axis: float = 0
-	if PlayerManager.get_player_count() <= 1:
-		left_click_axis = Input.get_action_strength("left_click")
-		right_click_axis = Input.get_action_strength("right_click")
+	if player_count <= 1:
+		#print("GETTING SINGLE PLAYER INPUTS")
+		var controller_input = 0
+		if device_index >= 0:
+			controller_input = MultiplayerInput.get_action_strength(device_index, "left_click")
+		left_click_axis = max(Input.get_action_strength("left_click"), controller_input)
+		controller_input = 0
+		if device_index >= 0:
+			controller_input = MultiplayerInput.get_action_strength(device_index, "right_click")
+		right_click_axis = max(Input.get_action_strength("right_click"), controller_input)
 		
 		if Input.is_action_just_pressed("camera_mode"):
 			switch_camera_mode()
@@ -118,7 +127,7 @@ func _process(delta: float):
 	last_left_click_axis = left_click_axis
 	last_right_click_axis = right_click_axis
 	
-	if device_index >= 0 && PlayerManager.get_player_count() > 1: #IS A CONTROLLER
+	if (device_index >= 0 && player_count > 1) || player_count <= 1: #IS A CONTROLLER
 		get_rotation_input()
 	update_rotation(delta)
 

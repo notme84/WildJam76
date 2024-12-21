@@ -18,9 +18,20 @@ func populate_players():
 	var player_count = PlayerManager.get_player_count()
 	if player_count <= 2:
 		%SubViewportRow2.visible = false
+	var temp_player_data = PlayerManager.player_data.duplicate()
 	for i in subviewports.size():
 		if i < player_count:
+			var player_index = -1
+			for j in PlayerManager.MAX_PLAYERS:
+				if temp_player_data.has(j):
+					player_index = j
+					break
+			temp_player_data.erase(player_index)
+					
 			var player = player_scene.instantiate()
+			player.device_index = PlayerManager.get_player_data(player_index, "device")
+			player.player_index = player_index#PlayerManager.get_player_data(player_index, "index")
+			player.set_color(PlayerManager.player_colors[player.player_index])
 			
 			#TO/DO get spawn point somehow
 			var spawn_pos = Vector3(randf_range(-15, 15), 0, randf_range(-15, 15))
@@ -28,11 +39,8 @@ func populate_players():
 				var index = randi_range(0, spawn_points.size() - 1)
 				spawn_pos = spawn_points[index].global_position
 				spawn_points.remove_at(index)
-				
 			player.position = spawn_pos
-			player.device_index = PlayerManager.get_player_data(i, "device")
-			player.player_index = i
-			player.set_color(PlayerManager.player_colors[i])
+				
 			subviewports[i].add_child(player)
 			subviewports[i].get_parent().visible = true
 		else:

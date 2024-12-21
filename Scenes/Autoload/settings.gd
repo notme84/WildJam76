@@ -8,7 +8,7 @@ var mouse_sensitivity_x : float
 var mouse_sensitivity_y : float
 var invert_y_look: bool
 
-var joystick_mult: float = 5
+var joystick_mult: float = 2
 
 
 func _ready():

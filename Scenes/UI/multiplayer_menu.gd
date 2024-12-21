@@ -35,7 +35,7 @@ func on_player_joined(player: int, device: int):
 
 func on_player_left(player: int, device: int):
 	var panel = %PlayerPanelContainer.get_child(player)
-	panel.player_leave(device)
+	panel.player_leave()
 
 
 func on_start():

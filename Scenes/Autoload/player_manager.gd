@@ -22,6 +22,7 @@ func join(device: int):
 		# initialize default player data here
 		# "team" and "car" are remnants from my game just to provide an example
 		player_data[player] = {
+			#"index": player,
 			"device": device,
 			"team":0,
 			"y_invert": false,
@@ -32,7 +33,7 @@ func join(device: int):
 
 func leave(player: int):
 	if player_data.has(player):
-		var device: int = player_data["device"]
+		var device: int = get_player_device(player)
 		player_data.erase(player)
 		player_left.emit(player, device)
 
@@ -63,6 +64,21 @@ func set_player_data(player: int, key: StringName, value: Variant):
 # call this from a loop in the main menu or anywhere they can join
 # this is an example of how to look for an action on all devices
 func handle_join_input():
+	if is_device_joined(-1):
+		if MultiplayerInput.is_action_just_pressed(-1, "join"):
+			for player_id in player_data:
+				var d = get_player_device(player_id)
+				if d == -1:
+					leave(player_id)
+					return
+	for device in get_joined_joypads():
+		if MultiplayerInput.is_action_just_pressed(device, "join"):
+			for player_id in player_data:
+				var d = get_player_device(player_id)
+				if device == d:
+					leave(player_id)
+					return
+	
 	for device in get_unjoined_devices():
 		if MultiplayerInput.is_action_just_pressed(device, "join"):
 			join(device)
@@ -98,3 +114,9 @@ func get_unjoined_devices():
 	
 	# filter out devices that are joined:
 	return devices.filter(func(device): return !is_device_joined(device))
+
+
+func get_joined_joypads():
+	var devices = Input.get_connected_joypads()
+	#devices.append(-1)
+	return devices.filter(func(device): return is_device_joined(device))

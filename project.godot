@@ -25,6 +25,7 @@ Settings="*res://Scenes/Autoload/settings.tscn"
 MultiplayerInput="*res://addons/multiplayer_input/multiplayer_input.gd"
 PlayerManager="*res://Scenes/Autoload/player_manager.tscn"
 SoundLibrary="*res://Scenes/Autoload/sound_library.tscn"
+GameSignals="*res://Scenes/Autoload/game_signals.tscn"
 
 [display]
 
@@ -45,6 +46,7 @@ import/blender/enabled=false
 [global_group]
 
 player=""
+spawn_point=""
 
 [input]
 

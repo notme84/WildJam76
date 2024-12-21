@@ -22,7 +22,9 @@ func join(device: int):
 		player_data[player] = {
 			"device": device,
 			"team":0,
-			#"car":"muscle",
+			"y_invert": false,
+			"sensitivity_x": 1.0,
+			"sensitivity_y": 1.0
 		}
 		player_joined.emit(player, device)
 

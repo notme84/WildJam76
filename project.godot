@@ -26,6 +26,10 @@ MultiplayerInput="*res://addons/multiplayer_input/multiplayer_input.gd"
 PlayerManager="*res://Scenes/Autoload/player_manager.tscn"
 SoundLibrary="*res://Scenes/Autoload/sound_library.tscn"
 
+[display]
+
+window/vsync/vsync_mode=0
+
 [dotnet]
 
 project/assembly_name="YetiFPS"

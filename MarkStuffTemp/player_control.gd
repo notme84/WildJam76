@@ -37,11 +37,17 @@ var axis_release_threshold: float = 0.25
 var last_left_click_axis: float 
 var last_right_click_axis: float
 
+var alive: bool = true
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$HealthComponent.died.connect(on_died)
+	alive = true
 	
 
 func _input(event: InputEvent):
+	if !alive: return
+	
 	#if event.is_action_pressed("ui_cancel"):
 		#var pause = pause_menu.instantiate()
 		#owner.add_child(pause)
@@ -81,6 +87,8 @@ func _input(event: InputEvent):
 
 
 func _process(delta: float):
+	if !alive: return
+	
 	var left_click_axis: float = 0
 	var right_click_axis: float = 0
 	if PlayerManager.get_player_count() <= 1:
@@ -114,6 +122,8 @@ func _process(delta: float):
 
 
 func _physics_process(delta: float):
+	if !alive: return
+	
 	update_move(delta)
 	
 
@@ -203,3 +213,9 @@ func slow_to_stop():
 func play_footstep():
 	%AudioStreamPlayer3D.stream = SoundLibrary.get_footstep()
 	%AudioStreamPlayer3D.play()
+
+
+func on_died():
+	#TODO some sort of death animation
+	#stop being able to move
+	alive = false

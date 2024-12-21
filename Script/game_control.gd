@@ -38,6 +38,6 @@ func on_player_died():
 	add_child(end_screen)
 	if alive_count <= 0:
 		end_screen.setup_label("NO YETI WON!")
-	else: end_screen.setup_label("YETI " + str(winner) + " HAS WON!")
+	else: end_screen.setup_label("YETI " + str(winner + 1) + " HAS WON!")
 	
 	

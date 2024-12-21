@@ -7,6 +7,8 @@ extends Node
 signal player_joined(player: int, device: int)
 signal player_left(player: int, device: int)
 
+@export var player_colors: Array[Color] = [Color.BLUE, Color.RED, Color.YELLOW, Color.PURPLE]
+
 # map from player integer to dictionary of data
 # the existence of a key in this dictionary means this player is joined.
 # use get_player_data() and set_player_data() to use this dictionary.

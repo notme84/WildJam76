@@ -31,6 +31,8 @@ func populate_players():
 				
 			player.position = spawn_pos
 			player.device_index = PlayerManager.get_player_data(i, "device")
+			player.player_index = i
+			player.set_color(PlayerManager.player_colors[i])
 			subviewports[i].add_child(player)
 			subviewports[i].get_parent().visible = true
 		else:

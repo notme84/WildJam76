@@ -28,4 +28,6 @@ func _process(delta):
 	
 	global_position = target_pos
 	
-	look_at(target.global_position)
+	var dir = (target.global_position - global_position).normalized()
+	if dir != Vector3.UP:
+		look_at(target.global_position)

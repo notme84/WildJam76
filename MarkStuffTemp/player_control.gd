@@ -12,6 +12,7 @@ signal melee_released
 @export var pause_menu: PackedScene
 
 @export var character_animator: AnimationPlayer
+@export var skin_mesh: MeshInstance3D
 
 @export var speed: float = 10
 @export var acceleration: float = 5
@@ -31,6 +32,7 @@ var using_follow_cam: bool = false
 
 #var using_controller: bool = true
 @export var device_index: int = -1
+@export var player_index: int = -1
 
 var axis_press_threshold: float = 0.3
 var axis_release_threshold: float = 0.25
@@ -125,7 +127,19 @@ func _physics_process(delta: float):
 	if !alive: return
 	
 	update_move(delta)
+
+
+func set_color(new_color: Color):
+	if skin_mesh == null:
+		printerr("NO SKIN MESH REFERENCED ON PLAYER")
+		return
 	
+	var mat = skin_mesh.get_active_material(0)
+	if mat is StandardMaterial3D:
+		mat.set("albedo_color", new_color)
+	elif mat is ShaderMaterial:
+		mat.set_shader_parameter("albedo_color", new_color)
+
 
 func switch_camera_mode():
 	print("SWITCHING CAMERA MODE")
@@ -222,3 +236,5 @@ func on_died():
 	alive = false
 	global_rotation.x = deg_to_rad(90)
 	character_animator.pause()
+	
+	GameSignals.emit_player_died()

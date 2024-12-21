@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bl64fol7gyyh2"]
+[gd_scene load_steps=23 format=4 uid="uid://bl64fol7gyyh2"]
 
 [ext_resource type="Script" path="res://MarkStuffTemp/player_control.gd" id="1_ntwp0"]
 [ext_resource type="PackedScene" uid="uid://k5x862goldww" path="res://Scenes/UI/pause_menu.tscn" id="2_mrx2t"]
@@ -1034,6 +1034,9 @@ bind/323/pose = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.187334, 1.00356, -0.66
 bind/324/name = &"thigh_ik_target.R"
 bind/324/bone = -1
 bind/324/pose = Transform3D(0.999965, -0.000193046, 0.00838695, 0.00838695, 0.0460098, -0.998906, -0.000193046, 0.998941, 0.0460098, 0.179038, 0.973644, -0.70604)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i4btb"]
+resource_local_to_scene = true
 
 [sub_resource type="Animation" id="Animation_c30ok"]
 resource_name = "Run"
@@ -4148,11 +4151,12 @@ _data = {
 "idle": SubResource("Animation_hwd0x")
 }
 
-[node name="YetiPlayer" type="CharacterBody3D" node_paths=PackedStringArray("character_animator") groups=["player"]]
+[node name="YetiPlayer" type="CharacterBody3D" node_paths=PackedStringArray("character_animator", "skin_mesh") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_ntwp0")
 pause_menu = ExtResource("2_mrx2t")
 character_animator = NodePath("RotationRoot/meatMachine_yeti6/AnimationPlayer")
+skin_mesh = NodePath("RotationRoot/meatMachine_yeti6/rig/Skeleton3D/Retopo_mm_preset_sheetmuscle2_003")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_6dmq0")]
 
@@ -6512,6 +6516,7 @@ bones/324/scale = Vector3(1, 1, 1)
 [node name="Retopo_mm_preset_sheetmuscle2_003" type="MeshInstance3D" parent="RotationRoot/meatMachine_yeti6/rig/Skeleton3D"]
 mesh = SubResource("ArrayMesh_m0j6x")
 skin = SubResource("Skin_u5s7q")
+surface_material_override/0 = SubResource("StandardMaterial3D_i4btb")
 
 [node name="NeckBoneAttachment" type="BoneAttachment3D" parent="RotationRoot/meatMachine_yeti6/rig/Skeleton3D"]
 unique_name_in_owner = true

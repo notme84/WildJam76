@@ -37,6 +37,7 @@ size = Vector3(50, 1, 50)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_0a20d")
+autoplay = true
 bus = &"music"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

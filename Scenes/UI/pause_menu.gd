@@ -10,6 +10,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	%ResumeButton.pressed.connect(on_resume)
+	%RestartButton.pressed.connect(on_restart)
 	%TutorialButton.pressed.connect(open_submenu.bind(tutorial_scene, %TutorialButton))
 	%OptionsButton.pressed.connect(open_submenu.bind(options_scene, %OptionsButton))
 	%QuitButton.pressed.connect(on_quit)
@@ -29,6 +30,11 @@ func on_resume():
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	queue_free()
+
+
+func on_restart():
+	get_tree().paused = false
+	get_tree().change_scene_to_file(get_tree().current_scene.scene_file_path)
 
 
 func open_submenu(menu_scene: PackedScene, button: Button):

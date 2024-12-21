@@ -220,3 +220,5 @@ func on_died():
 	#stop being able to move
 	print(name + " has died")
 	alive = false
+	global_rotation.x = deg_to_rad(90)
+	character_animator.pause()

@@ -1943,6 +1943,95 @@ transform = Transform3D(0.346805, 0, -0.937937, 0, 1, 0, 0.937937, 0, 0.346805, 
 [node name="WoodStack15" parent="Environment/Props/Logs" instance=ExtResource("16_vei0k")]
 transform = Transform3D(0.948744, 0, -0.316046, 0, 1, 0, 0.316046, 0, 0.948744, -126.632, -3.05176e-05, -110.353)
 
+[node name="Misc_" type="Node3D" parent="Environment/Props"]
+
+[node name="TrafficCones" type="Node3D" parent="Environment/Props/Misc_"]
+
+[node name="TrafficCone" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 203.845, 7.62939e-06, -154.741)
+
+[node name="TrafficCone2" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.872, 7.62939e-06, -15.4833)
+
+[node name="TrafficCone3" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.3449, 7.62939e-06, -152.2)
+
+[node name="TrafficCone4" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(0.543585, 0, 0.839354, 0, 1, 0, -0.839354, 0, 0.543585, 11.9211, 7.62939e-06, 95.8844)
+
+[node name="TrafficCone5" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(-0.160191, 0, 0.987086, 0, 1, 0, -0.987086, 0, -0.160191, 212.803, 7.62939e-06, 19.1529)
+
+[node name="TrafficCone6" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(-0.160191, 0, 0.987086, 0, 1, 0, -0.987086, 0, -0.160191, 160.663, 7.62939e-06, -200.085)
+
+[node name="TrafficCone7" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(-0.160191, 0, 0.987086, 0, 1, 0, -0.987086, 0, -0.160191, -120.996, 7.62939e-06, -184.173)
+
+[node name="TrafficCone8" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(-0.987995, 0, 0.154486, 0, 1, 0, -0.154486, 0, -0.987995, -120.996, 7.62939e-06, -184.173)
+
+[node name="TrafficCone9" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(-0.987995, 0, 0.154486, 0, 1, 0, -0.154486, 0, -0.987995, -215.379, 7.62939e-06, -61.2993)
+
+[node name="TrafficCone10" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(-0.922969, 0, -0.384875, 0, 1, 0, 0.384875, 0, -0.922969, 172.553, 7.62939e-06, -186.288)
+
+[node name="TrafficCone11" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(-0.922969, 0, -0.384875, 0, 1, 0, 0.384875, 0, -0.922969, -135.527, 7.62939e-06, 173.609)
+
+[node name="TrafficCone12" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(-0.922969, 0, -0.384875, 0, 1, 0, 0.384875, 0, -0.922969, 202.589, 7.62939e-06, 223.993)
+
+[node name="TrafficCone13" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(-0.922969, 0, -0.384875, 0, 1, 0, 0.384875, 0, -0.922969, 6.95566, 7.62939e-06, -41.5401)
+
+[node name="TrafficCone14" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(-0.922969, 0, -0.384875, 0, 1, 0, 0.384875, 0, -0.922969, -23.9838, 7.62939e-06, -83.3854)
+
+[node name="TrafficCone15" parent="Environment/Props/Misc_/TrafficCones" instance=ExtResource("11_sy7f8")]
+transform = Transform3D(-0.922969, 0, -0.384875, 0, 1, 0, 0.384875, 0, -0.922969, 149.851, 7.62939e-06, -52.3166)
+
+[node name="SignCircle" type="Node3D" parent="Environment/Props/Misc_"]
+
+[node name="SignCircle" parent="Environment/Props/Misc_/SignCircle" instance=ExtResource("9_afwdw")]
+transform = Transform3D(-0.877585, -0.223832, 0.423962, -0.160867, 0.970533, 0.179407, -0.451626, 0.0892436, -0.887733, 9.47208, 0, 184.785)
+
+[node name="SignCircle2" parent="Environment/Props/Misc_/SignCircle" instance=ExtResource("9_afwdw")]
+transform = Transform3D(0.870042, 0.225268, -0.438499, -0.160867, 0.970533, 0.179407, 0.465992, -0.0855517, 0.880643, 82.6926, 0, 132.14)
+
+[node name="SignCircle3" parent="Environment/Props/Misc_/SignCircle" instance=ExtResource("9_afwdw")]
+transform = Transform3D(0.687188, -0.020338, 0.726195, -0.160867, 0.970533, 0.179407, -0.708445, -0.240107, 0.663667, 160.648, 0, -58.6449)
+
+[node name="SignCircle4" parent="Environment/Props/Misc_/SignCircle" instance=ExtResource("9_afwdw")]
+transform = Transform3D(0.918106, 0.0804379, 0.388085, -0.160867, 0.970533, 0.179407, -0.362218, -0.227145, 0.903993, 144.554, 0, -192.646)
+
+[node name="SignCircle5" parent="Environment/Props/Misc_/SignCircle" instance=ExtResource("9_afwdw")]
+transform = Transform3D(0.900653, 0.0700068, 0.428864, -0.160867, 0.970533, 0.179407, -0.403666, -0.230573, 0.885375, -141.473, 0, -127.905)
+
+[node name="SignCircle6" parent="Environment/Props/Misc_/SignCircle" instance=ExtResource("9_afwdw")]
+transform = Transform3D(0.985178, 0.146933, 0.0885106, -0.160867, 0.970533, 0.179407, -0.0595416, -0.190986, 0.979785, -167.601, 0, 150.354)
+
+[node name="SignTriangles" type="Node3D" parent="Environment/Props/Misc_"]
+
+[node name="SignTriangle" parent="Environment/Props/Misc_/SignTriangles" instance=ExtResource("10_jdl3y")]
+transform = Transform3D(-0.31391, -0.242328, -0.918007, 0.0443461, 0.962083, -0.269127, 0.948417, -0.125192, -0.291261, 132.168, 0, 111.456)
+
+[node name="SignTriangle2" parent="Environment/Props/Misc_/SignTriangles" instance=ExtResource("10_jdl3y")]
+transform = Transform3D(-0.985408, 0.0864376, 0.146627, 0.0443461, 0.962083, -0.269127, -0.16433, -0.258698, -0.951878, -151.935, 0, -134.903)
+
+[node name="SignTriangle3" parent="Environment/Props/Misc_/SignTriangles" instance=ExtResource("10_jdl3y")]
+transform = Transform3D(-0.381642, -0.232645, -0.894553, 0.0443461, 0.962083, -0.269127, 0.923246, -0.14238, -0.356854, -133.585, 0, 141.817)
+
+[node name="SignTriangle4" parent="Environment/Props/Misc_/SignTriangles" instance=ExtResource("10_jdl3y")]
+transform = Transform3D(0.317108, 0.182856, 0.930594, 0.0363093, 0.978176, -0.204579, -0.947694, 0.0986628, 0.303548, -160.225, 3.8147e-06, -177.255)
+
+[node name="SignTriangle5" parent="Environment/Props/Misc_/SignTriangles" instance=ExtResource("10_jdl3y")]
+transform = Transform3D(0.336826, 0.114196, 0.934616, 0.0340976, 0.990487, -0.13331, -0.94095, 0.0767705, 0.329728, 157.548, 3.8147e-06, -209.702)
+
+[node name="SignTriangle6" parent="Environment/Props/Misc_/SignTriangles" instance=ExtResource("10_jdl3y")]
+transform = Transform3D(0.336826, 0.114196, 0.934616, 0.0340976, 0.990487, -0.13331, -0.94095, 0.0767705, 0.329728, 157.548, 3.8147e-06, -209.702)
+
 [node name="VFX_Snowflakes" parent="Environment" instance=ExtResource("20_iptpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.475, 10, 0)
 

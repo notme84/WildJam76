@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://0s2vyyh3ffjx"]
+[gd_scene load_steps=27 format=3 uid="uid://0s2vyyh3ffjx"]
 
 [ext_resource type="PackedScene" uid="uid://bl64fol7gyyh2" path="res://MarkStuffTemp/yeti_player.tscn" id="1_2w8k1"]
 [ext_resource type="Script" path="res://Script/game_control.gd" id="1_xnkdr"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://k5x862goldww" path="res://Scenes/UI/pause_menu.tscn" id="2_8h8yk"]
 [ext_resource type="PackedScene" uid="uid://h8q0mnhmd27d" path="res://Scenes/practice_target.tscn" id="2_ie4ed"]
 [ext_resource type="PackedScene" uid="uid://dues512tx2al3" path="res://Scenes/Props/hedge_lumpy.tscn" id="2_ungmc"]
-[ext_resource type="AudioStream" uid="uid://d0606ok8eu4xl" path="res://Audio/eYeti_Theme.mp3" id="3_4d6rd"]
 [ext_resource type="PackedScene" uid="uid://cxajk4s12gg3r" path="res://Scenes/Props/hedge_small.tscn" id="3_dw8wc"]
 [ext_resource type="PackedScene" uid="uid://b2hawylas6qoq" path="res://Scenes/Props/hedge_tall.tscn" id="4_u2r0y"]
 [ext_resource type="PackedScene" uid="uid://cb0djusaus6ca" path="res://Scenes/Props/log_stack_large.tscn" id="5_ytwls"]
@@ -41,10 +40,6 @@ size = Vector3(50, 1, 50)
 [node name="MainGame" type="Node3D"]
 script = ExtResource("1_xnkdr")
 pause_menu = ExtResource("2_8h8yk")
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_4d6rd")
-bus = &"music"
 
 [node name="YetiPlayer" parent="." instance=ExtResource("1_2w8k1")]
 

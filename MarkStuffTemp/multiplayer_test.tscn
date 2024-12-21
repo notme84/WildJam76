@@ -38,7 +38,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/SubViewportRow1/SubViewportContainer1"]
 handle_input_locally = false
-size = Vector2i(576, 324)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="MPViewportsContainer/SubViewportRow1"]
@@ -50,7 +50,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/SubViewportRow1/SubViewportContainer2"]
 handle_input_locally = false
-size = Vector2i(576, 324)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="SubViewportRow2" type="HBoxContainer" parent="MPViewportsContainer"]
@@ -69,7 +69,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/SubViewportRow2/SubViewportContainer3"]
 handle_input_locally = false
-size = Vector2i(576, 324)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="SubViewportContainer4" type="SubViewportContainer" parent="MPViewportsContainer/SubViewportRow2"]
@@ -81,7 +81,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="MPViewportsContainer/SubViewportRow2/SubViewportContainer4"]
 handle_input_locally = false
-size = Vector2i(576, 324)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="PracticeTarget" parent="." instance=ExtResource("2_bubi2")]

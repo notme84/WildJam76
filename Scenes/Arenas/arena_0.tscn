@@ -36,6 +36,7 @@ size = Vector3(50, 1, 50)
 [node name="Arena0" type="Node3D"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("1_0a20d")
 autoplay = true
 bus = &"music"

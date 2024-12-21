@@ -218,4 +218,5 @@ func play_footstep():
 func on_died():
 	#TODO some sort of death animation
 	#stop being able to move
+	print(name + " has died")
 	alive = false

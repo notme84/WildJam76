@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_7c4wq"]
 size = Vector3(3.47455, 0.873505, 1.3772)
 
-[node name="LogStackLarge" type="CharacterBody3D"]
+[node name="LogStackLarge" type="StaticBody3D"]
 
 [node name="LOG-STACK-LARGE" parent="." instance=ExtResource("1_sjlas")]
 

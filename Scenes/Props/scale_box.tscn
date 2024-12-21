@@ -4,7 +4,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_04vbq"]
 
-[node name="ScaleBox" type="CharacterBody3D"]
+[node name="ScaleBox" type="StaticBody3D"]
 
 [node name="1M-SCALE-REF" parent="." instance=ExtResource("1_jdplx")]
 

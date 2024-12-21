@@ -6,7 +6,7 @@
 radius = 1.57875
 height = 7.51294
 
-[node name="TreePineTall" type="CharacterBody3D"]
+[node name="TreePineTall" type="StaticBody3D"]
 
 [node name="TREE-PINE-TALL" parent="." instance=ExtResource("1_0572y")]
 

@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvkvk"]
 size = Vector3(1.18311, 3.19629, 0.133789)
 
-[node name="SignCircle" type="CharacterBody3D"]
+[node name="SignCircle" type="StaticBody3D"]
 
 [node name="SIGN-CIRCLE2" parent="." instance=ExtResource("1_20ysm")]
 

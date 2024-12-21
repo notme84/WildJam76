@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_u3r68"]
 size = Vector3(0.745056, 1, 0.737549)
 
-[node name="TrafficCone" type="CharacterBody3D"]
+[node name="TrafficCone" type="StaticBody3D"]
 
 [node name="TRAFFIC-CONE2" parent="." instance=ExtResource("1_js53d")]
 

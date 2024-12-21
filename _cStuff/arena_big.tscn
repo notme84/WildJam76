@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b2hawylas6qoq" path="res://Scenes/Props/hedge_tall.tscn" id="14_u0x6f"]
 [ext_resource type="PackedScene" uid="uid://hdp0vgfp62x7" path="res://Scenes/Props/ornament.tscn" id="15_rakdk"]
 [ext_resource type="PackedScene" uid="uid://cmhvb0iolu4ac" path="res://assets/VFX/VFX_Snowflakes.tscn" id="16_tv3ct"]
-[ext_resource type="AudioStream" uid="uid://d0606ok8eu4xl" path="res://Audio/eYeti_Theme.mp3" id="17_6wyj1"]
+[ext_resource type="AudioStream" uid="uid://cen34kwnjne2q" path="res://Audio/Yeti_Theme03.wav" id="17_n57a7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_crkph"]
 
@@ -2016,6 +2016,6 @@ transform = Transform3D(0.336826, 0.114196, 0.934616, 0.0340976, 0.990487, -0.13
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.475, 10, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_6wyj1")
+stream = ExtResource("17_n57a7")
 autoplay = true
 bus = &"music"

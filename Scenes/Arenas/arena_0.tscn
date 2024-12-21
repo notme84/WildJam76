@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://e31th0xcq6dt"]
 
-[ext_resource type="AudioStream" uid="uid://d0606ok8eu4xl" path="res://Audio/eYeti_Theme.mp3" id="1_0a20d"]
 [ext_resource type="PackedScene" uid="uid://dues512tx2al3" path="res://Scenes/Props/hedge_lumpy.tscn" id="1_gjoi1"]
+[ext_resource type="AudioStream" uid="uid://cen34kwnjne2q" path="res://Audio/Yeti_Theme03.wav" id="1_mmc0m"]
 [ext_resource type="PackedScene" uid="uid://cxajk4s12gg3r" path="res://Scenes/Props/hedge_small.tscn" id="2_m84y4"]
 [ext_resource type="PackedScene" uid="uid://b2hawylas6qoq" path="res://Scenes/Props/hedge_tall.tscn" id="3_r6r2q"]
 [ext_resource type="PackedScene" uid="uid://cb0djusaus6ca" path="res://Scenes/Props/log_stack_large.tscn" id="4_twwqf"]
@@ -37,7 +37,7 @@ size = Vector3(50, 1, 50)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("1_0a20d")
+stream = ExtResource("1_mmc0m")
 autoplay = true
 bus = &"music"
 
@@ -63,7 +63,7 @@ mesh = SubResource("BoxMesh_mhvfs")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.99356, 2.86102e-06, 4.74755)
 
 [node name="HedgeLumpy3" parent="Props" instance=ExtResource("1_gjoi1")]
-transform = Transform3D(-0.0317946, 0, 0.999494, 0, 1, 0, -0.999494, 0, -0.0317946, 15.8056, -9.53674e-07, 14.6776)
+transform = Transform3D(-0.0317946, 0, 0.999494, 0, 1, 0, -0.999494, 0, -0.0317946, 14.1165, 3.41061e-13, 16.7844)
 
 [node name="HedgeLumpy2" parent="Props" instance=ExtResource("1_gjoi1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.037765, 0, 16.5638)
@@ -75,7 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.87165, 9.53674e-07, 11.0485
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1536, 0, 17.3186)
 
 [node name="HedgeTall" parent="Props" instance=ExtResource("3_r6r2q")]
-transform = Transform3D(-0.0317946, 0, 0.999494, 0, 1, 0, -0.999494, 0, -0.0317946, 14.1179, 0, 14.7452)
+transform = Transform3D(-0.0317946, 0, 0.999494, 0, 1, 0, -0.999494, 0, -0.0317946, 12.4288, 9.53674e-07, 16.852)
 
 [node name="HedgeTall2" parent="Props" instance=ExtResource("3_r6r2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10753, 9.53674e-07, 7.49574)
@@ -345,7 +345,7 @@ transform = Transform3D(0.278287, 0, -0.960498, 0, 1, 0, 0.960498, 0, 0.278287, 
 transform = Transform3D(0.278287, 0, -0.960498, 0, 1, 0, 0.960498, 0, 0.278287, 8.95458, 0, -6.40319)
 
 [node name="WoodStack25" parent="Props" instance=ExtResource("15_j24kx")]
-transform = Transform3D(0.986196, 0, 0.165581, 0, 1, 0, -0.165581, 0, 0.986196, 14.5454, 0, 13.3551)
+transform = Transform3D(0.986196, 0, 0.165581, 0, 1, 0, -0.165581, 0, 0.986196, 12.8563, 9.53674e-07, 15.4619)
 
 [node name="WoodStack11" parent="Props" instance=ExtResource("15_j24kx")]
 transform = Transform3D(-0.278241, 0.00504135, -0.960498, -0.0181156, -0.999836, -2.30726e-10, -0.96034, 0.0174, 0.278287, 8.75766, 1.04086, -7.08286)
@@ -391,3 +391,15 @@ transform = Transform3D(0.278282, -0.00174855, -0.960498, 0.00628324, 0.99998, 0
 
 [node name="VFX_Snowflakes" parent="." instance=ExtResource("16_g1oth")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.475, 10, 0)
+
+[node name="LogStackLarge" parent="." instance=ExtResource("4_twwqf")]
+transform = Transform3D(0.380635, 0, -0.924726, 0, 1, 0, 0.924726, 0, 0.380635, 19.0128, -0.000121116, 9.79751)
+
+[node name="LogStackSmall" parent="." instance=ExtResource("5_t8ml2")]
+transform = Transform3D(0.384054, 0, -0.923311, 0, 1, 0, 0.923311, 0, 0.384054, 15.82, 9.53674e-07, 6.3118)
+
+[node name="HedgeLumpy11" parent="." instance=ExtResource("1_gjoi1")]
+transform = Transform3D(-0.256661, 0, 0.966502, 0, 1, 0, -0.966502, 0, -0.256661, 16.8384, 9.53674e-07, 6.11926)
+
+[node name="HedgeSmall11" parent="." instance=ExtResource("2_m84y4")]
+transform = Transform3D(-0.253083, 0, 0.967445, 0, 1, 0, -0.967445, 0, -0.253083, 20.3565, 9.53674e-07, 10.3613)

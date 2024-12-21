@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnvmotsey50ri"]
+[gd_scene load_steps=7 format=3 uid="uid://dnvmotsey50ri"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_rf04i"]
 [ext_resource type="PackedScene" uid="uid://0s2vyyh3ffjx" path="res://MarkStuffTemp/main_game.tscn" id="2_pgut8"]
 [ext_resource type="PackedScene" uid="uid://clb13xng636qw" path="res://Scenes/UI/options_menu.tscn" id="3_5ugac"]
 [ext_resource type="PackedScene" uid="uid://b61aeom5sa1e6" path="res://Scenes/UI/credits.tscn" id="4_q0t45"]
 [ext_resource type="PackedScene" uid="uid://dffev5gvjhier" path="res://Scenes/UI/multiplayer_menu.tscn" id="5_2r7je"]
+[ext_resource type="AudioStream" uid="uid://br2hbu71i3wl8" path="res://Audio/Yeti_Chill_MainMenu.mp3" id="6_28q3h"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_rf04i")
@@ -52,3 +53,8 @@ text = "Credits"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_28q3h")
+autoplay = true
+bus = &"music"

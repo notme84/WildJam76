@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d0clotds40svo" path="res://Scenes/yeti_enemy.tscn" id="2_7nskc"]
 [ext_resource type="PackedScene" uid="uid://k5x862goldww" path="res://Scenes/UI/pause_menu.tscn" id="2_8h8yk"]
 [ext_resource type="PackedScene" uid="uid://h8q0mnhmd27d" path="res://Scenes/practice_target.tscn" id="2_ie4ed"]
-[ext_resource type="PackedScene" uid="uid://cxp1ibuygohws" path="res://Scenes/Arenas/arena_0.tscn" id="5_18c5n"]
+[ext_resource type="PackedScene" uid="uid://e31th0xcq6dt" path="res://Scenes/Arenas/arena_0.tscn" id="5_18c5n"]
 
 [node name="MainGame" type="Node3D"]
 script = ExtResource("1_xnkdr")

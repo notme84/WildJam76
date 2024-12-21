@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxp1ibuygohws"]
+[gd_scene load_steps=23 format=3 uid="uid://e31th0xcq6dt"]
 
 [ext_resource type="AudioStream" uid="uid://d0606ok8eu4xl" path="res://Audio/eYeti_Theme.mp3" id="1_0a20d"]
 [ext_resource type="PackedScene" uid="uid://dues512tx2al3" path="res://Scenes/Props/hedge_lumpy.tscn" id="1_gjoi1"]

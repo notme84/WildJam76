@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://k5x862goldww" path="res://Scenes/UI/pause_menu.tscn" id="2_xrwh1"]
 [ext_resource type="PackedScene" uid="uid://bl64fol7gyyh2" path="res://MarkStuffTemp/yeti_player.tscn" id="3_3y8cd"]
 [ext_resource type="PackedScene" uid="uid://h8q0mnhmd27d" path="res://Scenes/practice_target.tscn" id="4_dr21e"]
-[ext_resource type="PackedScene" uid="uid://cxp1ibuygohws" path="res://Scenes/Arenas/arena_0.tscn" id="5_w3x6d"]
+[ext_resource type="PackedScene" uid="uid://e31th0xcq6dt" path="res://Scenes/Arenas/arena_0.tscn" id="5_w3x6d"]
 [ext_resource type="PackedScene" uid="uid://d0clotds40svo" path="res://Scenes/yeti_enemy.tscn" id="21_3bokd"]
 
 [node name="Arena" type="Node3D"]

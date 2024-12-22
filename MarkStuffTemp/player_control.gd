@@ -7,6 +7,12 @@ signal attack_2_released
 signal melee_pressed
 signal melee_released
 
+
+const ANIM_RUN := "Run"
+const ANIM_THROW := "throw"
+const ANIM_CHARGE := "charge"
+const ANIM_IDLE := "idle"
+
 @onready var camera: Camera3D = %Camera3D
 
 @export var pause_menu: PackedScene
@@ -41,10 +47,14 @@ var last_right_click_axis: float
 
 var alive: bool = true
 
+var is_throwing_anim := false
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$HealthComponent.died.connect(on_died)
 	alive = true
+	
+	character_animator.animation_finished.connect(on_anim_finished)
 	
 
 func _input(event: InputEvent):
@@ -122,8 +132,12 @@ func _process(delta: float):
 	
 	if left_click_axis > axis_press_threshold && last_left_click_axis < axis_press_threshold:
 		attack_1_pressed.emit()
+		character_animator.play(ANIM_CHARGE)
+		is_throwing_anim = true
 	elif left_click_axis < axis_press_threshold && last_left_click_axis > axis_press_threshold:
 		attack_1_released.emit()
+		character_animator.play(ANIM_THROW)
+		is_throwing_anim = true
 	if right_click_axis > axis_press_threshold && last_right_click_axis < axis_press_threshold:
 		attack_2_pressed.emit()
 	elif right_click_axis < axis_press_threshold && last_right_click_axis > axis_press_threshold:
@@ -206,13 +220,17 @@ func update_move(delta: float):
 	if direction:
 		move(direction, delta)
 		#set to run animation
-		if character_animator != null:
-			if !(character_animator.current_animation == "Run"):
-				character_animator.play("Run")
+		if is_throwing_anim:
+			pass
+		elif character_animator != null:
+			if !(character_animator.current_animation == ANIM_RUN):
+				character_animator.play(ANIM_RUN)
 	else:
-		if character_animator != null:
-			if !(character_animator.current_animation == "idle"):
-				character_animator.play("idle")
+		if is_throwing_anim:
+			pass
+		elif character_animator != null:
+			if !(character_animator.current_animation == ANIM_IDLE):
+				character_animator.play(ANIM_IDLE)
 		if on_floor:
 			slow_to_stop()
 	
@@ -257,3 +275,8 @@ func on_died():
 	character_animator.pause()
 	
 	GameSignals.emit_player_died()
+
+func on_anim_finished(anim_name) -> void:
+	if not anim_name in [ANIM_THROW, ANIM_CHARGE]:
+		return
+	is_throwing_anim = false

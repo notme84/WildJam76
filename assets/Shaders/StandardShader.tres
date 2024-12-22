@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://85k8gxxkfa86"]
+[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://dt4gtqcguvv3p"]
 
 [sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_7h8qn"]
 parameter_name = "Metalic"

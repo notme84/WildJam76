@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmfithcfvjgl0"]
+
+[ext_resource type="PackedScene" uid="uid://cn80s3ydloalj" path="res://assets/env/GiftBox.glb" id="1_1nqti"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hvu6p"]
+size = Vector3(3.27118, 3.62238, 2.95752)
+
+[node name="Giftbox" type="StaticBody3D"]
+
+[node name="GiftBox2" parent="." instance=ExtResource("1_1nqti")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0722961, 1.81588, -0.0183105)
+shape = SubResource("BoxShape3D_hvu6p")

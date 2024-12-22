@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://e31th0xcq6dt"]
+[gd_scene load_steps=25 format=3 uid="uid://e31th0xcq6dt"]
 
 [ext_resource type="PackedScene" uid="uid://dues512tx2al3" path="res://Scenes/Props/hedge_lumpy.tscn" id="1_gjoi1"]
 [ext_resource type="AudioStream" uid="uid://ca8sa7p1pn2mj" path="res://Audio/Yeti_Theme03.mp3" id="1_o13t5"]
@@ -17,7 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://cs64hixqn5e3t" path="res://Scenes/Props/tree_pine_tall.tscn" id="14_sex8n"]
 [ext_resource type="PackedScene" uid="uid://bxgvaqkqy8wqg" path="res://Scenes/Props/wood_stack.tscn" id="15_j24kx"]
 [ext_resource type="PackedScene" uid="uid://cmhvb0iolu4ac" path="res://assets/VFX/VFX_Snowflakes.tscn" id="16_g1oth"]
-[ext_resource type="PackedScene" uid="uid://dvlv8j2gfpoao" path="res://assets/env/CandyCane.glb" id="18_2r5o2"]
+[ext_resource type="PackedScene" uid="uid://bmfithcfvjgl0" path="res://Scenes/Props/giftbox.tscn" id="19_i5h7x"]
+[ext_resource type="PackedScene" uid="uid://b84k5121kiu2y" path="res://Scenes/Props/candy_cane.tscn" id="19_pix3x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_crkph"]
 sky_top_color = Color(0.2698, 0.453217, 0.71, 1)
@@ -159,19 +160,19 @@ transform = Transform3D(-0.999947, 0, 0.0102623, 0, 1, 0, -0.0102623, 0, -0.9999
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6698, 0, -20.1043)
 
 [node name="Ornament2" parent="Props" instance=ExtResource("6_lxsgb")]
-transform = Transform3D(1, 0, 0, 0, 0.86216, -0.506636, 0, 0.506636, 0.86216, -7.50207, -5.52726, -6.02895)
+transform = Transform3D(1, 0, 0, 0, 0.86216, -0.506636, 0, 0.506636, 0.86216, -9.34649, -5.52726, -0.200694)
 
 [node name="ScaleBox" parent="Props" instance=ExtResource("7_8swdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97693, 0, -16.8434)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.67067, 0, -19.0027)
 
 [node name="SignCircle" parent="Props" instance=ExtResource("8_vr2op")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0181, 1.90735e-06, 7.00459)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29067, 1.90735e-06, -16.1284)
 
 [node name="SignTriangle" parent="Props" instance=ExtResource("9_hw66b")]
 transform = Transform3D(0.0662565, 0, -0.997803, 0, 1, 0, 0.997803, 0, 0.0662565, 10.1248, 9.53674e-07, 1.08382)
 
 [node name="TrafficCone" parent="Props" instance=ExtResource("10_lctuv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.951, -9.53674e-07, -14.0223)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96699, -4.76837e-07, -17.3439)
 
 [node name="TreePineBent" parent="Props" instance=ExtResource("11_51e22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9481, 0, 24.4513)
@@ -398,26 +399,38 @@ transform = Transform3D(-0.278241, 0.00504135, -0.960498, -0.0181156, -0.999836,
 [node name="WoodStack16" parent="Props" instance=ExtResource("15_j24kx")]
 transform = Transform3D(0.278282, -0.00174855, -0.960498, 0.00628324, 0.99998, 0, 0.960479, -0.00603504, 0.278287, 12.4912, 1.08544, -7.89892)
 
-[node name="VFX_Snowflakes" parent="." instance=ExtResource("16_g1oth")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.475, 10, 0)
-
-[node name="LogStackLarge" parent="." instance=ExtResource("4_twwqf")]
+[node name="LogStackLarge12" parent="Props" instance=ExtResource("4_twwqf")]
 transform = Transform3D(0.380635, 0, -0.924726, 0, 1, 0, 0.924726, 0, 0.380635, 19.0128, -0.000121116, 9.79751)
 
-[node name="LogStackSmall" parent="." instance=ExtResource("5_t8ml2")]
+[node name="LogStackSmall12" parent="Props" instance=ExtResource("5_t8ml2")]
 transform = Transform3D(0.384054, 0, -0.923311, 0, 1, 0, 0.923311, 0, 0.384054, 15.82, 9.53674e-07, 6.3118)
 
-[node name="HedgeLumpy11" parent="." instance=ExtResource("1_gjoi1")]
+[node name="HedgeLumpy11" parent="Props" instance=ExtResource("1_gjoi1")]
 transform = Transform3D(-0.256661, 0, 0.966502, 0, 1, 0, -0.966502, 0, -0.256661, 16.8384, 9.53674e-07, 6.11926)
 
-[node name="HedgeSmall11" parent="." instance=ExtResource("2_m84y4")]
+[node name="HedgeSmall11" parent="Props" instance=ExtResource("2_m84y4")]
 transform = Transform3D(-0.253083, 0, 0.967445, 0, 1, 0, -0.967445, 0, -0.253083, 20.3565, 9.53674e-07, 10.3613)
 
-[node name="CandyCane" parent="." instance=ExtResource("18_2r5o2")]
-transform = Transform3D(2.23601, 0, 0, 0, 2.23601, 0, 0, 0, 2.23601, 7.38, 0, -12.162)
+[node name="CandyCane" parent="Props" instance=ExtResource("19_pix3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3789, -2.38419e-07, -11.9318)
 
-[node name="CandyCane2" parent="." instance=ExtResource("18_2r5o2")]
-transform = Transform3D(-1.01309, 0, 1.07341, 0, 1.476, 0, -1.07341, 0, -1.01309, 8.91026, 0.0124883, -5.37362)
+[node name="CandyCane2" parent="Props" instance=ExtResource("19_pix3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.59696, -2.38419e-07, -5.46305)
 
-[node name="CandyCane3" parent="." instance=ExtResource("18_2r5o2")]
-transform = Transform3D(0.519499, 0.0893184, -0.943782, -0.0497482, 1.07729, 0.0745694, 0.946693, 0.00759729, 0.52182, 9.44732, 0.00184634, -5.23655)
+[node name="CandyCane3" parent="Props" instance=ExtResource("19_pix3x")]
+transform = Transform3D(-0.713752, 0, -0.700399, 0, 1, 0, 0.700399, 0, -0.713752, 9.16508, -1.19209e-07, -5.30533)
+
+[node name="Giftbox" parent="Props" instance=ExtResource("19_i5h7x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.85655, 0, -14.1637)
+
+[node name="Giftbox2" parent="Props" instance=ExtResource("19_i5h7x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3534, 0, -15.9735)
+
+[node name="Giftbox3" parent="Props" instance=ExtResource("19_i5h7x")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -12.8748, 0, -11.9398)
+
+[node name="Giftbox4" parent="Props" instance=ExtResource("19_i5h7x")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.67533, 0, -10.4069)
+
+[node name="VFX_Snowflakes" parent="." instance=ExtResource("16_g1oth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.475, 10, 0)

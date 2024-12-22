@@ -30,4 +30,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54684, 2.30042, -13.7933)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.79262)
 
 [node name="YetiEnemy2" parent="Enemies" instance=ExtResource("21_3bokd")]
-transform = Transform3D(0.634663, 0, -0.772789, 0, 1, 0, 0.772789, 0, 0.634663, 9.59675, 0, -5.19754)
+transform = Transform3D(0.634663, 0, -0.772789, 0, 1, 0, 0.772789, 0, 0.634663, 9.49872, 0, -3.9726)

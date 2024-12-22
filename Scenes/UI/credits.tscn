@@ -53,32 +53,32 @@ horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Sean S."
+text = "Sean S. - Prop Artist"
 horizontal_alignment = 1
 
 [node name="Label8" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Ben Tunell"
+text = "Ben Tunell - SFX & Music"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Miranda"
+text = "Miranda - Particles + Shaders"
 horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Steven Ngu"
+text = "Steven Ngu - Design"
 horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Oscar Baechler"
+text = "Oscar Baechler @ogbog - Yeti Modeler, Animator, Voice Actor"
 horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "mnstr_0"
+text = "mnstr_0 - Level Design"
 horizontal_alignment = 1
 
 [node name="Label9" type="Label" parent="VBoxContainer2/VBoxContainer"]
@@ -88,7 +88,7 @@ horizontal_alignment = 1
 
 [node name="Label10" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "TheDuckCow"
+text = "TheDuckCow - Technical Artist"
 horizontal_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2"]

@@ -1,20 +1,93 @@
-[gd_scene load_steps=4 format=3 uid="uid://dffev5gvjhier"]
+[gd_scene load_steps=8 format=3 uid="uid://dffev5gvjhier"]
 
 [ext_resource type="Script" path="res://Scenes/UI/multiplayer_menu.gd" id="1_l446k"]
 [ext_resource type="PackedScene" uid="uid://b8ng7ebvjequ4" path="res://MarkStuffTemp/multiplayer_test.tscn" id="2_yyteu"]
 [ext_resource type="PackedScene" uid="uid://hw2gfya2kub3" path="res://Scenes/UI/player_panel.tscn" id="3_ooc3w"]
+[ext_resource type="Shader" path="res://Scenes/background_slider.gdshader" id="3_pv4ym"]
+[ext_resource type="Texture2D" uid="uid://cctj64bht7uj0" path="res://assets/Shaders/Snow_Albedo.png" id="4_yvper"]
+[ext_resource type="Theme" uid="uid://c27qn5m30mvdr" path="res://Scenes/UI/main_theme.tres" id="5_xchre"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t0v4v"]
+shader = ExtResource("3_pv4ym")
+shader_parameter/motion = Vector2(-8, -15)
+shader_parameter/scale = 1.0
+shader_parameter/offset = Vector2(0, 0)
 
 [node name="MultiplayerMenu" type="CanvasLayer"]
 script = ExtResource("1_l446k")
 mp_game = ExtResource("2_yyteu")
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.595734, 0.75626, 0.764882, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.431373)
+material = SubResource("ShaderMaterial_t0v4v")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -700.0
+offset_right = 448.0
+offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_yvper")
+stretch_mode = 1
+
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.552956, 0.552956, 0.552956, 1)
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+offset_right = 50.0
+grow_vertical = 0
+theme = ExtResource("5_xchre")
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[node name="StartButton" type="Button" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -41.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("5_xchre")
+theme_override_font_sizes/font_size = 30
+text = "Start Game!"
 
 [node name="PlayerPanelContainer" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
@@ -29,6 +102,7 @@ offset_right = 150.0
 offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("5_xchre")
 
 [node name="PlayerPanel" parent="PlayerPanelContainer" instance=ExtResource("3_ooc3w")]
 layout_mode = 2
@@ -40,32 +114,18 @@ layout_mode = 2
 text = "PLAYER 2"
 
 [node name="PlayerPanel3" parent="PlayerPanelContainer" instance=ExtResource("3_ooc3w")]
+visible = false
 layout_mode = 2
 
 [node name="Label" parent="PlayerPanelContainer/PlayerPanel3/VBoxContainer" index="0"]
 text = "PLAYER 3"
 
 [node name="PlayerPanel4" parent="PlayerPanelContainer" instance=ExtResource("3_ooc3w")]
+visible = false
 layout_mode = 2
 
 [node name="Label" parent="PlayerPanelContainer/PlayerPanel4/VBoxContainer" index="0"]
 text = "PLAYER 4"
-
-[node name="BackButton" type="Button" parent="."]
-unique_name_in_owner = true
-offset_left = 116.0
-offset_top = 565.0
-offset_right = 161.0
-offset_bottom = 596.0
-text = "Back"
-
-[node name="StartButton" type="Button" parent="."]
-unique_name_in_owner = true
-offset_left = 729.0
-offset_top = 564.0
-offset_right = 737.0
-offset_bottom = 572.0
-text = "START GAME!"
 
 [editable path="PlayerPanelContainer/PlayerPanel2"]
 [editable path="PlayerPanelContainer/PlayerPanel3"]

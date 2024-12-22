@@ -1,0 +1,84 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c27qn5m30mvdr"]
+
+[ext_resource type="FontFile" uid="uid://dcau3l2p2lpje" path="res://Scenes/UI/Apple Chancery.ttf" id="1_clcfc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrky1"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0869863, 0.253998, 0.263146, 0.6)
+border_width_left = 4
+border_width_top = 1
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.152006, 0.238454, 0.283515, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7305m"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.12709, 0.219783, 0.39267, 0.6)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0.224905, 0.224905, 0.224905, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qmb7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.12709, 0.219783, 0.39267, 0.6)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0.224905, 0.224905, 0.224905, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2iuu"]
+content_margin_left = 4.0
+content_margin_top = 8.0
+content_margin_right = 4.0
+content_margin_bottom = 1.0
+bg_color = Color(0.12709, 0.219783, 0.39267, 0.6)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0.224905, 0.224905, 0.224905, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_top = 2.0
+
+[resource]
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_clcfc")
+Button/styles/focus = SubResource("StyleBoxFlat_rrky1")
+Button/styles/hover = SubResource("StyleBoxFlat_7305m")
+Button/styles/normal = SubResource("StyleBoxFlat_6qmb7")
+Button/styles/pressed = SubResource("StyleBoxFlat_s2iuu")
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("1_clcfc")

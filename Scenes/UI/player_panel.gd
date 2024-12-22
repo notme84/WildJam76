@@ -6,7 +6,7 @@ func player_join(device_index: int):
 	%JoinedLabel.visible = true
 	%DeviceIndexLabel.visible = true
 	%JoinedLabel.text = "joined"
-	%DeviceIndexLabel.text = str(device_index)
+	%DeviceIndexLabel.text = "Keyboard" if device_index == -1 else "Controller"
 
 
 func player_leave():

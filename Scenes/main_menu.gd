@@ -8,6 +8,7 @@ extends Node
 @export var mp_menu: PackedScene
 
 
+
 func _ready():
 	%StartButton.pressed.connect(on_start)
 	%OptionsButton.pressed.connect(open_submenu.bind(options_scene, %OptionsButton))
@@ -15,8 +16,8 @@ func _ready():
 	%QuitButton.pressed.connect(on_quit)
 	%MPButton.pressed.connect(open_submenu.bind(mp_menu, %MPButton))
 	
-	%StartButton.grab_focus()
-	
+	%MPButton.grab_focus()
+
 
 func on_start():
 	get_tree().change_scene_to_packed(game_scene)

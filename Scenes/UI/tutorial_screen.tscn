@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://clskuqtb4v7r2"]
+[gd_scene load_steps=2 format=3 uid="uid://d3o38kjq87ly4"]
 
 [ext_resource type="Script" path="res://Scenes/UI/tutorial_screen.gd" id="1_m4247"]
 
@@ -49,11 +49,11 @@ text = "To throw snowballs, mouse left click or controller right trigger"
 
 [node name="Label4" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "To breathe, mouse right click or controller left trigger"
+text = "Hold mouse left click or controller right trigger to throw further"
 
 [node name="Label5" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "To punch, press E or V on keyboard or B on controller(xbox)"
+text = "WASD or Left stick to move character"
 
 [node name="Label6" type="Label" parent="VBoxContainer"]
 layout_mode = 2

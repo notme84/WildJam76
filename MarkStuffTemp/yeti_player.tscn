@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bl64fol7gyyh2"]
+[gd_scene load_steps=24 format=4 uid="uid://bl64fol7gyyh2"]
 
 [ext_resource type="Script" path="res://MarkStuffTemp/player_control.gd" id="1_ntwp0"]
 [ext_resource type="PackedScene" uid="uid://k5x862goldww" path="res://Scenes/UI/pause_menu.tscn" id="2_mrx2t"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cy41gt0obl5wq" path="res://Scenes/Components/hitbox.tscn" id="4_nhxry"]
 [ext_resource type="PackedScene" uid="uid://48tcbuqhcbc5" path="res://Scenes/Attacks/snowball_spawn.tscn" id="5_25jke"]
 [ext_resource type="Script" path="res://Scenes/UI/health_bar.gd" id="5_bptov"]
+[ext_resource type="Script" path="res://MarkStuffTemp/player_options.gd" id="6_erkrx"]
 [ext_resource type="Script" path="res://Script/position_follower.gd" id="6_evb26"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gy7th"]
@@ -4193,6 +4194,64 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_573ni")
 value = 100.0
 show_percentage = false
 script = ExtResource("5_bptov")
+
+[node name="PlayerOptions" type="PanelContainer" parent="PlayerHud"]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -62.5
+offset_right = 65.0
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_erkrx")
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerHud/PlayerOptions"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerHud/PlayerOptions/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerHud/PlayerOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerHud/PlayerOptions/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "X Sensitivity"
+
+[node name="XSensitivitySlider" type="HSlider" parent="PlayerHud/PlayerOptions/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10.0
+step = 0.1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PlayerHud/PlayerOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerHud/PlayerOptions/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Y Sensitivity"
+
+[node name="YSensitivitySlider" type="HSlider" parent="PlayerHud/PlayerOptions/MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10.0
+step = 0.1
+
+[node name="YInvertCheckbox" type="CheckBox" parent="PlayerHud/PlayerOptions/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Invert Y Look"
 
 [node name="Hitbox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_nhxry")]
 monitorable = false

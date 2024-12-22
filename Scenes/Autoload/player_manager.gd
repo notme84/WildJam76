@@ -25,9 +25,9 @@ func join(device: int):
 			#"index": player,
 			"device": device,
 			"team":0,
-			"y_invert": false,
-			"sensitivity_x": 1.0,
-			"sensitivity_y": 1.0
+			"y_invert": Settings.invert_y_look,
+			"sensitivity_x": Settings.mouse_sensitivity_x,
+			"sensitivity_y": Settings.mouse_sensitivity_y
 		}
 		player_joined.emit(player, device)
 

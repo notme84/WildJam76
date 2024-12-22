@@ -93,6 +93,11 @@ func _process(delta: float):
 	
 	var player_count: int = PlayerManager.get_player_count()
 	
+	if player_count > 1 && device_index >= 0:
+		if !MultiplayerInput.device_actions.has(device_index):
+			printerr("DEVICE " + str(device_index) + " HAS BEEN DISCONNECTED")
+			return
+	
 	var left_click_axis: float = 0
 	var right_click_axis: float = 0
 	if player_count <= 1:
@@ -181,7 +186,12 @@ func update_rotation(delta):
 func update_move(delta: float):
 	var on_floor = is_on_floor()
 	
-	var input_dir = MultiplayerInput.get_vector(device_index, "move_left", "move_right", "move_up", "move_down")
+	var input_dir = Vector2.ZERO
+	if PlayerManager.get_player_count() > 1 && device_index >= 0:
+		if !MultiplayerInput.device_actions.has(device_index):
+			printerr("DEVICE " + str(device_index) + " HAS BEEN DISCONNECTED")
+		else: input_dir = MultiplayerInput.get_vector(device_index, "move_left", "move_right", "move_up", "move_down")
+	else: input_dir = MultiplayerInput.get_vector(device_index, "move_left", "move_right", "move_up", "move_down")
 	var direction = Vector3(input_dir.x, 0, input_dir.y)
 	if !using_follow_cam:
 		direction = %RotationRoot.transform.basis * direction

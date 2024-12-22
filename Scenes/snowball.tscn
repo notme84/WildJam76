@@ -10,6 +10,7 @@
 radius = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2caxr"]
+albedo_color = Color(0.501681, 0.999658, 1, 1)
 albedo_texture = ExtResource("3_6nf5k")
 metallic_specular = 0.37
 roughness = 0.98

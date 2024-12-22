@@ -1,0 +1,173 @@
+[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://dt4gtqcguvv3p"]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_7h8qn"]
+parameter_name = "Metalic"
+hint = 1
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_87s8w"]
+parameter_name = "Roughness"
+hint = 1
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_lkc38"]
+parameter_name = "Normal_Map"
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ls6yq"]
+source = 5
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_sneon"]
+default_input_values = [0, false, 1, Quaternion(1, 1, 1, 1), 2, Quaternion(0, 0, 0, 0)]
+op_type = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_64ugl"]
+parameter_name = "MetallicRoughness_Map"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_a04gf"]
+source = 5
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_y1oj1"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_h72rw"]
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_335ux"]
+parameter_name = "Use_MetallicRough_Map"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_8jecq"]
+source = 5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_4ppdg"]
+parameter_name = "Albedo"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_m6sbv"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_ceomy"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_vhddi"]
+parameter_name = "ColorTint"
+default_value_enabled = true
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_always, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform vec4 ColorTint : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+uniform sampler2D Albedo;
+uniform bool Use_MetallicRough_Map = false;
+uniform sampler2D MetallicRoughness_Map;
+uniform float Metalic : hint_range(0, 1);
+uniform float Roughness : hint_range(0, 1);
+uniform sampler2D Normal_Map : hint_normal;
+
+
+
+void fragment() {
+// ColorParameter:9
+	vec4 n_out9p0 = ColorTint;
+
+
+	vec4 n_out2p0;
+// Texture2D:2
+	n_out2p0 = texture(Albedo, UV);
+
+
+// VectorOp:8
+	vec4 n_out8p0 = n_out9p0 * n_out2p0;
+
+
+// VectorDecompose:4
+	float n_out4p0 = n_out2p0.x;
+	float n_out4p1 = n_out2p0.y;
+	float n_out4p2 = n_out2p0.z;
+	float n_out4p3 = n_out2p0.w;
+
+
+// BooleanParameter:19
+	bool n_out19p0 = Use_MetallicRough_Map;
+
+
+	vec4 n_out16p0;
+// Texture2D:16
+	n_out16p0 = texture(MetallicRoughness_Map, UV);
+
+
+// VectorDecompose:17
+	float n_out17p0 = n_out16p0.x;
+	float n_out17p1 = n_out16p0.y;
+	float n_out17p2 = n_out16p0.z;
+	float n_out17p3 = n_out16p0.w;
+
+
+// FloatParameter:10
+	float n_out10p0 = Metalic;
+
+
+	vec4 n_out14p0;
+// Switch:14
+	n_out14p0 = mix(vec4(n_out10p0), vec4(n_out17p0), float(n_out19p0));
+
+
+// FloatParameter:11
+	float n_out11p0 = Roughness;
+
+
+	float n_out18p0;
+// Switch:18
+	n_out18p0 = mix(n_out11p0, n_out17p1, float(n_out19p0));
+
+
+	vec4 n_out13p0;
+// Texture2D:13
+	n_out13p0 = texture(Normal_Map, UV);
+
+
+// Output:0
+	ALBEDO = vec3(n_out8p0.xyz);
+	ALPHA = n_out4p3;
+	METALLIC = n_out14p0.x;
+	ROUGHNESS = n_out18p0;
+	NORMAL_MAP = vec3(n_out13p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-328.596, -181.715)
+modes/depth_draw = 1
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_8jecq")
+nodes/fragment/2/position = Vector2(-500, 140)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture2DParameter_4ppdg")
+nodes/fragment/3/position = Vector2(-1000, -20)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_m6sbv")
+nodes/fragment/4/position = Vector2(20, 260)
+nodes/fragment/8/node = SubResource("VisualShaderNodeVectorOp_ceomy")
+nodes/fragment/8/position = Vector2(100, -20)
+nodes/fragment/9/node = SubResource("VisualShaderNodeColorParameter_vhddi")
+nodes/fragment/9/position = Vector2(-300, -340)
+nodes/fragment/10/node = SubResource("VisualShaderNodeFloatParameter_7h8qn")
+nodes/fragment/10/position = Vector2(-940, 540)
+nodes/fragment/11/node = SubResource("VisualShaderNodeFloatParameter_87s8w")
+nodes/fragment/11/position = Vector2(-480, 920)
+nodes/fragment/12/node = SubResource("VisualShaderNodeTexture2DParameter_lkc38")
+nodes/fragment/12/position = Vector2(-560, 1160)
+nodes/fragment/13/node = SubResource("VisualShaderNodeTexture_ls6yq")
+nodes/fragment/13/position = Vector2(-173.239, 1087.97)
+nodes/fragment/14/node = SubResource("VisualShaderNodeSwitch_sneon")
+nodes/fragment/14/position = Vector2(-160, 440)
+nodes/fragment/15/node = SubResource("VisualShaderNodeTexture2DParameter_64ugl")
+nodes/fragment/15/position = Vector2(-1432.25, 634.891)
+nodes/fragment/16/node = SubResource("VisualShaderNodeTexture_a04gf")
+nodes/fragment/16/position = Vector2(-1020, 800)
+nodes/fragment/17/node = SubResource("VisualShaderNodeVectorDecompose_y1oj1")
+nodes/fragment/17/position = Vector2(-700, 780)
+nodes/fragment/18/node = SubResource("VisualShaderNodeSwitch_h72rw")
+nodes/fragment/18/position = Vector2(-60, 720)
+nodes/fragment/19/node = SubResource("VisualShaderNodeBooleanParameter_335ux")
+nodes/fragment/19/position = Vector2(-960, 340)
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 2, 2, 0, 4, 0, 4, 3, 0, 1, 2, 0, 8, 1, 8, 0, 0, 0, 9, 0, 8, 0, 12, 0, 13, 2, 13, 0, 0, 9, 15, 0, 16, 2, 16, 0, 17, 0, 17, 0, 14, 1, 18, 0, 0, 3, 14, 0, 0, 2, 10, 0, 14, 2, 11, 0, 18, 2, 17, 1, 18, 1, 19, 0, 18, 0, 19, 0, 14, 0)

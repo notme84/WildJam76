@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dyyc1ak0gj2sx"]
+
+[ext_resource type="Shader" uid="uid://dt4gtqcguvv3p" path="res://assets/Shaders/StandardShader.tres" id="1_4v7kw"]
+[ext_resource type="Texture2D" uid="uid://bp5u0i8wduxkp" path="res://assets/env/Materials/CandyCane_Material.001_AlbedoTransparency.png" id="2_i4oee"]
+[ext_resource type="Texture2D" uid="uid://ng30jd526xro" path="res://assets/env/Materials/CandyCane_Material.001_Normal.png" id="3_7fc02"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_4v7kw")
+shader_parameter/ColorTint = Color(1, 1, 1, 1)
+shader_parameter/Use_MetallicRough_Map = false
+shader_parameter/Metalic = 0.0
+shader_parameter/Roughness = 0.832
+shader_parameter/Albedo = ExtResource("2_i4oee")
+shader_parameter/Normal_Map = ExtResource("3_7fc02")

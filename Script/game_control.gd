@@ -9,7 +9,7 @@ func _ready():
 
 
 func _input(event: InputEvent):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("options"):
 		var pause = pause_menu.instantiate()
 		add_child(pause)
 		get_tree().paused = true

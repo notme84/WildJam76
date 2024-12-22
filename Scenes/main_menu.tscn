@@ -31,6 +31,7 @@ grow_vertical = 2
 
 [node name="StartButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Singleplayer"
 

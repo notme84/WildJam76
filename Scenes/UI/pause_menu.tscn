@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/UI/pause_menu.gd" id="1_nwbyb"]
 [ext_resource type="PackedScene" uid="uid://clb13xng636qw" path="res://Scenes/UI/options_menu.tscn" id="2_shtqk"]
-[ext_resource type="PackedScene" uid="uid://clskuqtb4v7r2" path="res://Scenes/UI/tutorial_screen.tscn" id="3_kixys"]
+[ext_resource type="PackedScene" uid="uid://d3o38kjq87ly4" path="res://Scenes/UI/tutorial_screen.tscn" id="3_kixys"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3

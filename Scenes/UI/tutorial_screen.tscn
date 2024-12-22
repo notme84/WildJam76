@@ -57,4 +57,4 @@ text = "WASD or Left stick to move character"
 
 [node name="Label6" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Be a yeti"
+text = "Tab key or Select button to open Pause menu"

@@ -17,3 +17,5 @@ export/web/index.wasm
 export/win/FreezingYetiWin.console.exe
 export/win/FreezingYetiWin.exe
 export/win/FreezingYetiWin.zip
+export/osx/
+.DS_Store

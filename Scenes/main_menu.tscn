@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://clb13xng636qw" path="res://Scenes/UI/options_menu.tscn" id="3_5ugac"]
 [ext_resource type="PackedScene" uid="uid://b61aeom5sa1e6" path="res://Scenes/UI/credits.tscn" id="4_q0t45"]
 [ext_resource type="PackedScene" uid="uid://dffev5gvjhier" path="res://Scenes/UI/multiplayer_menu.tscn" id="5_2r7je"]
-[ext_resource type="AudioStream" uid="uid://br2hbu71i3wl8" path="res://Audio/Yeti_Chill_MainMenu.mp3" id="6_28q3h"]
+[ext_resource type="AudioStream" uid="uid://c8h3ocn0h0cmq" path="res://Audio/Yeti_Chill_MainMenu02mp3.mp3" id="6_htba6"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_rf04i")
@@ -55,6 +55,6 @@ layout_mode = 2
 text = "Quit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_28q3h")
+stream = ExtResource("6_htba6")
 autoplay = true
 bus = &"music"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://e31th0xcq6dt"]
 
 [ext_resource type="PackedScene" uid="uid://dues512tx2al3" path="res://Scenes/Props/hedge_lumpy.tscn" id="1_gjoi1"]
-[ext_resource type="AudioStream" uid="uid://cen34kwnjne2q" path="res://Audio/Yeti_Theme03.wav" id="1_mmc0m"]
+[ext_resource type="AudioStream" uid="uid://ca8sa7p1pn2mj" path="res://Audio/Yeti_Theme03.mp3" id="1_o13t5"]
 [ext_resource type="PackedScene" uid="uid://cxajk4s12gg3r" path="res://Scenes/Props/hedge_small.tscn" id="2_m84y4"]
 [ext_resource type="PackedScene" uid="uid://b2hawylas6qoq" path="res://Scenes/Props/hedge_tall.tscn" id="3_r6r2q"]
 [ext_resource type="PackedScene" uid="uid://cb0djusaus6ca" path="res://Scenes/Props/log_stack_large.tscn" id="4_twwqf"]
@@ -37,7 +37,7 @@ size = Vector3(50, 1, 50)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("1_mmc0m")
+stream = ExtResource("1_o13t5")
 autoplay = true
 bus = &"music"
 

@@ -16,3 +16,11 @@ func _ready():
 	mouse_sensitivity_x = default_mouse_sensitivity_x
 	mouse_sensitivity_y = default_mouse_sensitivity_y
 	invert_y_look = default_invert_y_look
+	
+	# Set the default sound level, but only once (since this is an autolod)
+	set_bus_volume(0.5, "Master")
+
+
+func set_bus_volume(volume_percent: float, bus_name: String):
+	var bus_index = AudioServer.get_bus_index(bus_name)
+	AudioServer.set_bus_volume_db(bus_index, linear_to_db(volume_percent))

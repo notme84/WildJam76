@@ -38,23 +38,34 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "You're a yeti"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Fight the other yetis"
+horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "To throw snowballs, mouse left click or controller right trigger"
+horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Hold mouse left click or controller right trigger to throw further"
+horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "WASD or Left stick to move character"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "C key or Y button to change camera mode"
+horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Tab key or Select button to open Pause menu"
+horizontal_alignment = 1

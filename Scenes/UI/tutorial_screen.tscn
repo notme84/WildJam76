@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3o38kjq87ly4"]
+[gd_scene load_steps=6 format=3 uid="uid://d3o38kjq87ly4"]
 
 [ext_resource type="Script" path="res://Scenes/UI/tutorial_screen.gd" id="1_m4247"]
+[ext_resource type="Shader" path="res://Scenes/background_slider.gdshader" id="2_f54ie"]
+[ext_resource type="Texture2D" uid="uid://cctj64bht7uj0" path="res://assets/Shaders/Snow_Albedo.png" id="3_2a74d"]
+[ext_resource type="Theme" uid="uid://c27qn5m30mvdr" path="res://Scenes/UI/main_theme.tres" id="4_7qsna"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_syxy4"]
+shader = ExtResource("2_f54ie")
+shader_parameter/motion = Vector2(-8, -15)
+shader_parameter/scale = 1.0
+shader_parameter/offset = Vector2(0, 0)
 
 [node name="TutorialScreen" type="CanvasLayer"]
 process_mode = 3
@@ -14,12 +23,36 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.427493, 0.427493, 0.427493, 1)
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.595734, 0.75626, 0.764882, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.431373)
+material = SubResource("ShaderMaterial_syxy4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -700.0
+offset_right = 448.0
+offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_2a74d")
+stretch_mode = 1
+
 [node name="BackButton" type="Button" parent="."]
 unique_name_in_owner = true
 offset_left = 25.0
 offset_top = 574.0
 offset_right = 75.0
 offset_bottom = 605.0
+theme = ExtResource("4_7qsna")
 text = "BACK"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -34,27 +67,35 @@ offset_right = 238.5
 offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_7qsna")
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
 text = "You're a yeti"
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Fight the other yetis"
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "To throw snowballs, mouse left click or controller right trigger"
 
 [node name="Label4" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Hold mouse left click or controller right trigger to throw further"
 
 [node name="Label5" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "WASD or Left stick to move character"
 
 [node name="Label6" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Tab key or Select button to open Pause menu"

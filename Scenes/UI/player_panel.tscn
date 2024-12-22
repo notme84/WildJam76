@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://hw2gfya2kub3"]
+[gd_scene load_steps=3 format=3 uid="uid://hw2gfya2kub3"]
 
 [ext_resource type="Script" path="res://Scenes/UI/player_panel.gd" id="1_rt805"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1l0p6"]
+bg_color = Color(0.127547, 0.175385, 0.186408, 1)
+border_width_bottom = 5
+border_color = Color(0.0962047, 0.0962048, 0.0962046, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="PlayerPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(180, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_1l0p6")
 script = ExtResource("1_rt805")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

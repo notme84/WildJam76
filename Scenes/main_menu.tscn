@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnvmotsey50ri"]
+[gd_scene load_steps=11 format=3 uid="uid://dnvmotsey50ri"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_rf04i"]
 [ext_resource type="PackedScene" uid="uid://0s2vyyh3ffjx" path="res://MarkStuffTemp/main_game.tscn" id="2_pgut8"]
@@ -6,6 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://b61aeom5sa1e6" path="res://Scenes/UI/credits.tscn" id="4_q0t45"]
 [ext_resource type="PackedScene" uid="uid://dffev5gvjhier" path="res://Scenes/UI/multiplayer_menu.tscn" id="5_2r7je"]
 [ext_resource type="AudioStream" uid="uid://c8h3ocn0h0cmq" path="res://Audio/Yeti_Chill_MainMenu02mp3.mp3" id="6_htba6"]
+[ext_resource type="Texture2D" uid="uid://cctj64bht7uj0" path="res://assets/Shaders/Snow_Albedo.png" id="6_s6vrq"]
+[ext_resource type="Shader" path="res://Scenes/background_slider.gdshader" id="6_xs50i"]
+[ext_resource type="Theme" uid="uid://c27qn5m30mvdr" path="res://Scenes/UI/main_theme.tres" id="8_3ygvt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7e7u"]
+shader = ExtResource("6_xs50i")
+shader_parameter/motion = Vector2(-8, -15)
+shader_parameter/scale = 1.0
+shader_parameter/offset = Vector2(0, 0)
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_rf04i")
@@ -13,6 +22,27 @@ game_scene = ExtResource("2_pgut8")
 options_scene = ExtResource("3_5ugac")
 credits_scene = ExtResource("4_q0t45")
 mp_menu = ExtResource("5_2r7je")
+
+[node name="background" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.595734, 0.75626, 0.764882, 1)
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+self_modulate = Color(1, 1, 1, 0.431373)
+material = SubResource("ShaderMaterial_m7e7u")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_s6vrq")
+stretch_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -28,6 +58,7 @@ offset_right = 35.0
 offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("8_3ygvt")
 
 [node name="StartButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 unique_name_in_owner = true

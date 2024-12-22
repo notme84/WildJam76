@@ -1,12 +1,17 @@
 extends CanvasLayer
+class_name Options
 
 signal closing
+
+const default_sound_level :=  0.1
 
 
 func _ready():
 	%BackButton.pressed.connect(on_quit)
+	print("Loading options menu")
 	
 	#AUDIO SLIDERS:
+	set_bus_volume(default_sound_level, "Master")
 	%MasterVolumeSlider.value = get_bus_volume_percent("Master")
 	%EffectsVolumeSlider.value = get_bus_volume_percent("effects")
 	%MusicVolumeSlider.value = get_bus_volume_percent("music")

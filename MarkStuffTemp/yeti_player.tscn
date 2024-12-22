@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bl64fol7gyyh2"]
+[gd_scene load_steps=30 format=4 uid="uid://bl64fol7gyyh2"]
 
 [ext_resource type="Script" path="res://MarkStuffTemp/player_control.gd" id="1_ntwp0"]
 [ext_resource type="PackedScene" uid="uid://k5x862goldww" path="res://Scenes/UI/pause_menu.tscn" id="2_mrx2t"]
@@ -12,13 +12,22 @@
 [ext_resource type="Script" path="res://Scenes/UI/health_bar.gd" id="5_bptov"]
 [ext_resource type="Script" path="res://MarkStuffTemp/player_options.gd" id="6_erkrx"]
 [ext_resource type="Script" path="res://Script/position_follower.gd" id="6_evb26"]
+[ext_resource type="FontFile" uid="uid://dcau3l2p2lpje" path="res://Scenes/UI/Apple Chancery.ttf" id="6_mw1dc"]
 [ext_resource type="PackedScene" uid="uid://kgyqqtgsf765" path="res://assets/character/yeti.tscn" id="10_8wp31"]
+[ext_resource type="Texture2D" uid="uid://4nnsjw4426yn" path="res://assets/character/yeti_yeti_BaseColor.png" id="11_ibkos"]
+[ext_resource type="Texture2D" uid="uid://bnkbasuqtvias" path="res://assets/character/yeti_yeti_Roughness.png" id="12_na85c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gy7th"]
 shader = ExtResource("4_2t6yb")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_573ni"]
 bg_color = Color(1, 0.2, 0.223529, 1)
+
+[sub_resource type="Theme" id="Theme_iwpa2"]
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("6_mw1dc")
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("6_mw1dc")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jsfuq"]
 radius = 0.35
@@ -27,6 +36,18 @@ height = 1.8
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ljxis"]
 radius = 0.3
 height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60ef8"]
+resource_local_to_scene = true
+resource_name = "yeti"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("11_ibkos")
+metallic_texture = ExtResource("12_na85c")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("12_na85c")
+roughness_texture_channel = 1
+distance_fade_min_distance = 0.5
+distance_fade_max_distance = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kreag"]
 resource_name = "muscles.004"
@@ -4184,9 +4205,11 @@ vertical_alignment = 1
 
 [node name="HealthBar" type="ProgressBar" parent="PlayerHud"]
 custom_minimum_size = Vector2(360, 0)
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
+anchor_top = 0.02
 anchor_right = 0.5
+anchor_bottom = 0.02
 offset_left = -180.0
 offset_right = 180.0
 offset_bottom = 27.0
@@ -4211,6 +4234,7 @@ offset_right = 65.0
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_iwpa2")
 script = ExtResource("6_erkrx")
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayerHud/PlayerOptions"]
@@ -4347,6 +4371,9 @@ bones/51/position = Vector3(0.122412, 1.37834, 0.00121722)
 bones/51/rotation = Quaternion(-0.0455053, 0.653347, 0.754102, 0.0489605)
 bones/52/position = Vector3(-0.111889, 1.38174, -0.0301359)
 bones/52/rotation = Quaternion(-0.0455054, 0.653347, 0.754102, 0.0489603)
+
+[node name="yeti_mesh" parent="RotationRoot/meatMachine_yeti6/rig/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_60ef8")
 
 [node name="NeckBoneAttachment" type="BoneAttachment3D" parent="RotationRoot/meatMachine_yeti6/rig/Skeleton3D" index="1"]
 transform = Transform3D(0.960334, -0.185792, -0.207937, -0.0326211, 0.665726, -0.745483, 0.276934, 0.722697, 0.633259, -0.000671146, 1.55196, 0.0485165)

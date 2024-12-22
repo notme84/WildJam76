@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://wr0npb22hyps"]
+[gd_scene load_steps=3 format=3 uid="uid://wr0npb22hyps"]
 
 [ext_resource type="Script" path="res://Scenes/UI/game_end_screen.gd" id="1_yi01q"]
+[ext_resource type="Theme" uid="uid://c27qn5m30mvdr" path="res://Scenes/UI/main_theme.tres" id="2_cvtdl"]
 
 [node name="GameEndScreen" type="CanvasLayer"]
 script = ExtResource("1_yi01q")
@@ -17,6 +18,7 @@ offset_right = 262.5
 offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_cvtdl")
 
 [node name="WinLabel" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
@@ -28,10 +30,10 @@ text = "YETI # HAS WON!"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-text = "RESTART"
+text = "Restart"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-text = "QUIT TO MENU"
+text = "Quit to Menu"

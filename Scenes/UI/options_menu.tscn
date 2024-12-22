@@ -1,7 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://clb13xng636qw"]
+[gd_scene load_steps=7 format=3 uid="uid://clb13xng636qw"]
 
 [ext_resource type="Script" path="res://Scenes/UI/options_menu.gd" id="1_72def"]
 [ext_resource type="AudioStream" uid="uid://c1hqiq726s4n6" path="res://Audio/gruntsOLD/grunt01.wav" id="2_i16kp"]
+[ext_resource type="FontFile" uid="uid://dcau3l2p2lpje" path="res://Scenes/UI/Apple Chancery.ttf" id="3_3q1s0"]
+[ext_resource type="Theme" uid="uid://c27qn5m30mvdr" path="res://Scenes/UI/main_theme.tres" id="4_r5juc"]
+
+[sub_resource type="Theme" id="Theme_wpkeq"]
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("3_3q1s0")
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("3_3q1s0")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdfnt"]
 bg_color = Color(0.439049, 0.439049, 0.439049, 1)
@@ -24,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_wpkeq")
 color = Color(0.545098, 1, 1, 0.447059)
 
 [node name="PanelContainer" type="PanelContainer" parent="ColorRect"]
@@ -155,4 +164,5 @@ text = "vsync"
 [node name="BackButton" type="Button" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "BACK"
+theme = ExtResource("4_r5juc")
+text = "Back"

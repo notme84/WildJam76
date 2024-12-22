@@ -81,11 +81,6 @@ layout_mode = 2
 text = "mnstr_0 - Level Design"
 horizontal_alignment = 1
 
-[node name="Label9" type="Label" parent="VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-text = "Rubik"
-horizontal_alignment = 1
-
 [node name="Label10" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 text = "TheDuckCow - Technical Artist"

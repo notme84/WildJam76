@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cim6hoiuhy0m4"]
+
+[ext_resource type="Shader" uid="uid://dt4gtqcguvv3p" path="res://assets/Shaders/StandardShader.tres" id="1_j2svb"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_j2svb")
+shader_parameter/ColorTint = Color(0.6882, 0.704603, 0.74, 1)
+shader_parameter/Use_MetallicRough_Map = false
+shader_parameter/Metalic = 1.0
+shader_parameter/Roughness = 0.466

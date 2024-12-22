@@ -31,6 +31,17 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"RED BRIGHT": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/env/Materials/Ornament_MAT.tres"
+},
+"SILVER": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/env/Materials/Ornament-Top_MAT.tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

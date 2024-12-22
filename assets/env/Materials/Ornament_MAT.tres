@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dmx8ipb4l0a2c"]
+
+[ext_resource type="Shader" uid="uid://dt4gtqcguvv3p" path="res://assets/Shaders/StandardShader.tres" id="1_0fure"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0fure")
+shader_parameter/ColorTint = Color(0.61, 0, 0, 1)
+shader_parameter/Use_MetallicRough_Map = false
+shader_parameter/Metalic = 0.629
+shader_parameter/Roughness = 0.326

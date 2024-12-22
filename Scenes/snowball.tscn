@@ -1,14 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgtglnx4hmoua"]
+[gd_scene load_steps=12 format=3 uid="uid://bgtglnx4hmoua"]
 
 [ext_resource type="Script" path="res://Script/snowball.gd" id="1_8mdrt"]
 [ext_resource type="PackedScene" uid="uid://nfnc6eus7kl" path="res://Scenes/Attacks/snowball_impact.tscn" id="2_nai68"]
-[ext_resource type="Texture2D" uid="uid://dgutdjc1jl6v0" path="res://assets/VFX/snowflake2.png" id="3_ckrmr"]
+[ext_resource type="Texture2D" uid="uid://cctj64bht7uj0" path="res://assets/Shaders/Snow_Albedo.png" id="3_6nf5k"]
+[ext_resource type="Texture2D" uid="uid://c2ap5ymwqx1fa" path="res://assets/Shaders/Snow_Normal.png" id="4_j5b27"]
+[ext_resource type="Texture2D" uid="uid://d3yq8r7mubsk8" path="res://assets/Shaders/Patterns/StaplePatterns_Large_Particle.png" id="5_pgmaw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_t5y76"]
 radius = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2caxr"]
-albedo_color = Color(0.501681, 0.999658, 1, 1)
+albedo_texture = ExtResource("3_6nf5k")
+metallic_specular = 0.37
+roughness = 0.98
+emission_enabled = true
+emission = Color(0.146565, 0.313766, 0.373251, 1)
+emission_energy_multiplier = 0.65
+normal_enabled = true
+normal_scale = 0.2
+normal_texture = ExtResource("4_j5b27")
+rim = 0.01
+rim_tint = 1.0
+clearcoat_roughness = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_362o0"]
 radius = 0.1
@@ -23,9 +36,7 @@ gravity = Vector3(0, -0.5, 0)
 scale_max = 2.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4321h"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
+transparency = 1
 cull_mode = 2
 shading_mode = 0
 diffuse_mode = 1
@@ -33,7 +44,7 @@ specular_mode = 2
 disable_ambient_light = true
 disable_fog = true
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_ckrmr")
+albedo_texture = ExtResource("5_pgmaw")
 refraction_scale = 1.0
 disable_receive_shadows = true
 billboard_mode = 3
@@ -44,7 +55,7 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_0gj4a"]
 material = SubResource("StandardMaterial3D_4321h")
-size = Vector2(0.05, 0.05)
+size = Vector2(0.03, 0.03)
 
 [node name="Snowball" type="RigidBody3D"]
 collision_layer = 4

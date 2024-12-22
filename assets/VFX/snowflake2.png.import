@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgutdjc1jl6v0"
 path.s3tc="res://.godot/imported/snowflake2.png-6bca7f34ca54d2ebd4ddbb940344916d.s3tc.ctex"
+path.etc2="res://.godot/imported/snowflake2.png-6bca7f34ca54d2ebd4ddbb940344916d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/VFX/snowflake2.png"
-dest_files=["res://.godot/imported/snowflake2.png-6bca7f34ca54d2ebd4ddbb940344916d.s3tc.ctex"]
+dest_files=["res://.godot/imported/snowflake2.png-6bca7f34ca54d2ebd4ddbb940344916d.s3tc.ctex", "res://.godot/imported/snowflake2.png-6bca7f34ca54d2ebd4ddbb940344916d.etc2.ctex"]
 
 [params]
 

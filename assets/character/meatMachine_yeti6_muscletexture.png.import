@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bt8bsh1vmx5fj"
 path.s3tc="res://.godot/imported/meatMachine_yeti6_muscletexture.png-78094b8246ebfdc511d1e3df0323d4b2.s3tc.ctex"
+path.etc2="res://.godot/imported/meatMachine_yeti6_muscletexture.png-78094b8246ebfdc511d1e3df0323d4b2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/character/meatMachine_yeti6_muscletexture.png"
-dest_files=["res://.godot/imported/meatMachine_yeti6_muscletexture.png-78094b8246ebfdc511d1e3df0323d4b2.s3tc.ctex"]
+dest_files=["res://.godot/imported/meatMachine_yeti6_muscletexture.png-78094b8246ebfdc511d1e3df0323d4b2.s3tc.ctex", "res://.godot/imported/meatMachine_yeti6_muscletexture.png-78094b8246ebfdc511d1e3df0323d4b2.etc2.ctex"]
 
 [params]
 

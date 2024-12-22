@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cc58eyelb8nds"
 path.s3tc="res://.godot/imported/StaplePatterns_Med_Particle.png-0ac7da3876f093640c5b7942d7cc44bb.s3tc.ctex"
+path.etc2="res://.godot/imported/StaplePatterns_Med_Particle.png-0ac7da3876f093640c5b7942d7cc44bb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Shaders/Patterns/StaplePatterns_Med_Particle.png"
-dest_files=["res://.godot/imported/StaplePatterns_Med_Particle.png-0ac7da3876f093640c5b7942d7cc44bb.s3tc.ctex"]
+dest_files=["res://.godot/imported/StaplePatterns_Med_Particle.png-0ac7da3876f093640c5b7942d7cc44bb.s3tc.ctex", "res://.godot/imported/StaplePatterns_Med_Particle.png-0ac7da3876f093640c5b7942d7cc44bb.etc2.ctex"]
 
 [params]
 

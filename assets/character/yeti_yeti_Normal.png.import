@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bunxu3qt3b17y"
 path.s3tc="res://.godot/imported/yeti_yeti_Normal.png-6c810d8ffa6f9d2f3117706beca8d63d.s3tc.ctex"
+path.etc2="res://.godot/imported/yeti_yeti_Normal.png-6c810d8ffa6f9d2f3117706beca8d63d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/character/yeti_yeti_Normal.png"
-dest_files=["res://.godot/imported/yeti_yeti_Normal.png-6c810d8ffa6f9d2f3117706beca8d63d.s3tc.ctex"]
+dest_files=["res://.godot/imported/yeti_yeti_Normal.png-6c810d8ffa6f9d2f3117706beca8d63d.s3tc.ctex", "res://.godot/imported/yeti_yeti_Normal.png-6c810d8ffa6f9d2f3117706beca8d63d.etc2.ctex"]
 
 [params]
 

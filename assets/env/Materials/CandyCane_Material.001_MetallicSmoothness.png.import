@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlnrmi411vqfp"
 path.s3tc="res://.godot/imported/CandyCane_Material.001_MetallicSmoothness.png-cfb0bdf5ebd69b21027310e9af9063a0.s3tc.ctex"
+path.etc2="res://.godot/imported/CandyCane_Material.001_MetallicSmoothness.png-cfb0bdf5ebd69b21027310e9af9063a0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/env/Materials/CandyCane_Material.001_MetallicSmoothness.png"
-dest_files=["res://.godot/imported/CandyCane_Material.001_MetallicSmoothness.png-cfb0bdf5ebd69b21027310e9af9063a0.s3tc.ctex"]
+dest_files=["res://.godot/imported/CandyCane_Material.001_MetallicSmoothness.png-cfb0bdf5ebd69b21027310e9af9063a0.s3tc.ctex", "res://.godot/imported/CandyCane_Material.001_MetallicSmoothness.png-cfb0bdf5ebd69b21027310e9af9063a0.etc2.ctex"]
 
 [params]
 
